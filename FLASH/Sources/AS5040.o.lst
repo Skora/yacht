@@ -1,0 +1,468 @@
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"AS5040.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.comm	as5040data,8,4
+  18              		.section	.text.AS5040_Init,"ax",%progbits
+  19              		.align	2
+  20              		.global	AS5040_Init
+  21              		.code	16
+  22              		.thumb_func
+  24              	AS5040_Init:
+  25              	.LFB0:
+  26              		.file 1 "../Sources/AS5040.c"
+   1:../Sources/AS5040.c **** 
+   2:../Sources/AS5040.c **** #include "AS5040.h"
+   3:../Sources/AS5040.c **** 
+   4:../Sources/AS5040.c **** AS5040data as5040data;
+   5:../Sources/AS5040.c **** 
+   6:../Sources/AS5040.c **** void AS5040_Init()
+   7:../Sources/AS5040.c **** {
+  27              		.loc 1 7 0
+  28              		.cfi_startproc
+  29 0000 80B5     		push	{r7, lr}
+  30              	.LCFI0:
+  31              		.cfi_def_cfa_offset 8
+  32              		.cfi_offset 7, -8
+  33              		.cfi_offset 14, -4
+  34 0002 00AF     		add	r7, sp, #0
+  35              	.LCFI1:
+  36              		.cfi_def_cfa_register 7
+   8:../Sources/AS5040.c **** 	/*SETING UP PORTS FOR SSI COMUNICATION*/
+   9:../Sources/AS5040.c **** 	SIM_SCGC5 |= SIM_SCGC5_PORTA_MASK | SIM_SCGC5_PORTB_MASK | SIM_SCGC5_PORTC_MASK | SIM_SCGC5_PORTD_
+  37              		.loc 1 9 0
+  38 0004 134A     		ldr	r2, .L2
+  39 0006 1349     		ldr	r1, .L2
+  40 0008 134B     		ldr	r3, .L2+4
+  41 000a CB58     		ldr	r3, [r1, r3]
+  42 000c F821     		mov	r1, #248
+  43 000e 8901     		lsl	r1, r1, #6
+  44 0010 1943     		orr	r1, r3
+  45 0012 114B     		ldr	r3, .L2+4
+  46 0014 D150     		str	r1, [r2, r3]
+  10:../Sources/AS5040.c **** 		
+  11:../Sources/AS5040.c **** 	/*INPUT PORTS*/
+  12:../Sources/AS5040.c **** 	PORTE_PCR4 = PORT_PCR_MUX(1); //Data In PTE3
+  47              		.loc 1 12 0
+  48 0016 114B     		ldr	r3, .L2+8
+  49 0018 8022     		mov	r2, #128
+  50 001a 5200     		lsl	r2, r2, #1
+  51 001c 1A61     		str	r2, [r3, #16]
+  13:../Sources/AS5040.c **** 	/*OUTPUT PORTS*/
+  14:../Sources/AS5040.c **** 	PORTE_PCR2 = PORT_PCR_MUX(1) | PORT_PCR_DSE_MASK;   
+  52              		.loc 1 14 0
+  53 001e 0F4B     		ldr	r3, .L2+8
+  54 0020 A022     		mov	r2, #160
+  55 0022 5200     		lsl	r2, r2, #1
+  56 0024 9A60     		str	r2, [r3, #8]
+  15:../Sources/AS5040.c **** 	PORTE_PCR3 = PORT_PCR_MUX(1) | PORT_PCR_DSE_MASK;   
+  57              		.loc 1 15 0
+  58 0026 0D4B     		ldr	r3, .L2+8
+  59 0028 A022     		mov	r2, #160
+  60 002a 5200     		lsl	r2, r2, #1
+  61 002c DA60     		str	r2, [r3, #12]
+  16:../Sources/AS5040.c **** 	PORTE_PCR5 = PORT_PCR_MUX(1) | PORT_PCR_DSE_MASK;   
+  62              		.loc 1 16 0
+  63 002e 0B4B     		ldr	r3, .L2+8
+  64 0030 A022     		mov	r2, #160
+  65 0032 5200     		lsl	r2, r2, #1
+  66 0034 5A61     		str	r2, [r3, #20]
+  17:../Sources/AS5040.c **** 	GPIOE_PDDR = AS5040_CLK_LOC|AS5040_CS_LOC|AS5040_PRG_LOC;
+  67              		.loc 1 17 0
+  68 0036 0A4B     		ldr	r3, .L2+12
+  69 0038 2C22     		mov	r2, #44
+  70 003a 5A61     		str	r2, [r3, #20]
+  18:../Sources/AS5040.c **** 	
+  19:../Sources/AS5040.c **** 	
+  20:../Sources/AS5040.c **** 	/*Initialization of AS540*/
+  21:../Sources/AS5040.c **** 	AS5040_CS_LOW ;
+  71              		.loc 1 21 0
+  72 003c 084B     		ldr	r3, .L2+12
+  73 003e 0422     		mov	r2, #4
+  74 0040 9A60     		str	r2, [r3, #8]
+  22:../Sources/AS5040.c **** 	AS5040_PRG_LOW;
+  75              		.loc 1 22 0
+  76 0042 074B     		ldr	r3, .L2+12
+  77 0044 2022     		mov	r2, #32
+  78 0046 9A60     		str	r2, [r3, #8]
+  23:../Sources/AS5040.c **** 	AS5040_CLK_HIGH;			// set to logic high, thus the chip starts already measuring
+  79              		.loc 1 23 0
+  80 0048 054B     		ldr	r3, .L2+12
+  81 004a 0822     		mov	r2, #8
+  82 004c 5A60     		str	r2, [r3, #4]
+  24:../Sources/AS5040.c **** 
+  25:../Sources/AS5040.c **** }
+  83              		.loc 1 25 0
+  84 004e BD46     		mov	sp, r7
+  85              		@ sp needed for prologue
+  86 0050 80BD     		pop	{r7, pc}
+  87              	.L3:
+  88 0052 C046     		.align	2
+  89              	.L2:
+  90 0054 00700440 		.word	1074032640
+  91 0058 38100000 		.word	4152
+  92 005c 00D00440 		.word	1074057216
+  93 0060 00F10F40 		.word	1074786560
+  94              		.cfi_endproc
+  95              	.LFE0:
+  97              		.section	.text.AS5040_Data_read,"ax",%progbits
+  98              		.align	2
+  99              		.global	AS5040_Data_read
+ 100              		.code	16
+ 101              		.thumb_func
+ 103              	AS5040_Data_read:
+ 104              	.LFB1:
+  26:../Sources/AS5040.c **** 
+  27:../Sources/AS5040.c **** uint16_t AS5040_Data_read()
+  28:../Sources/AS5040.c **** {
+ 105              		.loc 1 28 0
+ 106              		.cfi_startproc
+ 107 0000 80B5     		push	{r7, lr}
+ 108              	.LCFI2:
+ 109              		.cfi_def_cfa_offset 8
+ 110              		.cfi_offset 7, -8
+ 111              		.cfi_offset 14, -4
+ 112 0002 82B0     		sub	sp, sp, #8
+ 113              	.LCFI3:
+ 114              		.cfi_def_cfa_offset 16
+ 115 0004 00AF     		add	r7, sp, #0
+ 116              	.LCFI4:
+ 117              		.cfi_def_cfa_register 7
+  29:../Sources/AS5040.c **** 	uint16_t i, data;
+  30:../Sources/AS5040.c **** 	
+  31:../Sources/AS5040.c **** 	AS5040_CS_HIGH;
+ 118              		.loc 1 31 0
+ 119 0006 204B     		ldr	r3, .L9
+ 120 0008 0422     		mov	r2, #4
+ 121 000a 5A60     		str	r2, [r3, #4]
+  32:../Sources/AS5040.c **** 	WAIT1_Waitus(2);
+ 122              		.loc 1 32 0
+ 123 000c 3020     		mov	r0, #48
+ 124 000e FFF7FEFF 		bl	WAIT1_WaitCycles
+  33:../Sources/AS5040.c **** 	AS5040_CS_LOW;
+ 125              		.loc 1 33 0
+ 126 0012 1D4B     		ldr	r3, .L9
+ 127 0014 0422     		mov	r2, #4
+ 128 0016 9A60     		str	r2, [r3, #8]
+  34:../Sources/AS5040.c **** 	AS5040_CLK_LOW;
+ 129              		.loc 1 34 0
+ 130 0018 1B4B     		ldr	r3, .L9
+ 131 001a 0822     		mov	r2, #8
+ 132 001c 9A60     		str	r2, [r3, #8]
+  35:../Sources/AS5040.c **** 	
+  36:../Sources/AS5040.c **** 	data = 0;
+ 133              		.loc 1 36 0
+ 134 001e 3B1D     		add	r3, r7, #4
+ 135 0020 0022     		mov	r2, #0
+ 136 0022 1A80     		strh	r2, [r3]
+  37:../Sources/AS5040.c **** 
+  38:../Sources/AS5040.c **** 	for (i = 0; i < 16; i++)
+ 137              		.loc 1 38 0
+ 138 0024 BB1D     		add	r3, r7, #6
+ 139 0026 0022     		mov	r2, #0
+ 140 0028 1A80     		strh	r2, [r3]
+ 141 002a 20E0     		b	.L5
+ 142              	.L7:
+  39:../Sources/AS5040.c **** 	{
+  40:../Sources/AS5040.c **** 		AS5040_CLK_HIGH;
+ 143              		.loc 1 40 0
+ 144 002c 164B     		ldr	r3, .L9
+ 145 002e 0822     		mov	r2, #8
+ 146 0030 5A60     		str	r2, [r3, #4]
+  41:../Sources/AS5040.c **** 		WAIT1_Waitus(1);
+ 147              		.loc 1 41 0
+ 148 0032 1820     		mov	r0, #24
+ 149 0034 FFF7FEFF 		bl	WAIT1_WaitCycles
+  42:../Sources/AS5040.c **** 		AS5040_CLK_LOW;							// conversion after falling edge CS
+ 150              		.loc 1 42 0
+ 151 0038 134B     		ldr	r3, .L9
+ 152 003a 0822     		mov	r2, #8
+ 153 003c 9A60     		str	r2, [r3, #8]
+  43:../Sources/AS5040.c **** 
+  44:../Sources/AS5040.c **** 		data = data << 1;						// shift bits in target variable one to the left
+ 154              		.loc 1 44 0
+ 155 003e 3B1D     		add	r3, r7, #4
+ 156 0040 3A1D     		add	r2, r7, #4
+ 157 0042 1288     		ldrh	r2, [r2]
+ 158 0044 5200     		lsl	r2, r2, #1
+ 159 0046 1A80     		strh	r2, [r3]
+  45:../Sources/AS5040.c **** 		if (AS5040_DI_IS_HIGH) // read port bit
+ 160              		.loc 1 45 0
+ 161 0048 0F4B     		ldr	r3, .L9
+ 162 004a 1A69     		ldr	r2, [r3, #16]
+ 163 004c 1023     		mov	r3, #16
+ 164 004e 1340     		and	r3, r2
+ 165 0050 05D0     		beq	.L6
+  46:../Sources/AS5040.c **** 		{
+  47:../Sources/AS5040.c **** 			data |=0x01; 						// set new bit in 16 bit variable
+ 166              		.loc 1 47 0
+ 167 0052 3B1D     		add	r3, r7, #4
+ 168 0054 3A1D     		add	r2, r7, #4
+ 169 0056 1288     		ldrh	r2, [r2]
+ 170 0058 0121     		mov	r1, #1
+ 171 005a 0A43     		orr	r2, r1
+ 172 005c 1A80     		strh	r2, [r3]
+ 173              	.L6:
+  48:../Sources/AS5040.c **** 		}
+  49:../Sources/AS5040.c **** 		WAIT1_Waitus(1);
+ 174              		.loc 1 49 0
+ 175 005e 1820     		mov	r0, #24
+ 176 0060 FFF7FEFF 		bl	WAIT1_WaitCycles
+  38:../Sources/AS5040.c **** 	for (i = 0; i < 16; i++)
+ 177              		.loc 1 38 0
+ 178 0064 BB1D     		add	r3, r7, #6
+ 179 0066 BA1D     		add	r2, r7, #6
+ 180 0068 1288     		ldrh	r2, [r2]
+ 181 006a 0132     		add	r2, r2, #1
+ 182 006c 1A80     		strh	r2, [r3]
+ 183              	.L5:
+  38:../Sources/AS5040.c **** 	for (i = 0; i < 16; i++)
+ 184              		.loc 1 38 0 is_stmt 0
+ 185 006e BB1D     		add	r3, r7, #6
+ 186 0070 1B88     		ldrh	r3, [r3]
+ 187 0072 0F2B     		cmp	r3, #15
+ 188 0074 DAD9     		bls	.L7
+  50:../Sources/AS5040.c **** 	}
+  51:../Sources/AS5040.c **** 	AS5040_CS_HIGH;					//end of aqusition
+ 189              		.loc 1 51 0 is_stmt 1
+ 190 0076 044B     		ldr	r3, .L9
+ 191 0078 0422     		mov	r2, #4
+ 192 007a 5A60     		str	r2, [r3, #4]
+  52:../Sources/AS5040.c **** 
+  53:../Sources/AS5040.c **** 	return data;
+ 193              		.loc 1 53 0
+ 194 007c 3B1D     		add	r3, r7, #4
+ 195 007e 1B88     		ldrh	r3, [r3]
+  54:../Sources/AS5040.c **** }
+ 196              		.loc 1 54 0
+ 197 0080 181C     		mov	r0, r3
+ 198 0082 BD46     		mov	sp, r7
+ 199 0084 02B0     		add	sp, sp, #8
+ 200              		@ sp needed for prologue
+ 201 0086 80BD     		pop	{r7, pc}
+ 202              	.L10:
+ 203              		.align	2
+ 204              	.L9:
+ 205 0088 00F10F40 		.word	1074786560
+ 206              		.cfi_endproc
+ 207              	.LFE1:
+ 209              		.section	.text.AS5040_data_parser,"ax",%progbits
+ 210              		.align	2
+ 211              		.global	AS5040_data_parser
+ 212              		.code	16
+ 213              		.thumb_func
+ 215              	AS5040_data_parser:
+ 216              	.LFB2:
+  55:../Sources/AS5040.c **** 
+  56:../Sources/AS5040.c **** 
+  57:../Sources/AS5040.c **** 	
+  58:../Sources/AS5040.c **** /*Data Parser (to implement in aplication)*/
+  59:../Sources/AS5040.c **** void AS5040_data_parser()
+  60:../Sources/AS5040.c **** {
+ 217              		.loc 1 60 0
+ 218              		.cfi_startproc
+ 219 0000 90B5     		push	{r4, r7, lr}
+ 220              	.LCFI5:
+ 221              		.cfi_def_cfa_offset 12
+ 222              		.cfi_offset 4, -12
+ 223              		.cfi_offset 7, -8
+ 224              		.cfi_offset 14, -4
+ 225 0002 83B0     		sub	sp, sp, #12
+ 226              	.LCFI6:
+ 227              		.cfi_def_cfa_offset 24
+ 228 0004 00AF     		add	r7, sp, #0
+ 229              	.LCFI7:
+ 230              		.cfi_def_cfa_register 7
+  61:../Sources/AS5040.c **** 	uint16_t data;
+  62:../Sources/AS5040.c **** 	data=AS5040_Data_read();
+ 231              		.loc 1 62 0
+ 232 0006 BC1D     		add	r4, r7, #6
+ 233 0008 FFF7FEFF 		bl	AS5040_Data_read
+ 234 000c 031C     		mov	r3, r0
+ 235 000e 2380     		strh	r3, [r4]
+  63:../Sources/AS5040.c **** 	if(data & 0x0020)
+ 236              		.loc 1 63 0
+ 237 0010 BB1D     		add	r3, r7, #6
+ 238 0012 1A88     		ldrh	r2, [r3]
+ 239 0014 2023     		mov	r3, #32
+ 240 0016 1340     		and	r3, r2
+ 241 0018 03D0     		beq	.L12
+  64:../Sources/AS5040.c **** 		as5040data.ocf=1;
+ 242              		.loc 1 64 0
+ 243 001a 264B     		ldr	r3, .L24
+ 244 001c 0122     		mov	r2, #1
+ 245 001e 9A70     		strb	r2, [r3, #2]
+ 246 0020 02E0     		b	.L13
+ 247              	.L12:
+  65:../Sources/AS5040.c **** 	else
+  66:../Sources/AS5040.c **** 		as5040data.ocf=0;
+ 248              		.loc 1 66 0
+ 249 0022 244B     		ldr	r3, .L24
+ 250 0024 0022     		mov	r2, #0
+ 251 0026 9A70     		strb	r2, [r3, #2]
+ 252              	.L13:
+  67:../Sources/AS5040.c **** 
+  68:../Sources/AS5040.c **** 	if(data & 0x0010)
+ 253              		.loc 1 68 0
+ 254 0028 BB1D     		add	r3, r7, #6
+ 255 002a 1A88     		ldrh	r2, [r3]
+ 256 002c 1023     		mov	r3, #16
+ 257 002e 1340     		and	r3, r2
+ 258 0030 03D0     		beq	.L14
+  69:../Sources/AS5040.c **** 		as5040data.cof=1;
+ 259              		.loc 1 69 0
+ 260 0032 204B     		ldr	r3, .L24
+ 261 0034 0122     		mov	r2, #1
+ 262 0036 DA70     		strb	r2, [r3, #3]
+ 263 0038 02E0     		b	.L15
+ 264              	.L14:
+  70:../Sources/AS5040.c **** 	else
+  71:../Sources/AS5040.c **** 		as5040data.cof=0;
+ 265              		.loc 1 71 0
+ 266 003a 1E4B     		ldr	r3, .L24
+ 267 003c 0022     		mov	r2, #0
+ 268 003e DA70     		strb	r2, [r3, #3]
+ 269              	.L15:
+  72:../Sources/AS5040.c **** 	if(data & 0x0008)
+ 270              		.loc 1 72 0
+ 271 0040 BB1D     		add	r3, r7, #6
+ 272 0042 1A88     		ldrh	r2, [r3]
+ 273 0044 0823     		mov	r3, #8
+ 274 0046 1340     		and	r3, r2
+ 275 0048 03D0     		beq	.L16
+  73:../Sources/AS5040.c **** 		as5040data.lin=1;
+ 276              		.loc 1 73 0
+ 277 004a 1A4B     		ldr	r3, .L24
+ 278 004c 0122     		mov	r2, #1
+ 279 004e 1A71     		strb	r2, [r3, #4]
+ 280 0050 02E0     		b	.L17
+ 281              	.L16:
+  74:../Sources/AS5040.c **** 	else
+  75:../Sources/AS5040.c **** 		as5040data.lin=0;
+ 282              		.loc 1 75 0
+ 283 0052 184B     		ldr	r3, .L24
+ 284 0054 0022     		mov	r2, #0
+ 285 0056 1A71     		strb	r2, [r3, #4]
+ 286              	.L17:
+  76:../Sources/AS5040.c **** 	if(data & 0x0004)
+ 287              		.loc 1 76 0
+ 288 0058 BB1D     		add	r3, r7, #6
+ 289 005a 1A88     		ldrh	r2, [r3]
+ 290 005c 0423     		mov	r3, #4
+ 291 005e 1340     		and	r3, r2
+ 292 0060 03D0     		beq	.L18
+  77:../Sources/AS5040.c **** 		as5040data.MAG_inc=1;
+ 293              		.loc 1 77 0
+ 294 0062 144B     		ldr	r3, .L24
+ 295 0064 0122     		mov	r2, #1
+ 296 0066 5A71     		strb	r2, [r3, #5]
+ 297 0068 02E0     		b	.L19
+ 298              	.L18:
+  78:../Sources/AS5040.c **** 	else
+  79:../Sources/AS5040.c **** 		as5040data.MAG_inc=0;
+ 299              		.loc 1 79 0
+ 300 006a 124B     		ldr	r3, .L24
+ 301 006c 0022     		mov	r2, #0
+ 302 006e 5A71     		strb	r2, [r3, #5]
+ 303              	.L19:
+  80:../Sources/AS5040.c **** 	if(data & 0x0002)
+ 304              		.loc 1 80 0
+ 305 0070 BB1D     		add	r3, r7, #6
+ 306 0072 1A88     		ldrh	r2, [r3]
+ 307 0074 0223     		mov	r3, #2
+ 308 0076 1340     		and	r3, r2
+ 309 0078 03D0     		beq	.L20
+  81:../Sources/AS5040.c **** 		as5040data.MAG_dec=1;
+ 310              		.loc 1 81 0
+ 311 007a 0E4B     		ldr	r3, .L24
+ 312 007c 0122     		mov	r2, #1
+ 313 007e 9A71     		strb	r2, [r3, #6]
+ 314 0080 02E0     		b	.L21
+ 315              	.L20:
+  82:../Sources/AS5040.c **** 	else
+  83:../Sources/AS5040.c **** 		as5040data.MAG_dec=0;
+ 316              		.loc 1 83 0
+ 317 0082 0C4B     		ldr	r3, .L24
+ 318 0084 0022     		mov	r2, #0
+ 319 0086 9A71     		strb	r2, [r3, #6]
+ 320              	.L21:
+  84:../Sources/AS5040.c **** 	if(data & 0x0001)
+ 321              		.loc 1 84 0
+ 322 0088 BB1D     		add	r3, r7, #6
+ 323 008a 1A88     		ldrh	r2, [r3]
+ 324 008c 0123     		mov	r3, #1
+ 325 008e 1340     		and	r3, r2
+ 326 0090 03D0     		beq	.L22
+  85:../Sources/AS5040.c **** 		as5040data.even_parity=1;
+ 327              		.loc 1 85 0
+ 328 0092 084B     		ldr	r3, .L24
+ 329 0094 0122     		mov	r2, #1
+ 330 0096 DA71     		strb	r2, [r3, #7]
+ 331 0098 02E0     		b	.L23
+ 332              	.L22:
+  86:../Sources/AS5040.c **** 	else
+  87:../Sources/AS5040.c **** 		as5040data.even_parity=0;
+ 333              		.loc 1 87 0
+ 334 009a 064B     		ldr	r3, .L24
+ 335 009c 0022     		mov	r2, #0
+ 336 009e DA71     		strb	r2, [r3, #7]
+ 337              	.L23:
+  88:../Sources/AS5040.c **** 	
+  89:../Sources/AS5040.c **** 	
+  90:../Sources/AS5040.c **** 	
+  91:../Sources/AS5040.c **** 	as5040data.ang_position=(data>>6);
+ 338              		.loc 1 91 0
+ 339 00a0 BB1D     		add	r3, r7, #6
+ 340 00a2 1B88     		ldrh	r3, [r3]
+ 341 00a4 9B09     		lsr	r3, r3, #6
+ 342 00a6 9BB2     		uxth	r3, r3
+ 343 00a8 9AB2     		uxth	r2, r3
+ 344 00aa 024B     		ldr	r3, .L24
+ 345 00ac 1A80     		strh	r2, [r3]
+  92:../Sources/AS5040.c **** //	as5040data.ang_position=(data& 0x0CFF);	
+  93:../Sources/AS5040.c **** }
+ 346              		.loc 1 93 0
+ 347 00ae BD46     		mov	sp, r7
+ 348 00b0 03B0     		add	sp, sp, #12
+ 349              		@ sp needed for prologue
+ 350 00b2 90BD     		pop	{r4, r7, pc}
+ 351              	.L25:
+ 352              		.align	2
+ 353              	.L24:
+ 354 00b4 00000000 		.word	as5040data
+ 355              		.cfi_endproc
+ 356              	.LFE2:
+ 358              		.text
+ 359              	.Letext0:
+ 360              		.file 2 "D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
+ 361              		.file 3 "D:/CodeWarrior/CW MCU v10.6/MCU/ProcessorExpert/lib/Kinetis/iofiles/MKL25Z4.h"
+ 362              		.file 4 "D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/PE_Types.h"
+ 363              		.file 5 "../Sources/AS5040.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 AS5040.c
+                            *COM*:00000008 as5040data
+C:\Users\SKRA~1\AppData\Local\Temp\ccwdmPud.s:19     .text.AS5040_Init:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccwdmPud.s:24     .text.AS5040_Init:00000000 AS5040_Init
+C:\Users\SKRA~1\AppData\Local\Temp\ccwdmPud.s:90     .text.AS5040_Init:00000054 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccwdmPud.s:98     .text.AS5040_Data_read:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccwdmPud.s:103    .text.AS5040_Data_read:00000000 AS5040_Data_read
+C:\Users\SKRA~1\AppData\Local\Temp\ccwdmPud.s:205    .text.AS5040_Data_read:00000088 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccwdmPud.s:210    .text.AS5040_data_parser:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccwdmPud.s:215    .text.AS5040_data_parser:00000000 AS5040_data_parser
+C:\Users\SKRA~1\AppData\Local\Temp\ccwdmPud.s:354    .text.AS5040_data_parser:000000b4 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+WAIT1_WaitCycles
