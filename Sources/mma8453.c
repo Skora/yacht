@@ -1,15 +1,25 @@
 
 #include "mma8453.h"
 
+uint8_t OutData[2] ={0x2A, 0x01};                // Inicjacja buforu wyjciowego 
+
+volatile bool DataReceivedFlg=FALSE;
+volatile bool DataTransmittedFlg=FALSE;
+
 MMA845X mma845x;
 LDD_TError Error;
 
 LDD_TDeviceData *MyI2CPtr;
 LDD_TDeviceData *MyTimerPtr;
 
+volatile bool DataTransmittedFlg;
+volatile bool DataReceivedFlg;
 
-MMA845_STATE measuring;
-MMA845_STATE measuring_last;
+
+static MMA845_STATE measuring = IDLE;
+static MMA845_STATE measuring_last = RECEIVE;
+
+
 
 
 /**************************************************************************//*!

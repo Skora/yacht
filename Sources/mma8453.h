@@ -12,18 +12,18 @@
 
 typedef struct
 {
-    int16_t x;
-    int16_t y;
-    int16_t z;
-    int8_t id;
+	int16_t x;
+	int16_t y;
+	int16_t z;
+	int8_t id;
 }MMA845X;
 
 
 typedef enum
 {
-  IDLE,  
-  TRANSMIT,
-  RECEIVE
+	IDLE,  
+	TRANSMIT,
+	RECEIVE
 }MMA845_STATE;
 
 
@@ -34,18 +34,8 @@ typedef enum
 #define MMA845X_DEVICE_ID       0x0D
 
 
-volatile bool DataReceivedFlg;
-volatile bool DataTransmittedFlg;
-
-uint8_t OutData[2];                // Inicjacja buforu wyjciowego 
 uint8_t InData[MMA845X_BUFFER_SIZE];
-
-
 int16_t mma845_tmp;
-
-volatile bool DataTransmittedFlg;
-volatile bool DataReceivedFlg;
-
 
 
 void Timer_Interrupt_CB();
