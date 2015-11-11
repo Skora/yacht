@@ -60,31 +60,14 @@ void AS5040_data_parser()
 {
 	uint16_t data;
 	data=AS5040_Data_read();
-	if(data & 0x0020)
-		as5040data.ocf=1;
-	else
-		as5040data.ocf=0;
 
-	if(data & 0x0010)
-		as5040data.cof=1;
-	else
-		as5040data.cof=0;
-	if(data & 0x0008)
-		as5040data.lin=1;
-	else
-		as5040data.lin=0;
-	if(data & 0x0004)
-		as5040data.MAG_inc=1;
-	else
-		as5040data.MAG_inc=0;
-	if(data & 0x0002)
-		as5040data.MAG_dec=1;
-	else
-		as5040data.MAG_dec=0;
-	if(data & 0x0001)
-		as5040data.even_parity=1;
-	else
-		as5040data.even_parity=0;
+	as5040data.ocf=(data & 0x0020);
+	as5040data.cof=(data & 0x0010);
+	as5040data.lin=(data & 0x0008);
+	as5040data.MAG_inc=(data & 0x0004);
+	as5040data.MAG_dec=(data & 0x0002);
+	as5040data.even_parity=(data & 0x0001);
+
 	
 	/* data ERROR evaluation*/ 
 	if((as5040data.MAG_inc & as5040data.MAG_inc)|
