@@ -458,7 +458,7 @@
  363 00c0 084B     		ldr	r3, .L26
  364 00c2 0122     		mov	r2, #1
  365 00c4 1A72     		strb	r2, [r3, #8]
- 366 00c6 02E0     		b	.L25
+ 366 00c6 09E0     		b	.L11
  367              	.L24:
   95:../Sources/AS5040.c **** 	}
   96:../Sources/AS5040.c **** 	else{
@@ -467,21 +467,22 @@
  369 00c8 064B     		ldr	r3, .L26
  370 00ca 0022     		mov	r2, #0
  371 00cc 1A72     		strb	r2, [r3, #8]
- 372              	.L25:
-  98:../Sources/AS5040.c **** 	}
-  99:../Sources/AS5040.c **** 	
- 100:../Sources/AS5040.c **** 	as5040data.ang_position=(data>>6);
- 373              		.loc 1 100 0
- 374 00ce BB1D     		add	r3, r7, #6
- 375 00d0 1B88     		ldrh	r3, [r3]
- 376 00d2 9B09     		lsr	r3, r3, #6
- 377 00d4 9BB2     		uxth	r3, r3
- 378 00d6 9AB2     		uxth	r2, r3
- 379 00d8 024B     		ldr	r3, .L26
- 380 00da 1A80     		strh	r2, [r3]
- 101:../Sources/AS5040.c **** 
- 102:../Sources/AS5040.c **** }
- 381              		.loc 1 102 0
+  98:../Sources/AS5040.c **** 		as5040data.ang_position=(data>>6);
+ 372              		.loc 1 98 0
+ 373 00ce BB1D     		add	r3, r7, #6
+ 374 00d0 1B88     		ldrh	r3, [r3]
+ 375 00d2 9B09     		lsr	r3, r3, #6
+ 376 00d4 9BB2     		uxth	r3, r3
+ 377 00d6 9AB2     		uxth	r2, r3
+ 378 00d8 024B     		ldr	r3, .L26
+ 379 00da 1A80     		strh	r2, [r3]
+ 380              	.L11:
+  99:../Sources/AS5040.c **** 	}
+ 100:../Sources/AS5040.c **** 	
+ 101:../Sources/AS5040.c **** 	
+ 102:../Sources/AS5040.c **** 
+ 103:../Sources/AS5040.c **** }
+ 381              		.loc 1 103 0
  382 00dc BD46     		mov	sp, r7
  383 00de 03B0     		add	sp, sp, #12
  384              		@ sp needed for prologue
@@ -501,15 +502,15 @@
 DEFINED SYMBOLS
                             *ABS*:00000000 AS5040.c
                             *COM*:0000000a as5040data
-C:\Users\SKRA~1\AppData\Local\Temp\ccmnfQpC.s:19     .text.AS5040_Init:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccmnfQpC.s:24     .text.AS5040_Init:00000000 AS5040_Init
-C:\Users\SKRA~1\AppData\Local\Temp\ccmnfQpC.s:90     .text.AS5040_Init:00000054 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccmnfQpC.s:98     .text.AS5040_Data_read:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccmnfQpC.s:103    .text.AS5040_Data_read:00000000 AS5040_Data_read
-C:\Users\SKRA~1\AppData\Local\Temp\ccmnfQpC.s:205    .text.AS5040_Data_read:00000088 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccmnfQpC.s:210    .text.AS5040_data_parser:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccmnfQpC.s:215    .text.AS5040_data_parser:00000000 AS5040_data_parser
-C:\Users\SKRA~1\AppData\Local\Temp\ccmnfQpC.s:389    .text.AS5040_data_parser:000000e4 $d
+C:\Users\SKRA~1\AppData\Local\Temp\cc9R5Dom.s:19     .text.AS5040_Init:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\cc9R5Dom.s:24     .text.AS5040_Init:00000000 AS5040_Init
+C:\Users\SKRA~1\AppData\Local\Temp\cc9R5Dom.s:90     .text.AS5040_Init:00000054 $d
+C:\Users\SKRA~1\AppData\Local\Temp\cc9R5Dom.s:98     .text.AS5040_Data_read:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\cc9R5Dom.s:103    .text.AS5040_Data_read:00000000 AS5040_Data_read
+C:\Users\SKRA~1\AppData\Local\Temp\cc9R5Dom.s:205    .text.AS5040_Data_read:00000088 $d
+C:\Users\SKRA~1\AppData\Local\Temp\cc9R5Dom.s:210    .text.AS5040_data_parser:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\cc9R5Dom.s:215    .text.AS5040_data_parser:00000000 AS5040_data_parser
+C:\Users\SKRA~1\AppData\Local\Temp\cc9R5Dom.s:389    .text.AS5040_data_parser:000000e4 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

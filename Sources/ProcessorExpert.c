@@ -83,13 +83,16 @@ int main(void)
 		if(as5040data.Erorr){
 			LEDgreen_Off();
 			LEDred_On();
+			printf("tilt =  %d  ang_pos =ERORR", mma845x.y);
+			printf("\n");
 		}
 		else{
 			LEDgreen_On();
 			LEDred_Off();
+			printf("tilt =  %d  ang_pos =  %d", mma845x.y, as5040data.ang_position);
+			printf("\n");
 		}
-		printf("tilt =  %d  ang_pos =  %d", mma845x.y, as5040data.ang_position);
-		printf("\n");
+
 
 	}
 

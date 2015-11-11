@@ -95,9 +95,10 @@ void AS5040_data_parser()
 	}
 	else{
 		as5040data.Erorr=0;
+		as5040data.ang_position=(data>>6);
 	}
 	
-	as5040data.ang_position=(data>>6);
+	
 
 }
 
