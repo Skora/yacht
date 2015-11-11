@@ -34,14 +34,13 @@ typedef enum
 #define MMA845X_DEVICE_ID       0x0D
 
 
-volatile bool DataReceivedFlg = FALSE;
-volatile bool DataTransmittedFlg = FALSE;
+volatile bool DataReceivedFlg;
+volatile bool DataTransmittedFlg;
 
-uint8_t OutData[2] = {0x2A, 0x01};                // Inicjacja buforu wyjciowego 
+uint8_t OutData[2];                // Inicjacja buforu wyjciowego 
 uint8_t InData[MMA845X_BUFFER_SIZE];
 
 
-//MMA845X mma845x;
 int16_t mma845_tmp;
 
 volatile bool DataTransmittedFlg;

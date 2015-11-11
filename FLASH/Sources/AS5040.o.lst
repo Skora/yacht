@@ -453,15 +453,15 @@
 DEFINED SYMBOLS
                             *ABS*:00000000 AS5040.c
                             *COM*:00000008 as5040data
-C:\Users\SKRA~1\AppData\Local\Temp\ccTDi5DX.s:19     .text.AS5040_Init:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccTDi5DX.s:24     .text.AS5040_Init:00000000 AS5040_Init
-C:\Users\SKRA~1\AppData\Local\Temp\ccTDi5DX.s:90     .text.AS5040_Init:00000054 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccTDi5DX.s:98     .text.AS5040_Data_read:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccTDi5DX.s:103    .text.AS5040_Data_read:00000000 AS5040_Data_read
-C:\Users\SKRA~1\AppData\Local\Temp\ccTDi5DX.s:205    .text.AS5040_Data_read:00000088 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccTDi5DX.s:210    .text.AS5040_data_parser:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccTDi5DX.s:215    .text.AS5040_data_parser:00000000 AS5040_data_parser
-C:\Users\SKRA~1\AppData\Local\Temp\ccTDi5DX.s:354    .text.AS5040_data_parser:000000b4 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccdHDc9J.s:19     .text.AS5040_Init:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccdHDc9J.s:24     .text.AS5040_Init:00000000 AS5040_Init
+C:\Users\SKRA~1\AppData\Local\Temp\ccdHDc9J.s:90     .text.AS5040_Init:00000054 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccdHDc9J.s:98     .text.AS5040_Data_read:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccdHDc9J.s:103    .text.AS5040_Data_read:00000000 AS5040_Data_read
+C:\Users\SKRA~1\AppData\Local\Temp\ccdHDc9J.s:205    .text.AS5040_Data_read:00000088 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccdHDc9J.s:210    .text.AS5040_data_parser:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccdHDc9J.s:215    .text.AS5040_data_parser:00000000 AS5040_data_parser
+C:\Users\SKRA~1\AppData\Local\Temp\ccdHDc9J.s:354    .text.AS5040_data_parser:000000b4 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

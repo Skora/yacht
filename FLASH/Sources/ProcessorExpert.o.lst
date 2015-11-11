@@ -14,40 +14,29 @@
   14              		.text
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
-  17              		.global	DataReceivedFlg
-  18              		.section	.bss.DataReceivedFlg,"aw",%nobits
-  21              	DataReceivedFlg:
-  22 0000 00       		.space	1
-  23              		.global	DataTransmittedFlg
-  24              		.section	.bss.DataTransmittedFlg,"aw",%nobits
-  27              	DataTransmittedFlg:
-  28 0000 00       		.space	1
-  29              		.global	OutData
-  30              		.section	.data.OutData,"aw",%progbits
-  31              		.align	2
-  34              	OutData:
-  35 0000 2A       		.byte	42
-  36 0001 01       		.byte	1
-  37              		.comm	InData,6,4
-  38              		.comm	mma845_tmp,2,2
-  39              		.comm	MyI2CPtr,4,4
-  40              		.comm	MyTimerPtr,4,4
-  41 0002 0000     		.section	.rodata
-  42              		.align	2
-  43              	.LC4:
-  44 0000 74696C74 		.ascii	"tilt =  %d  ang_pos =  %d\000"
-  44      203D2020 
-  44      25642020 
-  44      616E675F 
-  44      706F7320 
-  45 001a 0000     		.section	.text.main,"ax",%progbits
-  46              		.align	2
-  47              		.global	main
-  48              		.code	16
-  49              		.thumb_func
-  51              	main:
-  52              	.LFB0:
-  53              		.file 1 "../Sources/ProcessorExpert.c"
+  17              		.comm	DataReceivedFlg,1,1
+  18              		.comm	DataTransmittedFlg,1,1
+  19              		.comm	OutData,2,4
+  20              		.comm	InData,6,4
+  21              		.comm	mma845_tmp,2,2
+  22              		.comm	MyI2CPtr,4,4
+  23              		.comm	MyTimerPtr,4,4
+  24              		.section	.rodata
+  25              		.align	2
+  26              	.LC4:
+  27 0000 74696C74 		.ascii	"tilt =  %d  ang_pos =  %d\000"
+  27      203D2020 
+  27      25642020 
+  27      616E675F 
+  27      706F7320 
+  28 001a 0000     		.section	.text.main,"ax",%progbits
+  29              		.align	2
+  30              		.global	main
+  31              		.code	16
+  32              		.thumb_func
+  34              	main:
+  35              	.LFB0:
+  36              		.file 1 "../Sources/ProcessorExpert.c"
    1:../Sources/ProcessorExpert.c **** /** ###################################################################
    2:../Sources/ProcessorExpert.c **** **     Filename    : ProcessorExpert.c
    3:../Sources/ProcessorExpert.c **** **     Project     : ProcessorExpert
@@ -99,50 +88,50 @@
   49:../Sources/ProcessorExpert.c **** 
   50:../Sources/ProcessorExpert.c **** int main(void)
   51:../Sources/ProcessorExpert.c **** {
-  54              		.loc 1 51 0
-  55              		.cfi_startproc
-  56 0000 80B5     		push	{r7, lr}
-  57              	.LCFI0:
-  58              		.cfi_def_cfa_offset 8
-  59              		.cfi_offset 7, -8
-  60              		.cfi_offset 14, -4
-  61 0002 00AF     		add	r7, sp, #0
-  62              	.LCFI1:
-  63              		.cfi_def_cfa_register 7
+  37              		.loc 1 51 0
+  38              		.cfi_startproc
+  39 0000 80B5     		push	{r7, lr}
+  40              	.LCFI0:
+  41              		.cfi_def_cfa_offset 8
+  42              		.cfi_offset 7, -8
+  43              		.cfi_offset 14, -4
+  44 0002 00AF     		add	r7, sp, #0
+  45              	.LCFI1:
+  46              		.cfi_def_cfa_register 7
   52:../Sources/ProcessorExpert.c **** 
   53:../Sources/ProcessorExpert.c ****   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
   54:../Sources/ProcessorExpert.c ****   PE_low_level_init();
-  64              		.loc 1 54 0
-  65 0004 FFF7FEFF 		bl	PE_low_level_init
+  47              		.loc 1 54 0
+  48 0004 FFF7FEFF 		bl	PE_low_level_init
   55:../Sources/ProcessorExpert.c ****   /*** End of Processor Expert internal initialization.                    ***/
   56:../Sources/ProcessorExpert.c **** 
   57:../Sources/ProcessorExpert.c ****   // Inicjacja I2C
   58:../Sources/ProcessorExpert.c ****   MyI2CPtr = I2C2_Init(NULL);
-  66              		.loc 1 58 0
-  67 0008 0020     		mov	r0, #0
-  68 000a FFF7FEFF 		bl	I2C2_Init
-  69 000e 021C     		mov	r2, r0
-  70 0010 0F4B     		ldr	r3, .L3
-  71 0012 1A60     		str	r2, [r3]
+  49              		.loc 1 58 0
+  50 0008 0020     		mov	r0, #0
+  51 000a FFF7FEFF 		bl	I2C2_Init
+  52 000e 021C     		mov	r2, r0
+  53 0010 0F4B     		ldr	r3, .L3
+  54 0012 1A60     		str	r2, [r3]
   59:../Sources/ProcessorExpert.c ****  
   60:../Sources/ProcessorExpert.c ****   // Inicjacja Timera
   61:../Sources/ProcessorExpert.c ****   MyTimerPtr = TU1_Init(NULL);
-  72              		.loc 1 61 0
-  73 0014 0020     		mov	r0, #0
-  74 0016 FFF7FEFF 		bl	TU1_Init
-  75 001a 021C     		mov	r2, r0
-  76 001c 0D4B     		ldr	r3, .L3+4
-  77 001e 1A60     		str	r2, [r3]
+  55              		.loc 1 61 0
+  56 0014 0020     		mov	r0, #0
+  57 0016 FFF7FEFF 		bl	TU1_Init
+  58 001a 021C     		mov	r2, r0
+  59 001c 0D4B     		ldr	r3, .L3+4
+  60 001e 1A60     		str	r2, [r3]
   62:../Sources/ProcessorExpert.c **** 
   63:../Sources/ProcessorExpert.c ****   
   64:../Sources/ProcessorExpert.c ****     // Inicjacja Akcelerometru MMA855X
   65:../Sources/ProcessorExpert.c ****   MMA845X_Init();
-  78              		.loc 1 65 0
-  79 0020 FFF7FEFF 		bl	MMA845X_Init
+  61              		.loc 1 65 0
+  62 0020 FFF7FEFF 		bl	MMA845X_Init
   66:../Sources/ProcessorExpert.c ****   AS5040_Init();
-  80              		.loc 1 66 0
-  81 0024 FFF7FEFF 		bl	AS5040_Init
-  82              	.L2:
+  63              		.loc 1 66 0
+  64 0024 FFF7FEFF 		bl	AS5040_Init
+  65              	.L2:
   67:../Sources/ProcessorExpert.c ****   
   68:../Sources/ProcessorExpert.c ****   for(;;)
   69:../Sources/ProcessorExpert.c ****   {
@@ -151,67 +140,64 @@
   72:../Sources/ProcessorExpert.c **** //	 if(i%25==0)
   73:../Sources/ProcessorExpert.c **** //	 LED1_Neg();
   74:../Sources/ProcessorExpert.c **** 	 AS5040_data_parser();
-  83              		.loc 1 74 0
-  84 0028 FFF7FEFF 		bl	AS5040_data_parser
+  66              		.loc 1 74 0
+  67 0028 FFF7FEFF 		bl	AS5040_data_parser
   75:../Sources/ProcessorExpert.c **** 	 MMA845X_Poll();
-  85              		.loc 1 75 0
-  86 002c FFF7FEFF 		bl	MMA845X_Poll
+  68              		.loc 1 75 0
+  69 002c FFF7FEFF 		bl	MMA845X_Poll
   76:../Sources/ProcessorExpert.c **** 
   77:../Sources/ProcessorExpert.c **** 
   78:../Sources/ProcessorExpert.c **** 
   79:../Sources/ProcessorExpert.c **** 	printf("tilt =  %d  ang_pos =  %d", mma845x.y, as5040data.ang_position);
-  87              		.loc 1 79 0
-  88 0030 094B     		ldr	r3, .L3+8
-  89 0032 5B88     		ldrh	r3, [r3, #2]
-  90 0034 1AB2     		sxth	r2, r3
-  91 0036 094B     		ldr	r3, .L3+12
-  92 0038 1B88     		ldrh	r3, [r3]
-  93 003a 1BB2     		sxth	r3, r3
-  94 003c 0849     		ldr	r1, .L3+16
-  95 003e 081C     		mov	r0, r1
-  96 0040 111C     		mov	r1, r2
-  97 0042 1A1C     		mov	r2, r3
-  98 0044 FFF7FEFF 		bl	printf
+  70              		.loc 1 79 0
+  71 0030 094B     		ldr	r3, .L3+8
+  72 0032 5B88     		ldrh	r3, [r3, #2]
+  73 0034 1AB2     		sxth	r2, r3
+  74 0036 094B     		ldr	r3, .L3+12
+  75 0038 1B88     		ldrh	r3, [r3]
+  76 003a 1BB2     		sxth	r3, r3
+  77 003c 0849     		ldr	r1, .L3+16
+  78 003e 081C     		mov	r0, r1
+  79 0040 111C     		mov	r1, r2
+  80 0042 1A1C     		mov	r2, r3
+  81 0044 FFF7FEFF 		bl	printf
   80:../Sources/ProcessorExpert.c **** 	printf("\n");
-  99              		.loc 1 80 0
- 100 0048 0A20     		mov	r0, #10
- 101 004a FFF7FEFF 		bl	putchar
+  82              		.loc 1 80 0
+  83 0048 0A20     		mov	r0, #10
+  84 004a FFF7FEFF 		bl	putchar
   81:../Sources/ProcessorExpert.c **** 
   82:../Sources/ProcessorExpert.c ****   }
- 102              		.loc 1 82 0
- 103 004e EBE7     		b	.L2
- 104              	.L4:
- 105              		.align	2
- 106              	.L3:
- 107 0050 00000000 		.word	MyI2CPtr
- 108 0054 00000000 		.word	MyTimerPtr
- 109 0058 00000000 		.word	mma845x
- 110 005c 00000000 		.word	as5040data
- 111 0060 00000000 		.word	.LC4
- 112              		.cfi_endproc
- 113              	.LFE0:
- 115              		.text
- 116              	.Letext0:
- 117              		.file 2 "D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
- 118              		.file 3 "D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/PE_Types.h"
- 119              		.file 4 "../Sources/AS5040.h"
- 120              		.file 5 "../Sources/mma8453.h"
+  85              		.loc 1 82 0
+  86 004e EBE7     		b	.L2
+  87              	.L4:
+  88              		.align	2
+  89              	.L3:
+  90 0050 00000000 		.word	MyI2CPtr
+  91 0054 00000000 		.word	MyTimerPtr
+  92 0058 00000000 		.word	mma845x
+  93 005c 00000000 		.word	as5040data
+  94 0060 00000000 		.word	.LC4
+  95              		.cfi_endproc
+  96              	.LFE0:
+  98              		.text
+  99              	.Letext0:
+ 100              		.file 2 "D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
+ 101              		.file 3 "D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/PE_Types.h"
+ 102              		.file 4 "../Sources/AS5040.h"
+ 103              		.file 5 "../Sources/mma8453.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 ProcessorExpert.c
-C:\Users\SKRA~1\AppData\Local\Temp\ccT2SQxp.s:21     .bss.DataReceivedFlg:00000000 DataReceivedFlg
-C:\Users\SKRA~1\AppData\Local\Temp\ccT2SQxp.s:22     .bss.DataReceivedFlg:00000000 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccT2SQxp.s:27     .bss.DataTransmittedFlg:00000000 DataTransmittedFlg
-C:\Users\SKRA~1\AppData\Local\Temp\ccT2SQxp.s:28     .bss.DataTransmittedFlg:00000000 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccT2SQxp.s:34     .data.OutData:00000000 OutData
-C:\Users\SKRA~1\AppData\Local\Temp\ccT2SQxp.s:31     .data.OutData:00000000 $d
+                            *COM*:00000001 DataReceivedFlg
+                            *COM*:00000001 DataTransmittedFlg
+                            *COM*:00000002 OutData
                             *COM*:00000006 InData
                             *COM*:00000002 mma845_tmp
                             *COM*:00000004 MyI2CPtr
                             *COM*:00000004 MyTimerPtr
-C:\Users\SKRA~1\AppData\Local\Temp\ccT2SQxp.s:42     .rodata:00000000 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccT2SQxp.s:46     .text.main:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccT2SQxp.s:51     .text.main:00000000 main
-C:\Users\SKRA~1\AppData\Local\Temp\ccT2SQxp.s:107    .text.main:00000050 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccSn8QqH.s:25     .rodata:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccSn8QqH.s:29     .text.main:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccSn8QqH.s:34     .text.main:00000000 main
+C:\Users\SKRA~1\AppData\Local\Temp\ccSn8QqH.s:90     .text.main:00000050 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

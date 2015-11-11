@@ -8,8 +8,8 @@ LDD_TDeviceData *MyI2CPtr;
 LDD_TDeviceData *MyTimerPtr;
 
 
-static MMA845_STATE measuring;
-static MMA845_STATE measuring_last;
+MMA845_STATE measuring;
+MMA845_STATE measuring_last;
 
 
 /**************************************************************************//*!
@@ -31,6 +31,7 @@ void Timer_Interrupt_CB(void)
 ******************************************************************************/
 void MMA845X_Init(void)
 {
+
   /* Configure I2C BUS device(e.g. RTC) - Write Operation */
   Error = I2C2_MasterSendBlock(MyI2CPtr, &OutData, 2, LDD_I2C_NO_SEND_STOP); /* Send OutData (4 bytes) on the I2C bus and generates a stop condition to end transmission */
   while (!DataTransmittedFlg); 
@@ -52,6 +53,7 @@ void MMA845X_Init(void)
 ******************************************************************************/
 void MMA845X_Poll(void)
 {
+
 	
 	if(measuring == TRANSMIT)
     {
