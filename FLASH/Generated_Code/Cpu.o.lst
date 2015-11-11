@@ -36,7 +36,7 @@
    7:../Generated_Code/Cpu.c **** **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
    8:../Generated_Code/Cpu.c **** **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
    9:../Generated_Code/Cpu.c **** **     Compiler    : GNU C Compiler
-  10:../Generated_Code/Cpu.c **** **     Date/Time   : 2015-10-27, 09:17, # CodeGen: 12
+  10:../Generated_Code/Cpu.c **** **     Date/Time   : 2015-11-11, 15:26, # CodeGen: 15
   11:../Generated_Code/Cpu.c **** **     Abstract    :
   12:../Generated_Code/Cpu.c **** **
   13:../Generated_Code/Cpu.c **** **     Settings    :
@@ -94,37 +94,40 @@
   65:../Generated_Code/Cpu.c **** #include "CsIO1.h"
   66:../Generated_Code/Cpu.c **** #include "IO1.h"
   67:../Generated_Code/Cpu.c **** #include "WAIT1.h"
-  68:../Generated_Code/Cpu.c **** #include "LED1.h"
+  68:../Generated_Code/Cpu.c **** #include "LEDgreen.h"
   69:../Generated_Code/Cpu.c **** #include "LEDpin1.h"
   70:../Generated_Code/Cpu.c **** #include "BitIoLdd1.h"
-  71:../Generated_Code/Cpu.c **** #include "PE_Types.h"
-  72:../Generated_Code/Cpu.c **** #include "PE_Error.h"
-  73:../Generated_Code/Cpu.c **** #include "PE_Const.h"
-  74:../Generated_Code/Cpu.c **** #include "IO_Map.h"
-  75:../Generated_Code/Cpu.c **** #include "Events.h"
-  76:../Generated_Code/Cpu.c **** #include "Cpu.h"
-  77:../Generated_Code/Cpu.c **** 
-  78:../Generated_Code/Cpu.c **** #ifdef __cplusplus
-  79:../Generated_Code/Cpu.c **** extern "C" {
-  80:../Generated_Code/Cpu.c **** #endif
-  81:../Generated_Code/Cpu.c **** 
-  82:../Generated_Code/Cpu.c **** /* Global variables */
-  83:../Generated_Code/Cpu.c **** volatile uint8_t SR_reg;               /* Current value of the FAULTMASK register */
-  84:../Generated_Code/Cpu.c **** volatile uint8_t SR_lock = 0x00U;      /* Lock */
-  85:../Generated_Code/Cpu.c **** 
-  86:../Generated_Code/Cpu.c **** 
-  87:../Generated_Code/Cpu.c **** /*
-  88:../Generated_Code/Cpu.c **** ** ===================================================================
-  89:../Generated_Code/Cpu.c **** **     Method      :  Cpu_INT_NMIInterrupt (component MKL25Z128LK4)
-  90:../Generated_Code/Cpu.c **** **
-  91:../Generated_Code/Cpu.c **** **     Description :
-  92:../Generated_Code/Cpu.c **** **         This ISR services the Non Maskable Interrupt interrupt.
-  93:../Generated_Code/Cpu.c **** **         This method is internal. It is used by Processor Expert only.
-  94:../Generated_Code/Cpu.c **** ** ===================================================================
-  95:../Generated_Code/Cpu.c **** */
-  96:../Generated_Code/Cpu.c **** PE_ISR(Cpu_INT_NMIInterrupt)
-  97:../Generated_Code/Cpu.c **** {
-  33              		.loc 1 97 0
+  71:../Generated_Code/Cpu.c **** #include "LEDred.h"
+  72:../Generated_Code/Cpu.c **** #include "LEDpin2.h"
+  73:../Generated_Code/Cpu.c **** #include "BitIoLdd2.h"
+  74:../Generated_Code/Cpu.c **** #include "PE_Types.h"
+  75:../Generated_Code/Cpu.c **** #include "PE_Error.h"
+  76:../Generated_Code/Cpu.c **** #include "PE_Const.h"
+  77:../Generated_Code/Cpu.c **** #include "IO_Map.h"
+  78:../Generated_Code/Cpu.c **** #include "Events.h"
+  79:../Generated_Code/Cpu.c **** #include "Cpu.h"
+  80:../Generated_Code/Cpu.c **** 
+  81:../Generated_Code/Cpu.c **** #ifdef __cplusplus
+  82:../Generated_Code/Cpu.c **** extern "C" {
+  83:../Generated_Code/Cpu.c **** #endif
+  84:../Generated_Code/Cpu.c **** 
+  85:../Generated_Code/Cpu.c **** /* Global variables */
+  86:../Generated_Code/Cpu.c **** volatile uint8_t SR_reg;               /* Current value of the FAULTMASK register */
+  87:../Generated_Code/Cpu.c **** volatile uint8_t SR_lock = 0x00U;      /* Lock */
+  88:../Generated_Code/Cpu.c **** 
+  89:../Generated_Code/Cpu.c **** 
+  90:../Generated_Code/Cpu.c **** /*
+  91:../Generated_Code/Cpu.c **** ** ===================================================================
+  92:../Generated_Code/Cpu.c **** **     Method      :  Cpu_INT_NMIInterrupt (component MKL25Z128LK4)
+  93:../Generated_Code/Cpu.c **** **
+  94:../Generated_Code/Cpu.c **** **     Description :
+  95:../Generated_Code/Cpu.c **** **         This ISR services the Non Maskable Interrupt interrupt.
+  96:../Generated_Code/Cpu.c **** **         This method is internal. It is used by Processor Expert only.
+  97:../Generated_Code/Cpu.c **** ** ===================================================================
+  98:../Generated_Code/Cpu.c **** */
+  99:../Generated_Code/Cpu.c **** PE_ISR(Cpu_INT_NMIInterrupt)
+ 100:../Generated_Code/Cpu.c **** {
+  33              		.loc 1 100 0
   34              		.cfi_startproc
   35 0000 80B5     		push	{r7, lr}
   36              	.LCFI0:
@@ -134,11 +137,11 @@
   40 0002 00AF     		add	r7, sp, #0
   41              	.LCFI1:
   42              		.cfi_def_cfa_register 7
-  98:../Generated_Code/Cpu.c ****   Cpu_OnNMIINT();
-  43              		.loc 1 98 0
+ 101:../Generated_Code/Cpu.c ****   Cpu_OnNMIINT();
+  43              		.loc 1 101 0
   44 0004 FFF7FEFF 		bl	Cpu_OnNMIINT
-  99:../Generated_Code/Cpu.c **** }
-  45              		.loc 1 99 0
+ 102:../Generated_Code/Cpu.c **** }
+  45              		.loc 1 102 0
   46 0008 BD46     		mov	sp, r7
   47              		@ sp needed for prologue
   48 000a 80BD     		pop	{r7, pc}
@@ -151,19 +154,19 @@
   56              		.thumb_func
   58              	Cpu_Interrupt:
   59              	.LFB1:
- 100:../Generated_Code/Cpu.c **** 
- 101:../Generated_Code/Cpu.c **** /*
- 102:../Generated_Code/Cpu.c **** ** ===================================================================
- 103:../Generated_Code/Cpu.c **** **     Method      :  Cpu_Cpu_Interrupt (component MKL25Z128LK4)
- 104:../Generated_Code/Cpu.c **** **
- 105:../Generated_Code/Cpu.c **** **     Description :
- 106:../Generated_Code/Cpu.c **** **         This ISR services an unused interrupt/exception vector.
- 107:../Generated_Code/Cpu.c **** **         This method is internal. It is used by Processor Expert only.
- 108:../Generated_Code/Cpu.c **** ** ===================================================================
- 109:../Generated_Code/Cpu.c **** */
- 110:../Generated_Code/Cpu.c **** PE_ISR(Cpu_Interrupt)
- 111:../Generated_Code/Cpu.c **** {
-  60              		.loc 1 111 0
+ 103:../Generated_Code/Cpu.c **** 
+ 104:../Generated_Code/Cpu.c **** /*
+ 105:../Generated_Code/Cpu.c **** ** ===================================================================
+ 106:../Generated_Code/Cpu.c **** **     Method      :  Cpu_Cpu_Interrupt (component MKL25Z128LK4)
+ 107:../Generated_Code/Cpu.c **** **
+ 108:../Generated_Code/Cpu.c **** **     Description :
+ 109:../Generated_Code/Cpu.c **** **         This ISR services an unused interrupt/exception vector.
+ 110:../Generated_Code/Cpu.c **** **         This method is internal. It is used by Processor Expert only.
+ 111:../Generated_Code/Cpu.c **** ** ===================================================================
+ 112:../Generated_Code/Cpu.c **** */
+ 113:../Generated_Code/Cpu.c **** PE_ISR(Cpu_Interrupt)
+ 114:../Generated_Code/Cpu.c **** {
+  60              		.loc 1 114 0
   61              		.cfi_startproc
   62 0000 80B5     		push	{r7, lr}
   63              	.LCFI2:
@@ -173,14 +176,14 @@
   67 0002 00AF     		add	r7, sp, #0
   68              	.LCFI3:
   69              		.cfi_def_cfa_register 7
- 112:../Generated_Code/Cpu.c ****   /* This code can be changed using the CPU component property "Build Options / Unhandled int code"
- 113:../Generated_Code/Cpu.c ****   PE_DEBUGHALT();
-  70              		.loc 1 113 0
-  71              	@ 113 "../Generated_Code/Cpu.c" 1
+ 115:../Generated_Code/Cpu.c ****   /* This code can be changed using the CPU component property "Build Options / Unhandled int code"
+ 116:../Generated_Code/Cpu.c ****   PE_DEBUGHALT();
+  70              		.loc 1 116 0
+  71              	@ 116 "../Generated_Code/Cpu.c" 1
   72 0004 FFBE     		BKPT 255
   73              	@ 0 "" 2
- 114:../Generated_Code/Cpu.c **** }
-  74              		.loc 1 114 0
+ 117:../Generated_Code/Cpu.c **** }
+  74              		.loc 1 117 0
   75              		.code	16
   76 0006 BD46     		mov	sp, r7
   77              		@ sp needed for prologue
@@ -194,19 +197,19 @@
   86              		.thumb_func
   88              	Cpu_EnableInt:
   89              	.LFB2:
- 115:../Generated_Code/Cpu.c **** 
- 116:../Generated_Code/Cpu.c **** /*
- 117:../Generated_Code/Cpu.c **** ** ===================================================================
- 118:../Generated_Code/Cpu.c **** **     Method      :  Cpu_EnableInt (component MKL25Z128LK4)
- 119:../Generated_Code/Cpu.c **** */
- 120:../Generated_Code/Cpu.c **** /*!
- 121:../Generated_Code/Cpu.c **** **     @brief
- 122:../Generated_Code/Cpu.c **** **         Enables all maskable interrupts.
- 123:../Generated_Code/Cpu.c **** */
- 124:../Generated_Code/Cpu.c **** /* ===================================================================*/
- 125:../Generated_Code/Cpu.c **** void Cpu_EnableInt(void)
- 126:../Generated_Code/Cpu.c **** {
-  90              		.loc 1 126 0
+ 118:../Generated_Code/Cpu.c **** 
+ 119:../Generated_Code/Cpu.c **** /*
+ 120:../Generated_Code/Cpu.c **** ** ===================================================================
+ 121:../Generated_Code/Cpu.c **** **     Method      :  Cpu_EnableInt (component MKL25Z128LK4)
+ 122:../Generated_Code/Cpu.c **** */
+ 123:../Generated_Code/Cpu.c **** /*!
+ 124:../Generated_Code/Cpu.c **** **     @brief
+ 125:../Generated_Code/Cpu.c **** **         Enables all maskable interrupts.
+ 126:../Generated_Code/Cpu.c **** */
+ 127:../Generated_Code/Cpu.c **** /* ===================================================================*/
+ 128:../Generated_Code/Cpu.c **** void Cpu_EnableInt(void)
+ 129:../Generated_Code/Cpu.c **** {
+  90              		.loc 1 129 0
   91              		.cfi_startproc
   92 0000 80B5     		push	{r7, lr}
   93              	.LCFI4:
@@ -216,13 +219,13 @@
   97 0002 00AF     		add	r7, sp, #0
   98              	.LCFI5:
   99              		.cfi_def_cfa_register 7
- 127:../Generated_Code/Cpu.c ****  __EI();
- 100              		.loc 1 127 0
- 101              	@ 127 "../Generated_Code/Cpu.c" 1
+ 130:../Generated_Code/Cpu.c ****  __EI();
+ 100              		.loc 1 130 0
+ 101              	@ 130 "../Generated_Code/Cpu.c" 1
  102 0004 62B6     		CPSIE i
  103              	@ 0 "" 2
- 128:../Generated_Code/Cpu.c **** }
- 104              		.loc 1 128 0
+ 131:../Generated_Code/Cpu.c **** }
+ 104              		.loc 1 131 0
  105              		.code	16
  106 0006 BD46     		mov	sp, r7
  107              		@ sp needed for prologue
@@ -236,15 +239,15 @@
  116              		.thumb_func
  118              	__init_hardware:
  119              	.LFB3:
- 129:../Generated_Code/Cpu.c **** 
- 130:../Generated_Code/Cpu.c **** 
- 131:../Generated_Code/Cpu.c **** /*** !!! Here you can place your own code using property "User data declarations" on the build opti
  132:../Generated_Code/Cpu.c **** 
- 133:../Generated_Code/Cpu.c **** /*lint -esym(765,__init_hardware) Disable MISRA rule (8.10) checking for symbols (__init_hardware).
- 134:../Generated_Code/Cpu.c **** /*lint -esym(765,Cpu_Interrupt) Disable MISRA rule (8.10) checking for symbols (Cpu_Interrupt). */
- 135:../Generated_Code/Cpu.c **** void __init_hardware(void)
- 136:../Generated_Code/Cpu.c **** {
- 120              		.loc 1 136 0
+ 133:../Generated_Code/Cpu.c **** 
+ 134:../Generated_Code/Cpu.c **** /*** !!! Here you can place your own code using property "User data declarations" on the build opti
+ 135:../Generated_Code/Cpu.c **** 
+ 136:../Generated_Code/Cpu.c **** /*lint -esym(765,__init_hardware) Disable MISRA rule (8.10) checking for symbols (__init_hardware).
+ 137:../Generated_Code/Cpu.c **** /*lint -esym(765,Cpu_Interrupt) Disable MISRA rule (8.10) checking for symbols (Cpu_Interrupt). */
+ 138:../Generated_Code/Cpu.c **** void __init_hardware(void)
+ 139:../Generated_Code/Cpu.c **** {
+ 120              		.loc 1 139 0
  121              		.cfi_startproc
  122 0000 80B5     		push	{r7, lr}
  123              	.LCFI6:
@@ -254,39 +257,39 @@
  127 0002 00AF     		add	r7, sp, #0
  128              	.LCFI7:
  129              		.cfi_def_cfa_register 7
- 137:../Generated_Code/Cpu.c **** 
- 138:../Generated_Code/Cpu.c ****   /*** !!! Here you can place your own code before PE initialization using property "User code befo
- 139:../Generated_Code/Cpu.c **** 
- 140:../Generated_Code/Cpu.c ****   /*** ### MKL25Z128VLK4 "Cpu" init code ... ***/
- 141:../Generated_Code/Cpu.c ****   /*** PE initialization code after reset ***/
- 142:../Generated_Code/Cpu.c ****   SCB_VTOR = (uint32_t)(&__vect_table); /* Set the interrupt vector table position */
- 130              		.loc 1 142 0
+ 140:../Generated_Code/Cpu.c **** 
+ 141:../Generated_Code/Cpu.c ****   /*** !!! Here you can place your own code before PE initialization using property "User code befo
+ 142:../Generated_Code/Cpu.c **** 
+ 143:../Generated_Code/Cpu.c ****   /*** ### MKL25Z128VLK4 "Cpu" init code ... ***/
+ 144:../Generated_Code/Cpu.c ****   /*** PE initialization code after reset ***/
+ 145:../Generated_Code/Cpu.c ****   SCB_VTOR = (uint32_t)(&__vect_table); /* Set the interrupt vector table position */
+ 130              		.loc 1 145 0
  131 0004 4D4A     		ldr	r2, .L11
  132 0006 4E49     		ldr	r1, .L11+4
  133 0008 4E4B     		ldr	r3, .L11+8
  134 000a D150     		str	r1, [r2, r3]
- 143:../Generated_Code/Cpu.c ****   /* Disable the WDOG module */
- 144:../Generated_Code/Cpu.c ****   /* SIM_COPC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0
- 145:../Generated_Code/Cpu.c ****   SIM_COPC = SIM_COPC_COPT(0x00);
- 135              		.loc 1 145 0
+ 146:../Generated_Code/Cpu.c ****   /* Disable the WDOG module */
+ 147:../Generated_Code/Cpu.c ****   /* SIM_COPC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0
+ 148:../Generated_Code/Cpu.c ****   SIM_COPC = SIM_COPC_COPT(0x00);
+ 135              		.loc 1 148 0
  136 000c 4E4A     		ldr	r2, .L11+12
  137 000e 8823     		mov	r3, #136
  138 0010 5B01     		lsl	r3, r3, #5
  139 0012 0021     		mov	r1, #0
  140 0014 D150     		str	r1, [r2, r3]
- 146:../Generated_Code/Cpu.c **** 
- 147:../Generated_Code/Cpu.c ****   /* System clock initialization */
- 148:../Generated_Code/Cpu.c ****   /* SIM_CLKDIV1: OUTDIV1=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=3,??=0,??=0,??=0,?
- 149:../Generated_Code/Cpu.c ****   SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x00) | SIM_CLKDIV1_OUTDIV4(0x03)); /* Set the system prescale
- 141              		.loc 1 149 0
+ 149:../Generated_Code/Cpu.c **** 
+ 150:../Generated_Code/Cpu.c ****   /* System clock initialization */
+ 151:../Generated_Code/Cpu.c ****   /* SIM_CLKDIV1: OUTDIV1=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=3,??=0,??=0,??=0,?
+ 152:../Generated_Code/Cpu.c ****   SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x00) | SIM_CLKDIV1_OUTDIV4(0x03)); /* Set the system prescale
+ 141              		.loc 1 152 0
  142 0016 4C4A     		ldr	r2, .L11+12
  143 0018 4C4B     		ldr	r3, .L11+16
  144 001a C021     		mov	r1, #192
  145 001c 8902     		lsl	r1, r1, #10
  146 001e D150     		str	r1, [r2, r3]
- 150:../Generated_Code/Cpu.c ****   /* SIM_SCGC5: PORTE=1,PORTB=1,PORTA=1 */
- 151:../Generated_Code/Cpu.c ****   SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK |
- 147              		.loc 1 151 0
+ 153:../Generated_Code/Cpu.c ****   /* SIM_SCGC5: PORTE=1,PORTB=1,PORTA=1 */
+ 154:../Generated_Code/Cpu.c ****   SIM_SCGC5 |= SIM_SCGC5_PORTE_MASK |
+ 147              		.loc 1 154 0
  148 0020 494A     		ldr	r2, .L11+12
  149 0022 4949     		ldr	r1, .L11+12
  150 0024 4A4B     		ldr	r3, .L11+20
@@ -296,10 +299,10 @@
  154 002c 1943     		orr	r1, r3
  155 002e 484B     		ldr	r3, .L11+20
  156 0030 D150     		str	r1, [r2, r3]
- 152:../Generated_Code/Cpu.c ****                SIM_SCGC5_PORTB_MASK |
- 153:../Generated_Code/Cpu.c ****                SIM_SCGC5_PORTA_MASK;   /* Enable clock gate for ports to enable pin routing */
- 154:../Generated_Code/Cpu.c ****   if ((PMC_REGSC & PMC_REGSC_ACKISO_MASK) != 0x0U) {
- 157              		.loc 1 154 0
+ 155:../Generated_Code/Cpu.c ****                SIM_SCGC5_PORTB_MASK |
+ 156:../Generated_Code/Cpu.c ****                SIM_SCGC5_PORTA_MASK;   /* Enable clock gate for ports to enable pin routing */
+ 157:../Generated_Code/Cpu.c ****   if ((PMC_REGSC & PMC_REGSC_ACKISO_MASK) != 0x0U) {
+ 157              		.loc 1 157 0
  158 0032 484B     		ldr	r3, .L11+24
  159 0034 9B78     		ldrb	r3, [r3, #2]
  160 0036 DBB2     		uxtb	r3, r3
@@ -307,9 +310,9 @@
  162 003a 0823     		mov	r3, #8
  163 003c 1340     		and	r3, r2
  164 003e 07D0     		beq	.L5
- 155:../Generated_Code/Cpu.c ****     /* PMC_REGSC: ACKISO=1 */
- 156:../Generated_Code/Cpu.c ****     PMC_REGSC |= PMC_REGSC_ACKISO_MASK; /* Release IO pads after wakeup from VLLS mode. */
- 165              		.loc 1 156 0
+ 158:../Generated_Code/Cpu.c ****     /* PMC_REGSC: ACKISO=1 */
+ 159:../Generated_Code/Cpu.c ****     PMC_REGSC |= PMC_REGSC_ACKISO_MASK; /* Release IO pads after wakeup from VLLS mode. */
+ 165              		.loc 1 159 0
  166 0040 444B     		ldr	r3, .L11+24
  167 0042 444A     		ldr	r2, .L11+24
  168 0044 9278     		ldrb	r2, [r2, #2]
@@ -319,18 +322,18 @@
  172 004c D2B2     		uxtb	r2, r2
  173 004e 9A70     		strb	r2, [r3, #2]
  174              	.L5:
- 157:../Generated_Code/Cpu.c ****   }
- 158:../Generated_Code/Cpu.c ****   /* SIM_CLKDIV1: OUTDIV1=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=1,??=0,??=0,??=0,?
- 159:../Generated_Code/Cpu.c ****   SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x00) | SIM_CLKDIV1_OUTDIV4(0x01)); /* Update system prescaler
- 175              		.loc 1 159 0
+ 160:../Generated_Code/Cpu.c ****   }
+ 161:../Generated_Code/Cpu.c ****   /* SIM_CLKDIV1: OUTDIV1=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=1,??=0,??=0,??=0,?
+ 162:../Generated_Code/Cpu.c ****   SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x00) | SIM_CLKDIV1_OUTDIV4(0x01)); /* Update system prescaler
+ 175              		.loc 1 162 0
  176 0050 3D4A     		ldr	r2, .L11+12
  177 0052 3E4B     		ldr	r3, .L11+16
  178 0054 8021     		mov	r1, #128
  179 0056 4902     		lsl	r1, r1, #9
  180 0058 D150     		str	r1, [r2, r3]
- 160:../Generated_Code/Cpu.c ****   /* SIM_SOPT2: PLLFLLSEL=1 */
- 161:../Generated_Code/Cpu.c ****   SIM_SOPT2 |= SIM_SOPT2_PLLFLLSEL_MASK; /* Select PLL as a clock source for various peripherals */
- 181              		.loc 1 161 0
+ 163:../Generated_Code/Cpu.c ****   /* SIM_SOPT2: PLLFLLSEL=1 */
+ 164:../Generated_Code/Cpu.c ****   SIM_SOPT2 |= SIM_SOPT2_PLLFLLSEL_MASK; /* Select PLL as a clock source for various peripherals */
+ 181              		.loc 1 164 0
  182 005a 3B4A     		ldr	r2, .L11+12
  183 005c 3A49     		ldr	r1, .L11+12
  184 005e 3E4B     		ldr	r3, .L11+28
@@ -340,18 +343,18 @@
  188 0066 1943     		orr	r1, r3
  189 0068 3B4B     		ldr	r3, .L11+28
  190 006a D150     		str	r1, [r2, r3]
- 162:../Generated_Code/Cpu.c ****   /* SIM_SOPT1: OSC32KSEL=0 */
- 163:../Generated_Code/Cpu.c ****   SIM_SOPT1 &= (uint32_t)~(uint32_t)(SIM_SOPT1_OSC32KSEL(0x03)); /* System oscillator drives 32 kHz
- 191              		.loc 1 163 0
+ 165:../Generated_Code/Cpu.c ****   /* SIM_SOPT1: OSC32KSEL=0 */
+ 166:../Generated_Code/Cpu.c ****   SIM_SOPT1 &= (uint32_t)~(uint32_t)(SIM_SOPT1_OSC32KSEL(0x03)); /* System oscillator drives 32 kHz
+ 191              		.loc 1 166 0
  192 006c 364B     		ldr	r3, .L11+12
  193 006e 364A     		ldr	r2, .L11+12
  194 0070 1168     		ldr	r1, [r2]
  195 0072 3A4A     		ldr	r2, .L11+32
  196 0074 0A40     		and	r2, r1
  197 0076 1A60     		str	r2, [r3]
- 164:../Generated_Code/Cpu.c ****   /* SIM_SOPT2: TPMSRC=1 */
- 165:../Generated_Code/Cpu.c ****   SIM_SOPT2 = (uint32_t)((SIM_SOPT2 & (uint32_t)~(uint32_t)(
- 198              		.loc 1 165 0
+ 167:../Generated_Code/Cpu.c ****   /* SIM_SOPT2: TPMSRC=1 */
+ 168:../Generated_Code/Cpu.c ****   SIM_SOPT2 = (uint32_t)((SIM_SOPT2 & (uint32_t)~(uint32_t)(
+ 198              		.loc 1 168 0
  199 0078 334A     		ldr	r2, .L11+12
  200 007a 3349     		ldr	r1, .L11+12
  201 007c 364B     		ldr	r3, .L11+28
@@ -363,50 +366,50 @@
  207 0088 1943     		orr	r1, r3
  208 008a 334B     		ldr	r3, .L11+28
  209 008c D150     		str	r1, [r2, r3]
- 166:../Generated_Code/Cpu.c ****                SIM_SOPT2_TPMSRC(0x02)
- 167:../Generated_Code/Cpu.c ****               )) | (uint32_t)(
- 168:../Generated_Code/Cpu.c ****                SIM_SOPT2_TPMSRC(0x01)
- 169:../Generated_Code/Cpu.c ****               ));                      /* Set the TPM clock */
- 170:../Generated_Code/Cpu.c ****   /* PORTA_PCR18: ISF=0,MUX=0 */
- 171:../Generated_Code/Cpu.c ****   PORTA_PCR18 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));
- 210              		.loc 1 171 0
+ 169:../Generated_Code/Cpu.c ****                SIM_SOPT2_TPMSRC(0x02)
+ 170:../Generated_Code/Cpu.c ****               )) | (uint32_t)(
+ 171:../Generated_Code/Cpu.c ****                SIM_SOPT2_TPMSRC(0x01)
+ 172:../Generated_Code/Cpu.c ****               ));                      /* Set the TPM clock */
+ 173:../Generated_Code/Cpu.c ****   /* PORTA_PCR18: ISF=0,MUX=0 */
+ 174:../Generated_Code/Cpu.c ****   PORTA_PCR18 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));
+ 210              		.loc 1 174 0
  211 008e 354B     		ldr	r3, .L11+40
  212 0090 344A     		ldr	r2, .L11+40
  213 0092 916C     		ldr	r1, [r2, #72]
  214 0094 344A     		ldr	r2, .L11+44
  215 0096 0A40     		and	r2, r1
  216 0098 9A64     		str	r2, [r3, #72]
- 172:../Generated_Code/Cpu.c ****   /* PORTA_PCR19: ISF=0,MUX=0 */
- 173:../Generated_Code/Cpu.c ****   PORTA_PCR19 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));
- 217              		.loc 1 173 0
+ 175:../Generated_Code/Cpu.c ****   /* PORTA_PCR19: ISF=0,MUX=0 */
+ 176:../Generated_Code/Cpu.c ****   PORTA_PCR19 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));
+ 217              		.loc 1 176 0
  218 009a 324B     		ldr	r3, .L11+40
  219 009c 314A     		ldr	r2, .L11+40
  220 009e D16C     		ldr	r1, [r2, #76]
  221 00a0 314A     		ldr	r2, .L11+44
  222 00a2 0A40     		and	r2, r1
  223 00a4 DA64     		str	r2, [r3, #76]
- 174:../Generated_Code/Cpu.c ****   /* Switch to FBE Mode */
- 175:../Generated_Code/Cpu.c ****   /* MCG_C2: LOCRE0=0,??=0,RANGE0=2,HGO0=0,EREFS0=1,LP=0,IRCS=0 */
- 176:../Generated_Code/Cpu.c ****   MCG_C2 = (MCG_C2_RANGE0(0x02) | MCG_C2_EREFS0_MASK);
- 224              		.loc 1 176 0
+ 177:../Generated_Code/Cpu.c ****   /* Switch to FBE Mode */
+ 178:../Generated_Code/Cpu.c ****   /* MCG_C2: LOCRE0=0,??=0,RANGE0=2,HGO0=0,EREFS0=1,LP=0,IRCS=0 */
+ 179:../Generated_Code/Cpu.c ****   MCG_C2 = (MCG_C2_RANGE0(0x02) | MCG_C2_EREFS0_MASK);
+ 224              		.loc 1 179 0
  225 00a6 314B     		ldr	r3, .L11+48
  226 00a8 2422     		mov	r2, #36
  227 00aa 5A70     		strb	r2, [r3, #1]
- 177:../Generated_Code/Cpu.c ****   /* OSC0_CR: ERCLKEN=1,??=0,EREFSTEN=0,??=0,SC2P=0,SC4P=0,SC8P=0,SC16P=0 */
- 178:../Generated_Code/Cpu.c ****   OSC0_CR = OSC_CR_ERCLKEN_MASK;
- 228              		.loc 1 178 0
+ 180:../Generated_Code/Cpu.c ****   /* OSC0_CR: ERCLKEN=1,??=0,EREFSTEN=0,??=0,SC2P=0,SC4P=0,SC8P=0,SC16P=0 */
+ 181:../Generated_Code/Cpu.c ****   OSC0_CR = OSC_CR_ERCLKEN_MASK;
+ 228              		.loc 1 181 0
  229 00ac 304B     		ldr	r3, .L11+52
  230 00ae 8022     		mov	r2, #128
  231 00b0 1A70     		strb	r2, [r3]
- 179:../Generated_Code/Cpu.c ****   /* MCG_C1: CLKS=2,FRDIV=3,IREFS=0,IRCLKEN=1,IREFSTEN=0 */
- 180:../Generated_Code/Cpu.c ****   MCG_C1 = (MCG_C1_CLKS(0x02) | MCG_C1_FRDIV(0x03) | MCG_C1_IRCLKEN_MASK);
- 232              		.loc 1 180 0
+ 182:../Generated_Code/Cpu.c ****   /* MCG_C1: CLKS=2,FRDIV=3,IREFS=0,IRCLKEN=1,IREFSTEN=0 */
+ 183:../Generated_Code/Cpu.c ****   MCG_C1 = (MCG_C1_CLKS(0x02) | MCG_C1_FRDIV(0x03) | MCG_C1_IRCLKEN_MASK);
+ 232              		.loc 1 183 0
  233 00b2 2E4B     		ldr	r3, .L11+48
  234 00b4 9A22     		mov	r2, #154
  235 00b6 1A70     		strb	r2, [r3]
- 181:../Generated_Code/Cpu.c ****   /* MCG_C4: DMX32=0,DRST_DRS=0 */
- 182:../Generated_Code/Cpu.c ****   MCG_C4 &= (uint8_t)~(uint8_t)((MCG_C4_DMX32_MASK | MCG_C4_DRST_DRS(0x03)));
- 236              		.loc 1 182 0
+ 184:../Generated_Code/Cpu.c ****   /* MCG_C4: DMX32=0,DRST_DRS=0 */
+ 185:../Generated_Code/Cpu.c ****   MCG_C4 &= (uint8_t)~(uint8_t)((MCG_C4_DMX32_MASK | MCG_C4_DRST_DRS(0x03)));
+ 236              		.loc 1 185 0
  237 00b8 2C4B     		ldr	r3, .L11+48
  238 00ba 2C4A     		ldr	r2, .L11+48
  239 00bc D278     		ldrb	r2, [r2, #3]
@@ -415,23 +418,23 @@
  242 00c2 0A40     		and	r2, r1
  243 00c4 D2B2     		uxtb	r2, r2
  244 00c6 DA70     		strb	r2, [r3, #3]
- 183:../Generated_Code/Cpu.c ****   /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=3 */
- 184:../Generated_Code/Cpu.c ****   MCG_C5 = MCG_C5_PRDIV0(0x03);
- 245              		.loc 1 184 0
+ 186:../Generated_Code/Cpu.c ****   /* MCG_C5: ??=0,PLLCLKEN0=0,PLLSTEN0=0,PRDIV0=3 */
+ 187:../Generated_Code/Cpu.c ****   MCG_C5 = MCG_C5_PRDIV0(0x03);
+ 245              		.loc 1 187 0
  246 00c8 284B     		ldr	r3, .L11+48
  247 00ca 0322     		mov	r2, #3
  248 00cc 1A71     		strb	r2, [r3, #4]
- 185:../Generated_Code/Cpu.c ****   /* MCG_C6: LOLIE0=0,PLLS=0,CME0=0,VDIV0=0 */
- 186:../Generated_Code/Cpu.c ****   MCG_C6 = MCG_C6_VDIV0(0x00);
- 249              		.loc 1 186 0
+ 188:../Generated_Code/Cpu.c ****   /* MCG_C6: LOLIE0=0,PLLS=0,CME0=0,VDIV0=0 */
+ 189:../Generated_Code/Cpu.c ****   MCG_C6 = MCG_C6_VDIV0(0x00);
+ 249              		.loc 1 189 0
  250 00ce 274B     		ldr	r3, .L11+48
  251 00d0 0022     		mov	r2, #0
  252 00d2 5A71     		strb	r2, [r3, #5]
- 187:../Generated_Code/Cpu.c ****   while((MCG_S & MCG_S_IREFST_MASK) != 0x00U) { /* Check that the source of the FLL reference clock
- 253              		.loc 1 187 0
+ 190:../Generated_Code/Cpu.c ****   while((MCG_S & MCG_S_IREFST_MASK) != 0x00U) { /* Check that the source of the FLL reference clock
+ 253              		.loc 1 190 0
  254 00d4 C046     		mov	r8, r8
  255              	.L6:
- 256              		.loc 1 187 0 is_stmt 0
+ 256              		.loc 1 190 0 is_stmt 0
  257 00d6 254B     		ldr	r3, .L11+48
  258 00d8 9B79     		ldrb	r3, [r3, #6]
  259 00da DBB2     		uxtb	r3, r3
@@ -439,12 +442,12 @@
  261 00de 1023     		mov	r3, #16
  262 00e0 1340     		and	r3, r2
  263 00e2 F8D1     		bne	.L6
- 188:../Generated_Code/Cpu.c ****   }
- 189:../Generated_Code/Cpu.c ****   while((MCG_S & 0x0CU) != 0x08U) {    /* Wait until external reference clock is selected as MCG ou
- 264              		.loc 1 189 0 is_stmt 1
+ 191:../Generated_Code/Cpu.c ****   }
+ 192:../Generated_Code/Cpu.c ****   while((MCG_S & 0x0CU) != 0x08U) {    /* Wait until external reference clock is selected as MCG ou
+ 264              		.loc 1 192 0 is_stmt 1
  265 00e4 C046     		mov	r8, r8
  266              	.L7:
- 267              		.loc 1 189 0 is_stmt 0
+ 267              		.loc 1 192 0 is_stmt 0
  268 00e6 214B     		ldr	r3, .L11+48
  269 00e8 9B79     		ldrb	r3, [r3, #6]
  270 00ea DBB2     		uxtb	r3, r3
@@ -453,19 +456,19 @@
  273 00f0 1340     		and	r3, r2
  274 00f2 082B     		cmp	r3, #8
  275 00f4 F7D1     		bne	.L7
- 190:../Generated_Code/Cpu.c ****   }
- 191:../Generated_Code/Cpu.c ****   /* Switch to PBE Mode */
- 192:../Generated_Code/Cpu.c ****   /* MCG_C6: LOLIE0=0,PLLS=1,CME0=0,VDIV0=0 */
- 193:../Generated_Code/Cpu.c ****   MCG_C6 = (MCG_C6_PLLS_MASK | MCG_C6_VDIV0(0x00));
- 276              		.loc 1 193 0 is_stmt 1
+ 193:../Generated_Code/Cpu.c ****   }
+ 194:../Generated_Code/Cpu.c ****   /* Switch to PBE Mode */
+ 195:../Generated_Code/Cpu.c ****   /* MCG_C6: LOLIE0=0,PLLS=1,CME0=0,VDIV0=0 */
+ 196:../Generated_Code/Cpu.c ****   MCG_C6 = (MCG_C6_PLLS_MASK | MCG_C6_VDIV0(0x00));
+ 276              		.loc 1 196 0 is_stmt 1
  277 00f6 1D4B     		ldr	r3, .L11+48
  278 00f8 4022     		mov	r2, #64
  279 00fa 5A71     		strb	r2, [r3, #5]
- 194:../Generated_Code/Cpu.c ****   while((MCG_S & 0x0CU) != 0x08U) {    /* Wait until external reference clock is selected as MCG ou
- 280              		.loc 1 194 0
+ 197:../Generated_Code/Cpu.c ****   while((MCG_S & 0x0CU) != 0x08U) {    /* Wait until external reference clock is selected as MCG ou
+ 280              		.loc 1 197 0
  281 00fc C046     		mov	r8, r8
  282              	.L8:
- 283              		.loc 1 194 0 is_stmt 0
+ 283              		.loc 1 197 0 is_stmt 0
  284 00fe 1B4B     		ldr	r3, .L11+48
  285 0100 9B79     		ldrb	r3, [r3, #6]
  286 0102 DBB2     		uxtb	r3, r3
@@ -474,12 +477,12 @@
  289 0108 1340     		and	r3, r2
  290 010a 082B     		cmp	r3, #8
  291 010c F7D1     		bne	.L8
- 195:../Generated_Code/Cpu.c ****   }
- 196:../Generated_Code/Cpu.c ****   while((MCG_S & MCG_S_LOCK0_MASK) == 0x00U) { /* Wait until locked */
- 292              		.loc 1 196 0 is_stmt 1
+ 198:../Generated_Code/Cpu.c ****   }
+ 199:../Generated_Code/Cpu.c ****   while((MCG_S & MCG_S_LOCK0_MASK) == 0x00U) { /* Wait until locked */
+ 292              		.loc 1 199 0 is_stmt 1
  293 010e C046     		mov	r8, r8
  294              	.L9:
- 295              		.loc 1 196 0 is_stmt 0
+ 295              		.loc 1 199 0 is_stmt 0
  296 0110 164B     		ldr	r3, .L11+48
  297 0112 9B79     		ldrb	r3, [r3, #6]
  298 0114 DBB2     		uxtb	r3, r3
@@ -487,19 +490,19 @@
  300 0118 4023     		mov	r3, #64
  301 011a 1340     		and	r3, r2
  302 011c F8D0     		beq	.L9
- 197:../Generated_Code/Cpu.c ****   }
- 198:../Generated_Code/Cpu.c ****   /* Switch to PEE Mode */
- 199:../Generated_Code/Cpu.c ****   /* MCG_C1: CLKS=0,FRDIV=3,IREFS=0,IRCLKEN=1,IREFSTEN=0 */
- 200:../Generated_Code/Cpu.c ****   MCG_C1 = (MCG_C1_CLKS(0x00) | MCG_C1_FRDIV(0x03) | MCG_C1_IRCLKEN_MASK);
- 303              		.loc 1 200 0 is_stmt 1
+ 200:../Generated_Code/Cpu.c ****   }
+ 201:../Generated_Code/Cpu.c ****   /* Switch to PEE Mode */
+ 202:../Generated_Code/Cpu.c ****   /* MCG_C1: CLKS=0,FRDIV=3,IREFS=0,IRCLKEN=1,IREFSTEN=0 */
+ 203:../Generated_Code/Cpu.c ****   MCG_C1 = (MCG_C1_CLKS(0x00) | MCG_C1_FRDIV(0x03) | MCG_C1_IRCLKEN_MASK);
+ 303              		.loc 1 203 0 is_stmt 1
  304 011e 134B     		ldr	r3, .L11+48
  305 0120 1A22     		mov	r2, #26
  306 0122 1A70     		strb	r2, [r3]
- 201:../Generated_Code/Cpu.c ****   while((MCG_S & 0x0CU) != 0x0CU) {    /* Wait until output of the PLL is selected */
- 307              		.loc 1 201 0
+ 204:../Generated_Code/Cpu.c ****   while((MCG_S & 0x0CU) != 0x0CU) {    /* Wait until output of the PLL is selected */
+ 307              		.loc 1 204 0
  308 0124 C046     		mov	r8, r8
  309              	.L10:
- 310              		.loc 1 201 0 is_stmt 0
+ 310              		.loc 1 204 0 is_stmt 0
  311 0126 114B     		ldr	r3, .L11+48
  312 0128 9B79     		ldrb	r3, [r3, #6]
  313 012a DBB2     		uxtb	r3, r3
@@ -508,13 +511,13 @@
  316 0130 1340     		and	r3, r2
  317 0132 0C2B     		cmp	r3, #12
  318 0134 F7D1     		bne	.L10
- 202:../Generated_Code/Cpu.c ****   }
- 203:../Generated_Code/Cpu.c ****   /*** End of PE initialization code after reset ***/
- 204:../Generated_Code/Cpu.c **** 
- 205:../Generated_Code/Cpu.c ****   /*** !!! Here you can place your own code after PE initialization using property "User code after
- 206:../Generated_Code/Cpu.c **** 
- 207:../Generated_Code/Cpu.c **** }
- 319              		.loc 1 207 0 is_stmt 1
+ 205:../Generated_Code/Cpu.c ****   }
+ 206:../Generated_Code/Cpu.c ****   /*** End of PE initialization code after reset ***/
+ 207:../Generated_Code/Cpu.c **** 
+ 208:../Generated_Code/Cpu.c ****   /*** !!! Here you can place your own code after PE initialization using property "User code after
+ 209:../Generated_Code/Cpu.c **** 
+ 210:../Generated_Code/Cpu.c **** }
+ 319              		.loc 1 210 0 is_stmt 1
  320 0136 BD46     		mov	sp, r7
  321              		@ sp needed for prologue
  322 0138 80BD     		pop	{r7, pc}
@@ -544,23 +547,23 @@
  347              		.thumb_func
  349              	PE_low_level_init:
  350              	.LFB4:
- 208:../Generated_Code/Cpu.c **** 
- 209:../Generated_Code/Cpu.c **** 
- 210:../Generated_Code/Cpu.c **** 
- 211:../Generated_Code/Cpu.c **** /*
- 212:../Generated_Code/Cpu.c **** ** ===================================================================
- 213:../Generated_Code/Cpu.c **** **     Method      :  PE_low_level_init (component MKL25Z128LK4)
- 214:../Generated_Code/Cpu.c **** **
- 215:../Generated_Code/Cpu.c **** **     Description :
- 216:../Generated_Code/Cpu.c **** **         Initializes beans and provides common register initialization. 
- 217:../Generated_Code/Cpu.c **** **         The method is called automatically as a part of the 
- 218:../Generated_Code/Cpu.c **** **         application initialization code.
- 219:../Generated_Code/Cpu.c **** **         This method is internal. It is used by Processor Expert only.
- 220:../Generated_Code/Cpu.c **** ** ===================================================================
- 221:../Generated_Code/Cpu.c **** */
- 222:../Generated_Code/Cpu.c **** void PE_low_level_init(void)
- 223:../Generated_Code/Cpu.c **** {
- 351              		.loc 1 223 0
+ 211:../Generated_Code/Cpu.c **** 
+ 212:../Generated_Code/Cpu.c **** 
+ 213:../Generated_Code/Cpu.c **** 
+ 214:../Generated_Code/Cpu.c **** /*
+ 215:../Generated_Code/Cpu.c **** ** ===================================================================
+ 216:../Generated_Code/Cpu.c **** **     Method      :  PE_low_level_init (component MKL25Z128LK4)
+ 217:../Generated_Code/Cpu.c **** **
+ 218:../Generated_Code/Cpu.c **** **     Description :
+ 219:../Generated_Code/Cpu.c **** **         Initializes beans and provides common register initialization. 
+ 220:../Generated_Code/Cpu.c **** **         The method is called automatically as a part of the 
+ 221:../Generated_Code/Cpu.c **** **         application initialization code.
+ 222:../Generated_Code/Cpu.c **** **         This method is internal. It is used by Processor Expert only.
+ 223:../Generated_Code/Cpu.c **** ** ===================================================================
+ 224:../Generated_Code/Cpu.c **** */
+ 225:../Generated_Code/Cpu.c **** void PE_low_level_init(void)
+ 226:../Generated_Code/Cpu.c **** {
+ 351              		.loc 1 226 0
  352              		.cfi_startproc
  353 0000 80B5     		push	{r7, lr}
  354              	.LCFI8:
@@ -570,58 +573,58 @@
  358 0002 00AF     		add	r7, sp, #0
  359              	.LCFI9:
  360              		.cfi_def_cfa_register 7
- 224:../Generated_Code/Cpu.c ****   #ifdef PEX_RTOS_INIT
- 225:../Generated_Code/Cpu.c ****     PEX_RTOS_INIT();                   /* Initialization of the selected RTOS. Macro is defined by 
- 226:../Generated_Code/Cpu.c ****   #endif
- 227:../Generated_Code/Cpu.c ****       /* Initialization of the SIM module */
- 228:../Generated_Code/Cpu.c ****   /* PORTA_PCR4: ISF=0,MUX=7 */
- 229:../Generated_Code/Cpu.c ****   PORTA_PCR4 = (uint32_t)((PORTA_PCR4 & (uint32_t)~(uint32_t)(
- 361              		.loc 1 229 0
- 362 0004 2F4B     		ldr	r3, .L14
- 363 0006 2F4A     		ldr	r2, .L14
+ 227:../Generated_Code/Cpu.c ****   #ifdef PEX_RTOS_INIT
+ 228:../Generated_Code/Cpu.c ****     PEX_RTOS_INIT();                   /* Initialization of the selected RTOS. Macro is defined by 
+ 229:../Generated_Code/Cpu.c ****   #endif
+ 230:../Generated_Code/Cpu.c ****       /* Initialization of the SIM module */
+ 231:../Generated_Code/Cpu.c ****   /* PORTA_PCR4: ISF=0,MUX=7 */
+ 232:../Generated_Code/Cpu.c ****   PORTA_PCR4 = (uint32_t)((PORTA_PCR4 & (uint32_t)~(uint32_t)(
+ 361              		.loc 1 232 0
+ 362 0004 334B     		ldr	r3, .L14
+ 363 0006 334A     		ldr	r2, .L14
  364 0008 1169     		ldr	r1, [r2, #16]
- 365 000a 2F4A     		ldr	r2, .L14+4
+ 365 000a 334A     		ldr	r2, .L14+4
  366 000c 0A40     		and	r2, r1
  367 000e E021     		mov	r1, #224
  368 0010 C900     		lsl	r1, r1, #3
  369 0012 0A43     		orr	r2, r1
  370 0014 1A61     		str	r2, [r3, #16]
- 230:../Generated_Code/Cpu.c ****                 PORT_PCR_ISF_MASK
- 231:../Generated_Code/Cpu.c ****                )) | (uint32_t)(
- 232:../Generated_Code/Cpu.c ****                 PORT_PCR_MUX(0x07)
- 233:../Generated_Code/Cpu.c ****                ));
- 234:../Generated_Code/Cpu.c ****         /* Initialization of the RCM module */
- 235:../Generated_Code/Cpu.c ****   /* RCM_RPFW: RSTFLTSEL=0 */
- 236:../Generated_Code/Cpu.c ****   RCM_RPFW &= (uint8_t)~(uint8_t)(RCM_RPFW_RSTFLTSEL(0x1F));
- 371              		.loc 1 236 0
- 372 0016 2D4B     		ldr	r3, .L14+8
- 373 0018 2C4A     		ldr	r2, .L14+8
+ 233:../Generated_Code/Cpu.c ****                 PORT_PCR_ISF_MASK
+ 234:../Generated_Code/Cpu.c ****                )) | (uint32_t)(
+ 235:../Generated_Code/Cpu.c ****                 PORT_PCR_MUX(0x07)
+ 236:../Generated_Code/Cpu.c ****                ));
+ 237:../Generated_Code/Cpu.c ****         /* Initialization of the RCM module */
+ 238:../Generated_Code/Cpu.c ****   /* RCM_RPFW: RSTFLTSEL=0 */
+ 239:../Generated_Code/Cpu.c ****   RCM_RPFW &= (uint8_t)~(uint8_t)(RCM_RPFW_RSTFLTSEL(0x1F));
+ 371              		.loc 1 239 0
+ 372 0016 314B     		ldr	r3, .L14+8
+ 373 0018 304A     		ldr	r2, .L14+8
  374 001a 5279     		ldrb	r2, [r2, #5]
  375 001c D2B2     		uxtb	r2, r2
  376 001e 1F21     		mov	r1, #31
  377 0020 8A43     		bic	r2, r1
  378 0022 D2B2     		uxtb	r2, r2
  379 0024 5A71     		strb	r2, [r3, #5]
- 237:../Generated_Code/Cpu.c ****   /* RCM_RPFC: RSTFLTSS=0,RSTFLTSRW=0 */
- 238:../Generated_Code/Cpu.c ****   RCM_RPFC &= (uint8_t)~(uint8_t)(
- 380              		.loc 1 238 0
- 381 0026 294B     		ldr	r3, .L14+8
- 382 0028 284A     		ldr	r2, .L14+8
+ 240:../Generated_Code/Cpu.c ****   /* RCM_RPFC: RSTFLTSS=0,RSTFLTSRW=0 */
+ 241:../Generated_Code/Cpu.c ****   RCM_RPFC &= (uint8_t)~(uint8_t)(
+ 380              		.loc 1 241 0
+ 381 0026 2D4B     		ldr	r3, .L14+8
+ 382 0028 2C4A     		ldr	r2, .L14+8
  383 002a 1279     		ldrb	r2, [r2, #4]
  384 002c D2B2     		uxtb	r2, r2
  385 002e 0721     		mov	r1, #7
  386 0030 8A43     		bic	r2, r1
  387 0032 D2B2     		uxtb	r2, r2
  388 0034 1A71     		strb	r2, [r3, #4]
- 239:../Generated_Code/Cpu.c ****                RCM_RPFC_RSTFLTSS_MASK |
- 240:../Generated_Code/Cpu.c ****                RCM_RPFC_RSTFLTSRW(0x03)
- 241:../Generated_Code/Cpu.c ****               );
- 242:../Generated_Code/Cpu.c ****       /* Initialization of the PMC module */
- 243:../Generated_Code/Cpu.c ****   /* PMC_LVDSC1: LVDACK=1,LVDIE=0,LVDRE=1,LVDV=0 */
- 244:../Generated_Code/Cpu.c ****   PMC_LVDSC1 = (uint8_t)((PMC_LVDSC1 & (uint8_t)~(uint8_t)(
- 389              		.loc 1 244 0
- 390 0036 264B     		ldr	r3, .L14+12
- 391 0038 254A     		ldr	r2, .L14+12
+ 242:../Generated_Code/Cpu.c ****                RCM_RPFC_RSTFLTSS_MASK |
+ 243:../Generated_Code/Cpu.c ****                RCM_RPFC_RSTFLTSRW(0x03)
+ 244:../Generated_Code/Cpu.c ****               );
+ 245:../Generated_Code/Cpu.c ****       /* Initialization of the PMC module */
+ 246:../Generated_Code/Cpu.c ****   /* PMC_LVDSC1: LVDACK=1,LVDIE=0,LVDRE=1,LVDV=0 */
+ 247:../Generated_Code/Cpu.c ****   PMC_LVDSC1 = (uint8_t)((PMC_LVDSC1 & (uint8_t)~(uint8_t)(
+ 389              		.loc 1 247 0
+ 390 0036 2A4B     		ldr	r3, .L14+12
+ 391 0038 294A     		ldr	r2, .L14+12
  392 003a 1278     		ldrb	r2, [r2]
  393 003c D2B2     		uxtb	r2, r2
  394 003e D2B2     		uxtb	r2, r2
@@ -633,17 +636,17 @@
  400 004a D2B2     		uxtb	r2, r2
  401 004c D2B2     		uxtb	r2, r2
  402 004e 1A70     		strb	r2, [r3]
- 245:../Generated_Code/Cpu.c ****                 PMC_LVDSC1_LVDIE_MASK |
- 246:../Generated_Code/Cpu.c ****                 PMC_LVDSC1_LVDV(0x03)
- 247:../Generated_Code/Cpu.c ****                )) | (uint8_t)(
- 248:../Generated_Code/Cpu.c ****                 PMC_LVDSC1_LVDACK_MASK |
- 249:../Generated_Code/Cpu.c ****                 PMC_LVDSC1_LVDRE_MASK
- 250:../Generated_Code/Cpu.c ****                ));
- 251:../Generated_Code/Cpu.c ****   /* PMC_LVDSC2: LVWACK=1,LVWIE=0,LVWV=0 */
- 252:../Generated_Code/Cpu.c ****   PMC_LVDSC2 = (uint8_t)((PMC_LVDSC2 & (uint8_t)~(uint8_t)(
- 403              		.loc 1 252 0
- 404 0050 1F4B     		ldr	r3, .L14+12
- 405 0052 1F4A     		ldr	r2, .L14+12
+ 248:../Generated_Code/Cpu.c ****                 PMC_LVDSC1_LVDIE_MASK |
+ 249:../Generated_Code/Cpu.c ****                 PMC_LVDSC1_LVDV(0x03)
+ 250:../Generated_Code/Cpu.c ****                )) | (uint8_t)(
+ 251:../Generated_Code/Cpu.c ****                 PMC_LVDSC1_LVDACK_MASK |
+ 252:../Generated_Code/Cpu.c ****                 PMC_LVDSC1_LVDRE_MASK
+ 253:../Generated_Code/Cpu.c ****                ));
+ 254:../Generated_Code/Cpu.c ****   /* PMC_LVDSC2: LVWACK=1,LVWIE=0,LVWV=0 */
+ 255:../Generated_Code/Cpu.c ****   PMC_LVDSC2 = (uint8_t)((PMC_LVDSC2 & (uint8_t)~(uint8_t)(
+ 403              		.loc 1 255 0
+ 404 0050 234B     		ldr	r3, .L14+12
+ 405 0052 234A     		ldr	r2, .L14+12
  406 0054 5278     		ldrb	r2, [r2, #1]
  407 0056 D2B2     		uxtb	r2, r2
  408 0058 D2B2     		uxtb	r2, r2
@@ -655,126 +658,138 @@
  414 0064 D2B2     		uxtb	r2, r2
  415 0066 D2B2     		uxtb	r2, r2
  416 0068 5A70     		strb	r2, [r3, #1]
- 253:../Generated_Code/Cpu.c ****                 PMC_LVDSC2_LVWIE_MASK |
- 254:../Generated_Code/Cpu.c ****                 PMC_LVDSC2_LVWV(0x03)
- 255:../Generated_Code/Cpu.c ****                )) | (uint8_t)(
- 256:../Generated_Code/Cpu.c ****                 PMC_LVDSC2_LVWACK_MASK
- 257:../Generated_Code/Cpu.c ****                ));
- 258:../Generated_Code/Cpu.c ****   /* PMC_REGSC: BGEN=0,ACKISO=0,BGBE=0 */
- 259:../Generated_Code/Cpu.c ****   PMC_REGSC &= (uint8_t)~(uint8_t)(
- 417              		.loc 1 259 0
- 418 006a 194B     		ldr	r3, .L14+12
- 419 006c 184A     		ldr	r2, .L14+12
+ 256:../Generated_Code/Cpu.c ****                 PMC_LVDSC2_LVWIE_MASK |
+ 257:../Generated_Code/Cpu.c ****                 PMC_LVDSC2_LVWV(0x03)
+ 258:../Generated_Code/Cpu.c ****                )) | (uint8_t)(
+ 259:../Generated_Code/Cpu.c ****                 PMC_LVDSC2_LVWACK_MASK
+ 260:../Generated_Code/Cpu.c ****                ));
+ 261:../Generated_Code/Cpu.c ****   /* PMC_REGSC: BGEN=0,ACKISO=0,BGBE=0 */
+ 262:../Generated_Code/Cpu.c ****   PMC_REGSC &= (uint8_t)~(uint8_t)(
+ 417              		.loc 1 262 0
+ 418 006a 1D4B     		ldr	r3, .L14+12
+ 419 006c 1C4A     		ldr	r2, .L14+12
  420 006e 9278     		ldrb	r2, [r2, #2]
  421 0070 D2B2     		uxtb	r2, r2
  422 0072 1921     		mov	r1, #25
  423 0074 8A43     		bic	r2, r1
  424 0076 D2B2     		uxtb	r2, r2
  425 0078 9A70     		strb	r2, [r3, #2]
- 260:../Generated_Code/Cpu.c ****                 PMC_REGSC_BGEN_MASK |
- 261:../Generated_Code/Cpu.c ****                 PMC_REGSC_ACKISO_MASK |
- 262:../Generated_Code/Cpu.c ****                 PMC_REGSC_BGBE_MASK
- 263:../Generated_Code/Cpu.c ****                );
- 264:../Generated_Code/Cpu.c ****   /* SMC_PMPROT: ??=0,??=0,AVLP=0,??=0,ALLS=0,??=0,AVLLS=0,??=0 */
- 265:../Generated_Code/Cpu.c ****   SMC_PMPROT = 0x00U;                  /* Setup Power mode protection register */
- 426              		.loc 1 265 0
- 427 007a 164B     		ldr	r3, .L14+16
+ 263:../Generated_Code/Cpu.c ****                 PMC_REGSC_BGEN_MASK |
+ 264:../Generated_Code/Cpu.c ****                 PMC_REGSC_ACKISO_MASK |
+ 265:../Generated_Code/Cpu.c ****                 PMC_REGSC_BGBE_MASK
+ 266:../Generated_Code/Cpu.c ****                );
+ 267:../Generated_Code/Cpu.c ****   /* SMC_PMPROT: ??=0,??=0,AVLP=0,??=0,ALLS=0,??=0,AVLLS=0,??=0 */
+ 268:../Generated_Code/Cpu.c ****   SMC_PMPROT = 0x00U;                  /* Setup Power mode protection register */
+ 426              		.loc 1 268 0
+ 427 007a 1A4B     		ldr	r3, .L14+16
  428 007c 0022     		mov	r2, #0
  429 007e 1A70     		strb	r2, [r3]
- 266:../Generated_Code/Cpu.c ****   /* Common initialization of the CPU registers */
- 267:../Generated_Code/Cpu.c ****   /* PORTA_PCR20: ISF=0,MUX=7 */
- 268:../Generated_Code/Cpu.c ****   PORTA_PCR20 = (uint32_t)((PORTA_PCR20 & (uint32_t)~(uint32_t)(
- 430              		.loc 1 268 0
- 431 0080 104B     		ldr	r3, .L14
- 432 0082 104A     		ldr	r2, .L14
+ 269:../Generated_Code/Cpu.c ****   /* Common initialization of the CPU registers */
+ 270:../Generated_Code/Cpu.c ****   /* PORTA_PCR20: ISF=0,MUX=7 */
+ 271:../Generated_Code/Cpu.c ****   PORTA_PCR20 = (uint32_t)((PORTA_PCR20 & (uint32_t)~(uint32_t)(
+ 430              		.loc 1 271 0
+ 431 0080 144B     		ldr	r3, .L14
+ 432 0082 144A     		ldr	r2, .L14
  433 0084 116D     		ldr	r1, [r2, #80]
- 434 0086 104A     		ldr	r2, .L14+4
+ 434 0086 144A     		ldr	r2, .L14+4
  435 0088 0A40     		and	r2, r1
  436 008a E021     		mov	r1, #224
  437 008c C900     		lsl	r1, r1, #3
  438 008e 0A43     		orr	r2, r1
  439 0090 1A65     		str	r2, [r3, #80]
- 269:../Generated_Code/Cpu.c ****                  PORT_PCR_ISF_MASK
- 270:../Generated_Code/Cpu.c ****                 )) | (uint32_t)(
- 271:../Generated_Code/Cpu.c ****                  PORT_PCR_MUX(0x07)
- 272:../Generated_Code/Cpu.c ****                 ));
- 273:../Generated_Code/Cpu.c ****   /* NVIC_IPR1: PRI_6=0 */
- 274:../Generated_Code/Cpu.c ****   NVIC_IPR1 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_6(0xFF));
- 440              		.loc 1 274 0
- 441 0092 114A     		ldr	r2, .L14+20
- 442 0094 1049     		ldr	r1, .L14+20
+ 272:../Generated_Code/Cpu.c ****                  PORT_PCR_ISF_MASK
+ 273:../Generated_Code/Cpu.c ****                 )) | (uint32_t)(
+ 274:../Generated_Code/Cpu.c ****                  PORT_PCR_MUX(0x07)
+ 275:../Generated_Code/Cpu.c ****                 ));
+ 276:../Generated_Code/Cpu.c ****   /* NVIC_IPR1: PRI_6=0 */
+ 277:../Generated_Code/Cpu.c ****   NVIC_IPR1 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_6(0xFF));
+ 440              		.loc 1 277 0
+ 441 0092 154A     		ldr	r2, .L14+20
+ 442 0094 1449     		ldr	r1, .L14+20
  443 0096 C123     		mov	r3, #193
  444 0098 9B00     		lsl	r3, r3, #2
  445 009a C958     		ldr	r1, [r1, r3]
- 446 009c 0F4B     		ldr	r3, .L14+24
+ 446 009c 134B     		ldr	r3, .L14+24
  447 009e 1940     		and	r1, r3
  448 00a0 C123     		mov	r3, #193
  449 00a2 9B00     		lsl	r3, r3, #2
  450 00a4 D150     		str	r1, [r2, r3]
- 275:../Generated_Code/Cpu.c ****   /* ### Serial_LDD "IO1" component auto initialization. Auto initialization feature can be disable
- 276:../Generated_Code/Cpu.c ****   (void)IO1_Init(NULL);
- 451              		.loc 1 276 0
+ 278:../Generated_Code/Cpu.c ****   /* ### Serial_LDD "IO1" component auto initialization. Auto initialization feature can be disable
+ 279:../Generated_Code/Cpu.c ****   (void)IO1_Init(NULL);
+ 451              		.loc 1 279 0
  452 00a6 0020     		mov	r0, #0
  453 00a8 FFF7FEFF 		bl	IO1_Init
- 277:../Generated_Code/Cpu.c ****   /* ### BitIO_LDD "BitIoLdd1" component auto initialization. Auto initialization feature can be di
- 278:../Generated_Code/Cpu.c ****   (void)BitIoLdd1_Init(NULL);
- 454              		.loc 1 278 0
+ 280:../Generated_Code/Cpu.c ****   /* ### BitIO_LDD "BitIoLdd1" component auto initialization. Auto initialization feature can be di
+ 281:../Generated_Code/Cpu.c ****   (void)BitIoLdd1_Init(NULL);
+ 454              		.loc 1 281 0
  455 00ac 0020     		mov	r0, #0
  456 00ae FFF7FEFF 		bl	BitIoLdd1_Init
- 279:../Generated_Code/Cpu.c ****   /* ### LED "LED1" init code ... */
- 280:../Generated_Code/Cpu.c ****   LED1_Init(); /* initializes the driver */
- 457              		.loc 1 280 0
- 458 00b2 0B4B     		ldr	r3, .L14+28
+ 282:../Generated_Code/Cpu.c ****   /* ### LED "LEDgreen" init code ... */
+ 283:../Generated_Code/Cpu.c ****   LEDgreen_Init(); /* initializes the driver */
+ 457              		.loc 1 283 0
+ 458 00b2 0F4B     		ldr	r3, .L14+28
  459 00b4 DB68     		ldr	r3, [r3, #12]
  460 00b6 181C     		mov	r0, r3
- 461 00b8 FFF7FEFF 		bl	BitIoLdd1_ClrVal
- 281:../Generated_Code/Cpu.c ****   __EI();
- 462              		.loc 1 281 0
- 463              	@ 281 "../Generated_Code/Cpu.c" 1
- 464 00bc 62B6     		CPSIE i
- 465              	@ 0 "" 2
- 282:../Generated_Code/Cpu.c **** }
- 466              		.loc 1 282 0
- 467              		.code	16
- 468 00be BD46     		mov	sp, r7
- 469              		@ sp needed for prologue
- 470 00c0 80BD     		pop	{r7, pc}
- 471              	.L15:
- 472 00c2 C046     		.align	2
- 473              	.L14:
- 474 00c4 00900440 		.word	1074040832
- 475 00c8 FFF8FFFE 		.word	-16779009
- 476 00cc 00F00740 		.word	1074262016
- 477 00d0 00D00740 		.word	1074253824
- 478 00d4 00E00740 		.word	1074257920
- 479 00d8 00E100E0 		.word	-536813312
- 480 00dc FFFF00FF 		.word	-16711681
- 481 00e0 00000000 		.word	PE_LDD_DeviceDataList
- 482              		.cfi_endproc
- 483              	.LFE4:
- 485              		.text
- 486              	.Letext0:
- 487              		.file 2 "D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
- 488              		.file 3 "D:/CodeWarrior/CW MCU v10.6/MCU/ProcessorExpert/lib/Kinetis/iofiles/MKL25Z4.h"
- 489              		.file 4 "../Generated_Code/Cpu.h"
- 490              		.file 5 "../Generated_Code/PE_Types.h"
+ 461 00b8 FFF7FEFF 		bl	BitIoLdd1_SetVal
+ 284:../Generated_Code/Cpu.c ****   /* ### BitIO_LDD "BitIoLdd2" component auto initialization. Auto initialization feature can be di
+ 285:../Generated_Code/Cpu.c ****   (void)BitIoLdd2_Init(NULL);
+ 462              		.loc 1 285 0
+ 463 00bc 0020     		mov	r0, #0
+ 464 00be FFF7FEFF 		bl	BitIoLdd2_Init
+ 286:../Generated_Code/Cpu.c ****   /* ### LED "LEDred" init code ... */
+ 287:../Generated_Code/Cpu.c ****   LEDred_Init(); /* initializes the driver */
+ 465              		.loc 1 287 0
+ 466 00c2 0B4B     		ldr	r3, .L14+28
+ 467 00c4 1B69     		ldr	r3, [r3, #16]
+ 468 00c6 181C     		mov	r0, r3
+ 469 00c8 FFF7FEFF 		bl	BitIoLdd2_SetVal
+ 288:../Generated_Code/Cpu.c ****   __EI();
+ 470              		.loc 1 288 0
+ 471              	@ 288 "../Generated_Code/Cpu.c" 1
+ 472 00cc 62B6     		CPSIE i
+ 473              	@ 0 "" 2
+ 289:../Generated_Code/Cpu.c **** }
+ 474              		.loc 1 289 0
+ 475              		.code	16
+ 476 00ce BD46     		mov	sp, r7
+ 477              		@ sp needed for prologue
+ 478 00d0 80BD     		pop	{r7, pc}
+ 479              	.L15:
+ 480 00d2 C046     		.align	2
+ 481              	.L14:
+ 482 00d4 00900440 		.word	1074040832
+ 483 00d8 FFF8FFFE 		.word	-16779009
+ 484 00dc 00F00740 		.word	1074262016
+ 485 00e0 00D00740 		.word	1074253824
+ 486 00e4 00E00740 		.word	1074257920
+ 487 00e8 00E100E0 		.word	-536813312
+ 488 00ec FFFF00FF 		.word	-16711681
+ 489 00f0 00000000 		.word	PE_LDD_DeviceDataList
+ 490              		.cfi_endproc
+ 491              	.LFE4:
+ 493              		.text
+ 494              	.Letext0:
+ 495              		.file 2 "D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
+ 496              		.file 3 "D:/CodeWarrior/CW MCU v10.6/MCU/ProcessorExpert/lib/Kinetis/iofiles/MKL25Z4.h"
+ 497              		.file 4 "../Generated_Code/Cpu.h"
+ 498              		.file 5 "../Generated_Code/PE_Types.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 Cpu.c
                             *COM*:00000001 SR_reg
-C:\Users\SKRA~1\AppData\Local\Temp\cck42Kb9.s:22     .bss.SR_lock:00000000 SR_lock
-C:\Users\SKRA~1\AppData\Local\Temp\cck42Kb9.s:23     .bss.SR_lock:00000000 $d
-C:\Users\SKRA~1\AppData\Local\Temp\cck42Kb9.s:25     .text.Cpu_INT_NMIInterrupt:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\cck42Kb9.s:30     .text.Cpu_INT_NMIInterrupt:00000000 Cpu_INT_NMIInterrupt
-C:\Users\SKRA~1\AppData\Local\Temp\cck42Kb9.s:53     .text.Cpu_Interrupt:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\cck42Kb9.s:58     .text.Cpu_Interrupt:00000000 Cpu_Interrupt
-C:\Users\SKRA~1\AppData\Local\Temp\cck42Kb9.s:83     .text.Cpu_EnableInt:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\cck42Kb9.s:88     .text.Cpu_EnableInt:00000000 Cpu_EnableInt
-C:\Users\SKRA~1\AppData\Local\Temp\cck42Kb9.s:113    .text.__init_hardware:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\cck42Kb9.s:118    .text.__init_hardware:00000000 __init_hardware
-C:\Users\SKRA~1\AppData\Local\Temp\cck42Kb9.s:326    .text.__init_hardware:0000013c $d
-C:\Users\SKRA~1\AppData\Local\Temp\cck42Kb9.s:344    .text.PE_low_level_init:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\cck42Kb9.s:349    .text.PE_low_level_init:00000000 PE_low_level_init
-C:\Users\SKRA~1\AppData\Local\Temp\cck42Kb9.s:474    .text.PE_low_level_init:000000c4 $d
+C:\Users\SKRA~1\AppData\Local\Temp\cc7LlRts.s:22     .bss.SR_lock:00000000 SR_lock
+C:\Users\SKRA~1\AppData\Local\Temp\cc7LlRts.s:23     .bss.SR_lock:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\cc7LlRts.s:25     .text.Cpu_INT_NMIInterrupt:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\cc7LlRts.s:30     .text.Cpu_INT_NMIInterrupt:00000000 Cpu_INT_NMIInterrupt
+C:\Users\SKRA~1\AppData\Local\Temp\cc7LlRts.s:53     .text.Cpu_Interrupt:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\cc7LlRts.s:58     .text.Cpu_Interrupt:00000000 Cpu_Interrupt
+C:\Users\SKRA~1\AppData\Local\Temp\cc7LlRts.s:83     .text.Cpu_EnableInt:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\cc7LlRts.s:88     .text.Cpu_EnableInt:00000000 Cpu_EnableInt
+C:\Users\SKRA~1\AppData\Local\Temp\cc7LlRts.s:113    .text.__init_hardware:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\cc7LlRts.s:118    .text.__init_hardware:00000000 __init_hardware
+C:\Users\SKRA~1\AppData\Local\Temp\cc7LlRts.s:326    .text.__init_hardware:0000013c $d
+C:\Users\SKRA~1\AppData\Local\Temp\cc7LlRts.s:344    .text.PE_low_level_init:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\cc7LlRts.s:349    .text.PE_low_level_init:00000000 PE_low_level_init
+C:\Users\SKRA~1\AppData\Local\Temp\cc7LlRts.s:482    .text.PE_low_level_init:000000d4 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
@@ -782,5 +797,7 @@ Cpu_OnNMIINT
 __vect_table
 IO1_Init
 BitIoLdd1_Init
-BitIoLdd1_ClrVal
+BitIoLdd1_SetVal
+BitIoLdd2_Init
+BitIoLdd2_SetVal
 PE_LDD_DeviceDataList

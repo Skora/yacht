@@ -22,13 +22,18 @@ Generated_Code/I2C2.o: ../Generated_Code/I2C2.c \
  D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/Cpu.h \
  D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/IO1.h \
  D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/WAIT1.h \
- D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LED1.h \
+ D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LEDgreen.h \
  D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LEDpin1.h \
  D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/BitIoLdd1.h \
  D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h \
  D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.h \
  D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LEDpin1.h \
  D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/BitIoLdd1.h \
+ D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LEDred.h \
+ D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LEDpin2.h \
+ D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/BitIoLdd2.h \
+ D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LEDpin2.h \
+ D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/BitIoLdd2.h \
  D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/TU1.h \
  D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/TPM_PDD.h \
  D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/CsIO1.h \
@@ -52,7 +57,8 @@ Generated_Code/I2C2.o: ../Generated_Code/I2C2.c \
  D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/CsIO1.h \
  D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/IO1.h \
  D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/WAIT1.h \
- D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LED1.h \
+ D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LEDgreen.h \
+ D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LEDred.h \
  ../Generated_Code/I2C2.h \
  D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PORT_PDD.h \
  D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/I2C_PDD.h \
@@ -104,7 +110,7 @@ D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/IO1.h:
 
 D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/WAIT1.h:
 
-D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LED1.h:
+D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LEDgreen.h:
 
 D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LEDpin1.h:
 
@@ -117,6 +123,16 @@ D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/PDD_Types.
 D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LEDpin1.h:
 
 D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/BitIoLdd1.h:
+
+D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LEDred.h:
+
+D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LEDpin2.h:
+
+D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/BitIoLdd2.h:
+
+D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LEDpin2.h:
+
+D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/BitIoLdd2.h:
 
 D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/TU1.h:
 
@@ -164,7 +180,9 @@ D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/IO1.h:
 
 D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/WAIT1.h:
 
-D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LED1.h:
+D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LEDgreen.h:
+
+D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LEDred.h:
 
 ../Generated_Code/I2C2.h:
 

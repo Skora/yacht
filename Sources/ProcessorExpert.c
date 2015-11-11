@@ -22,9 +22,12 @@
 #include "I2C2.h"
 #include "IO1.h"
 #include "WAIT1.h"
-#include "LED1.h"
+#include "LEDgreen.h"
 #include "LEDpin1.h"
 #include "BitIoLdd1.h"
+#include "LEDred.h"
+#include "LEDpin2.h"
+#include "BitIoLdd2.h"
 #include "TU1.h"
 #include "CsIO1.h"
 /* Including shared modules, which are used for whole project */
@@ -49,38 +52,47 @@ LDD_TDeviceData *MyTimerPtr;
 
 int main(void)
 {
+	uint16_t i=0;
 
-  /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
-  PE_low_level_init();
-  /*** End of Processor Expert internal initialization.                    ***/
-
-  // Inicjacja I2C
-  MyI2CPtr = I2C2_Init(NULL);
- 
-  // Inicjacja Timera
-  MyTimerPtr = TU1_Init(NULL);
-
-  
-    // Inicjacja Akcelerometru MMA855X
-  MMA845X_Init();
-  AS5040_Init();
-  
-  for(;;)
-  {
-//	  i++;
-//	 WAIT1_WaitOSms(1);
-//	 if(i%25==0)
-//	 LED1_Neg();
-	 AS5040_data_parser();
-	 MMA845X_Poll();
+	/*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
+	PE_low_level_init();
+	/*** End of Processor Expert internal initialization. 
+	 *                    ***/
+	LEDred_Off();
+	LEDgreen_Off();
+	// Inicjacja I2C
+	MyI2CPtr = I2C2_Init(NULL);
+	// Inicjacja Timera (for I2C)
+	MyTimerPtr = TU1_Init(NULL);
 
 
+	// Inicjacja Akcelerometru MMA855X
+	MMA845X_Init();
+	AS5040_Init();
 
-	printf("tilt =  %d  ang_pos =  %d", mma845x.y, as5040data.ang_position);
-	printf("\n");
+	for(;;)
+	{
+		//	  i++;
+		//	 WAIT1_WaitOSms(10);
+		//	 if(i%25==0)
+		//	 LEDgreen_Neg();
+		AS5040_data_parser();
+		MMA845X_Poll();
 
-  }
-  
+
+		if(as5040data.Erorr){
+			LEDgreen_Off();
+			LEDred_On();
+		}
+		else{
+			LEDgreen_On();
+			LEDred_Off();
+		}
+		printf("tilt =  %d  ang_pos =  %d", mma845x.y, as5040data.ang_position);
+		printf("\n");
+
+	}
+
   /*** Don't write any code pass this line, or it will be deleted during code generation. ***/
   /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
   #ifdef PEX_RTOS_START

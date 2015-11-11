@@ -31,9 +31,11 @@ Generated_Code/PE_LDD.o: ../Generated_Code/PE_LDD.c \
  D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdarg \
  D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/arm/stdarg.ARM.h \
  ../Generated_Code/IO1.h ../Generated_Code/WAIT1.h \
- ../Generated_Code/LED1.h ../Generated_Code/LEDpin1.h \
+ ../Generated_Code/LEDgreen.h ../Generated_Code/LEDpin1.h \
  ../Generated_Code/BitIoLdd1.h \
- D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h
+ D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h \
+ ../Generated_Code/LEDred.h ../Generated_Code/LEDpin2.h \
+ ../Generated_Code/BitIoLdd2.h
 
 ../Generated_Code/PE_LDD.h:
 
@@ -109,10 +111,16 @@ D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/arm/stdarg.A
 
 ../Generated_Code/WAIT1.h:
 
-../Generated_Code/LED1.h:
+../Generated_Code/LEDgreen.h:
 
 ../Generated_Code/LEDpin1.h:
 
 ../Generated_Code/BitIoLdd1.h:
 
 D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h:
+
+../Generated_Code/LEDred.h:
+
+../Generated_Code/LEDpin2.h:
+
+../Generated_Code/BitIoLdd2.h:

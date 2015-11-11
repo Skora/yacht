@@ -5,7 +5,7 @@
 **     Processor   : MKL25Z128VLK4
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-10-27, 09:17, # CodeGen: 12
+**     Date/Time   : 2015-11-11, 15:26, # CodeGen: 15
 **     Abstract    :
 **
 **     Settings    :
@@ -59,9 +59,12 @@
   #include "CsIO1.h"
   #include "IO1.h"
   #include "WAIT1.h"
-  #include "LED1.h"
+  #include "LEDgreen.h"
   #include "LEDpin1.h"
   #include "BitIoLdd1.h"
+  #include "LEDred.h"
+  #include "LEDpin2.h"
+  #include "BitIoLdd2.h"
   #include "Events.h"
 
 

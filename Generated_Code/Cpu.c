@@ -7,7 +7,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-10-27, 09:17, # CodeGen: 12
+**     Date/Time   : 2015-11-11, 15:26, # CodeGen: 15
 **     Abstract    :
 **
 **     Settings    :
@@ -65,9 +65,12 @@
 #include "CsIO1.h"
 #include "IO1.h"
 #include "WAIT1.h"
-#include "LED1.h"
+#include "LEDgreen.h"
 #include "LEDpin1.h"
 #include "BitIoLdd1.h"
+#include "LEDred.h"
+#include "LEDpin2.h"
+#include "BitIoLdd2.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -276,8 +279,12 @@ void PE_low_level_init(void)
   (void)IO1_Init(NULL);
   /* ### BitIO_LDD "BitIoLdd1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)BitIoLdd1_Init(NULL);
-  /* ### LED "LED1" init code ... */
-  LED1_Init(); /* initializes the driver */
+  /* ### LED "LEDgreen" init code ... */
+  LEDgreen_Init(); /* initializes the driver */
+  /* ### BitIO_LDD "BitIoLdd2" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)BitIoLdd2_Init(NULL);
+  /* ### LED "LEDred" init code ... */
+  LEDred_Init(); /* initializes the driver */
   __EI();
 }
 

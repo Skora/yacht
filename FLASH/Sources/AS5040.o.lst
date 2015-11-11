@@ -14,7 +14,7 @@
   14              		.text
   15              	.Ltext0:
   16              		.cfi_sections	.debug_frame
-  17              		.comm	as5040data,8,4
+  17              		.comm	as5040data,10,4
   18              		.section	.text.AS5040_Init,"ax",%progbits
   19              		.align	2
   20              		.global	AS5040_Init
@@ -301,7 +301,7 @@
  241 0018 03D0     		beq	.L12
   64:../Sources/AS5040.c **** 		as5040data.ocf=1;
  242              		.loc 1 64 0
- 243 001a 264B     		ldr	r3, .L24
+ 243 001a 324B     		ldr	r3, .L26
  244 001c 0122     		mov	r2, #1
  245 001e 9A70     		strb	r2, [r3, #2]
  246 0020 02E0     		b	.L13
@@ -309,7 +309,7 @@
   65:../Sources/AS5040.c **** 	else
   66:../Sources/AS5040.c **** 		as5040data.ocf=0;
  248              		.loc 1 66 0
- 249 0022 244B     		ldr	r3, .L24
+ 249 0022 304B     		ldr	r3, .L26
  250 0024 0022     		mov	r2, #0
  251 0026 9A70     		strb	r2, [r3, #2]
  252              	.L13:
@@ -323,7 +323,7 @@
  258 0030 03D0     		beq	.L14
   69:../Sources/AS5040.c **** 		as5040data.cof=1;
  259              		.loc 1 69 0
- 260 0032 204B     		ldr	r3, .L24
+ 260 0032 2C4B     		ldr	r3, .L26
  261 0034 0122     		mov	r2, #1
  262 0036 DA70     		strb	r2, [r3, #3]
  263 0038 02E0     		b	.L15
@@ -331,7 +331,7 @@
   70:../Sources/AS5040.c **** 	else
   71:../Sources/AS5040.c **** 		as5040data.cof=0;
  265              		.loc 1 71 0
- 266 003a 1E4B     		ldr	r3, .L24
+ 266 003a 2A4B     		ldr	r3, .L26
  267 003c 0022     		mov	r2, #0
  268 003e DA70     		strb	r2, [r3, #3]
  269              	.L15:
@@ -344,7 +344,7 @@
  275 0048 03D0     		beq	.L16
   73:../Sources/AS5040.c **** 		as5040data.lin=1;
  276              		.loc 1 73 0
- 277 004a 1A4B     		ldr	r3, .L24
+ 277 004a 264B     		ldr	r3, .L26
  278 004c 0122     		mov	r2, #1
  279 004e 1A71     		strb	r2, [r3, #4]
  280 0050 02E0     		b	.L17
@@ -352,7 +352,7 @@
   74:../Sources/AS5040.c **** 	else
   75:../Sources/AS5040.c **** 		as5040data.lin=0;
  282              		.loc 1 75 0
- 283 0052 184B     		ldr	r3, .L24
+ 283 0052 244B     		ldr	r3, .L26
  284 0054 0022     		mov	r2, #0
  285 0056 1A71     		strb	r2, [r3, #4]
  286              	.L17:
@@ -365,7 +365,7 @@
  292 0060 03D0     		beq	.L18
   77:../Sources/AS5040.c **** 		as5040data.MAG_inc=1;
  293              		.loc 1 77 0
- 294 0062 144B     		ldr	r3, .L24
+ 294 0062 204B     		ldr	r3, .L26
  295 0064 0122     		mov	r2, #1
  296 0066 5A71     		strb	r2, [r3, #5]
  297 0068 02E0     		b	.L19
@@ -373,7 +373,7 @@
   78:../Sources/AS5040.c **** 	else
   79:../Sources/AS5040.c **** 		as5040data.MAG_inc=0;
  299              		.loc 1 79 0
- 300 006a 124B     		ldr	r3, .L24
+ 300 006a 1E4B     		ldr	r3, .L26
  301 006c 0022     		mov	r2, #0
  302 006e 5A71     		strb	r2, [r3, #5]
  303              	.L19:
@@ -386,7 +386,7 @@
  309 0078 03D0     		beq	.L20
   81:../Sources/AS5040.c **** 		as5040data.MAG_dec=1;
  310              		.loc 1 81 0
- 311 007a 0E4B     		ldr	r3, .L24
+ 311 007a 1A4B     		ldr	r3, .L26
  312 007c 0122     		mov	r2, #1
  313 007e 9A71     		strb	r2, [r3, #6]
  314 0080 02E0     		b	.L21
@@ -394,7 +394,7 @@
   82:../Sources/AS5040.c **** 	else
   83:../Sources/AS5040.c **** 		as5040data.MAG_dec=0;
  316              		.loc 1 83 0
- 317 0082 0C4B     		ldr	r3, .L24
+ 317 0082 184B     		ldr	r3, .L26
  318 0084 0022     		mov	r2, #0
  319 0086 9A71     		strb	r2, [r3, #6]
  320              	.L21:
@@ -407,7 +407,7 @@
  326 0090 03D0     		beq	.L22
   85:../Sources/AS5040.c **** 		as5040data.even_parity=1;
  327              		.loc 1 85 0
- 328 0092 084B     		ldr	r3, .L24
+ 328 0092 144B     		ldr	r3, .L26
  329 0094 0122     		mov	r2, #1
  330 0096 DA71     		strb	r2, [r3, #7]
  331 0098 02E0     		b	.L23
@@ -415,53 +415,101 @@
   86:../Sources/AS5040.c **** 	else
   87:../Sources/AS5040.c **** 		as5040data.even_parity=0;
  333              		.loc 1 87 0
- 334 009a 064B     		ldr	r3, .L24
+ 334 009a 124B     		ldr	r3, .L26
  335 009c 0022     		mov	r2, #0
  336 009e DA71     		strb	r2, [r3, #7]
  337              	.L23:
   88:../Sources/AS5040.c **** 	
-  89:../Sources/AS5040.c **** 	
-  90:../Sources/AS5040.c **** 	
-  91:../Sources/AS5040.c **** 	as5040data.ang_position=(data>>6);
- 338              		.loc 1 91 0
- 339 00a0 BB1D     		add	r3, r7, #6
- 340 00a2 1B88     		ldrh	r3, [r3]
- 341 00a4 9B09     		lsr	r3, r3, #6
- 342 00a6 9BB2     		uxth	r3, r3
- 343 00a8 9AB2     		uxth	r2, r3
- 344 00aa 024B     		ldr	r3, .L24
- 345 00ac 1A80     		strh	r2, [r3]
-  92:../Sources/AS5040.c **** 
-  93:../Sources/AS5040.c **** }
- 346              		.loc 1 93 0
- 347 00ae BD46     		mov	sp, r7
- 348 00b0 03B0     		add	sp, sp, #12
- 349              		@ sp needed for prologue
- 350 00b2 90BD     		pop	{r4, r7, pc}
- 351              	.L25:
- 352              		.align	2
- 353              	.L24:
- 354 00b4 00000000 		.word	as5040data
- 355              		.cfi_endproc
- 356              	.LFE2:
- 358              		.text
- 359              	.Letext0:
- 360              		.file 2 "D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
- 361              		.file 3 "D:/CodeWarrior/CW MCU v10.6/MCU/ProcessorExpert/lib/Kinetis/iofiles/MKL25Z4.h"
- 362              		.file 4 "D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/PE_Types.h"
- 363              		.file 5 "../Sources/AS5040.h"
+  89:../Sources/AS5040.c **** 	/* data ERROR evaluation*/ 
+  90:../Sources/AS5040.c **** 	if((as5040data.MAG_inc & as5040data.MAG_inc)|
+ 338              		.loc 1 90 0
+ 339 00a0 104B     		ldr	r3, .L26
+ 340 00a2 5B79     		ldrb	r3, [r3, #5]
+ 341 00a4 1A1C     		mov	r2, r3
+  91:../Sources/AS5040.c **** 								(!as5040data.ocf)|
+ 342              		.loc 1 91 0
+ 343 00a6 0F4B     		ldr	r3, .L26
+ 344 00a8 9B78     		ldrb	r3, [r3, #2]
+ 345 00aa 5942     		neg	r1, r3
+ 346 00ac 4B41     		adc	r3, r3, r1
+ 347 00ae DBB2     		uxtb	r3, r3
+  90:../Sources/AS5040.c **** 	if((as5040data.MAG_inc & as5040data.MAG_inc)|
+ 348              		.loc 1 90 0
+ 349 00b0 1A43     		orr	r2, r3
+  92:../Sources/AS5040.c **** 									(as5040data.cof)|
+ 350              		.loc 1 92 0
+ 351 00b2 0C4B     		ldr	r3, .L26
+ 352 00b4 DB78     		ldrb	r3, [r3, #3]
+  91:../Sources/AS5040.c **** 								(!as5040data.ocf)|
+ 353              		.loc 1 91 0
+ 354 00b6 1A43     		orr	r2, r3
+  93:../Sources/AS5040.c **** 										(as5040data.lin)){
+ 355              		.loc 1 93 0
+ 356 00b8 0A4B     		ldr	r3, .L26
+ 357 00ba 1B79     		ldrb	r3, [r3, #4]
+  92:../Sources/AS5040.c **** 									(as5040data.cof)|
+ 358              		.loc 1 92 0
+ 359 00bc 1343     		orr	r3, r2
+  90:../Sources/AS5040.c **** 	if((as5040data.MAG_inc & as5040data.MAG_inc)|
+ 360              		.loc 1 90 0
+ 361 00be 03D0     		beq	.L24
+  94:../Sources/AS5040.c **** 		as5040data.Erorr=1;
+ 362              		.loc 1 94 0
+ 363 00c0 084B     		ldr	r3, .L26
+ 364 00c2 0122     		mov	r2, #1
+ 365 00c4 1A72     		strb	r2, [r3, #8]
+ 366 00c6 02E0     		b	.L25
+ 367              	.L24:
+  95:../Sources/AS5040.c **** 	}
+  96:../Sources/AS5040.c **** 	else{
+  97:../Sources/AS5040.c **** 		as5040data.Erorr=0;
+ 368              		.loc 1 97 0
+ 369 00c8 064B     		ldr	r3, .L26
+ 370 00ca 0022     		mov	r2, #0
+ 371 00cc 1A72     		strb	r2, [r3, #8]
+ 372              	.L25:
+  98:../Sources/AS5040.c **** 	}
+  99:../Sources/AS5040.c **** 	
+ 100:../Sources/AS5040.c **** 	as5040data.ang_position=(data>>6);
+ 373              		.loc 1 100 0
+ 374 00ce BB1D     		add	r3, r7, #6
+ 375 00d0 1B88     		ldrh	r3, [r3]
+ 376 00d2 9B09     		lsr	r3, r3, #6
+ 377 00d4 9BB2     		uxth	r3, r3
+ 378 00d6 9AB2     		uxth	r2, r3
+ 379 00d8 024B     		ldr	r3, .L26
+ 380 00da 1A80     		strh	r2, [r3]
+ 101:../Sources/AS5040.c **** 
+ 102:../Sources/AS5040.c **** }
+ 381              		.loc 1 102 0
+ 382 00dc BD46     		mov	sp, r7
+ 383 00de 03B0     		add	sp, sp, #12
+ 384              		@ sp needed for prologue
+ 385 00e0 90BD     		pop	{r4, r7, pc}
+ 386              	.L27:
+ 387 00e2 C046     		.align	2
+ 388              	.L26:
+ 389 00e4 00000000 		.word	as5040data
+ 390              		.cfi_endproc
+ 391              	.LFE2:
+ 393              		.text
+ 394              	.Letext0:
+ 395              		.file 2 "D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
+ 396              		.file 3 "D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/PE_Types.h"
+ 397              		.file 4 "D:/CodeWarrior/CW MCU v10.6/MCU/ProcessorExpert/lib/Kinetis/iofiles/MKL25Z4.h"
+ 398              		.file 5 "../Sources/AS5040.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 AS5040.c
-                            *COM*:00000008 as5040data
-C:\Users\SKRA~1\AppData\Local\Temp\ccdHDc9J.s:19     .text.AS5040_Init:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccdHDc9J.s:24     .text.AS5040_Init:00000000 AS5040_Init
-C:\Users\SKRA~1\AppData\Local\Temp\ccdHDc9J.s:90     .text.AS5040_Init:00000054 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccdHDc9J.s:98     .text.AS5040_Data_read:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccdHDc9J.s:103    .text.AS5040_Data_read:00000000 AS5040_Data_read
-C:\Users\SKRA~1\AppData\Local\Temp\ccdHDc9J.s:205    .text.AS5040_Data_read:00000088 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccdHDc9J.s:210    .text.AS5040_data_parser:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccdHDc9J.s:215    .text.AS5040_data_parser:00000000 AS5040_data_parser
-C:\Users\SKRA~1\AppData\Local\Temp\ccdHDc9J.s:354    .text.AS5040_data_parser:000000b4 $d
+                            *COM*:0000000a as5040data
+C:\Users\SKRA~1\AppData\Local\Temp\ccmnfQpC.s:19     .text.AS5040_Init:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccmnfQpC.s:24     .text.AS5040_Init:00000000 AS5040_Init
+C:\Users\SKRA~1\AppData\Local\Temp\ccmnfQpC.s:90     .text.AS5040_Init:00000054 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccmnfQpC.s:98     .text.AS5040_Data_read:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccmnfQpC.s:103    .text.AS5040_Data_read:00000000 AS5040_Data_read
+C:\Users\SKRA~1\AppData\Local\Temp\ccmnfQpC.s:205    .text.AS5040_Data_read:00000088 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccmnfQpC.s:210    .text.AS5040_data_parser:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccmnfQpC.s:215    .text.AS5040_data_parser:00000000 AS5040_data_parser
+C:\Users\SKRA~1\AppData\Local\Temp\ccmnfQpC.s:389    .text.AS5040_data_parser:000000e4 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

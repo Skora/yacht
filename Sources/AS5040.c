@@ -86,7 +86,16 @@ void AS5040_data_parser()
 	else
 		as5040data.even_parity=0;
 	
-	
+	/* data ERROR evaluation*/ 
+	if((as5040data.MAG_inc & as5040data.MAG_inc)|
+								(!as5040data.ocf)|
+									(as5040data.cof)|
+										(as5040data.lin)){
+		as5040data.Erorr=1;
+	}
+	else{
+		as5040data.Erorr=0;
+	}
 	
 	as5040data.ang_position=(data>>6);
 
