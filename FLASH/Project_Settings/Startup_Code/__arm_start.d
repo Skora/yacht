@@ -18,7 +18,7 @@ Project_Settings/Startup_Code/__arm_start.o: \
  D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/stdint.h \
  D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint \
  D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/limits_api.h \
- D:/PlikiI/Synergia/Freescale\ cup/CodeWarior_workspace/I2C_1/Project_Settings/Startup_Code/runtime_configuration.h
+ D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Project_Settings/Startup_Code/runtime_configuration.h
 
 D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/string.h:
 
@@ -56,4 +56,4 @@ D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint:
 
 D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/limits_api.h:
 
-D:/PlikiI/Synergia/Freescale\ cup/CodeWarior_workspace/I2C_1/Project_Settings/Startup_Code/runtime_configuration.h:
+D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Project_Settings/Startup_Code/runtime_configuration.h:

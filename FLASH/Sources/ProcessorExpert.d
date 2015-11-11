@@ -54,7 +54,7 @@ Sources/ProcessorExpert.o: ../Sources/ProcessorExpert.c \
  D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/IO1.h \
  D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/WAIT1.h \
  D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LED1.h \
- ../Sources/ProcessorExpert.h ../Sources/AS5040.h
+ ../Sources/AS5040.h ../Sources/mma8453.h
 
 D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/Cpu.h:
 
@@ -166,6 +166,6 @@ D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/WAIT1.h:
 
 D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LED1.h:
 
-../Sources/ProcessorExpert.h:
-
 ../Sources/AS5040.h:
+
+../Sources/mma8453.h:
