@@ -1,3 +1,4 @@
+"./Generated_Code/out_I2C.o"
 "./Generated_Code/WAIT1.o"
 "./Generated_Code/Vectors.o"
 "./Generated_Code/TU1.o"
@@ -16,6 +17,7 @@
 "./Project_Settings/Startup_Code/__arm_end.o"
 "./Sources/mma8453.o"
 "./Sources/ProcessorExpert.o"
+"./Sources/LTC2945.o"
 "./Sources/Events.o"
 "./Sources/AS5040.o"
 -mcpu=cortex-m0

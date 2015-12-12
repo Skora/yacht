@@ -42,7 +42,7 @@ void Timer_Interrupt_CB(void)
 void MMA845X_Init(void)
 {
 
-  /* Configure I2C BUS device(e.g. RTC) - Write Operation */
+  /* Configure I2C BUS devic - Write Operation */
   Error = I2C2_MasterSendBlock(MyI2CPtr, &OutData, 2, LDD_I2C_NO_SEND_STOP); /* Send OutData (4 bytes) on the I2C bus and generates a stop condition to end transmission */
   while (!DataTransmittedFlg); 
   DataTransmittedFlg = FALSE;

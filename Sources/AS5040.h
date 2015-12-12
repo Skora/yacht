@@ -21,7 +21,7 @@ typedef struct
     bool Erorr;
 }AS5040data;
 
-#define AS5040_CLK_LOC		((uint32_t)(1<<3)) 		//chaosing pin number
+#define AS5040_CLK_LOC		((uint32_t)(1<<3)) 		//choosing pin number
 #define AS5040_DI_LOC		((uint32_t)(1<<4))		//docelowo PTE2-5
 #define AS5040_PRG_LOC		((uint32_t)(1<<5))
 #define AS5040_CS_LOC		((uint32_t)(1<<2))

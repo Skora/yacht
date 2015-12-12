@@ -43,7 +43,7 @@
   45 0058 00000000 		.word	Cpu_Interrupt
   46 005c 00000000 		.word	Cpu_Interrupt
   47 0060 00000000 		.word	I2C2_Interrupt
-  48 0064 00000000 		.word	Cpu_Interrupt
+  48 0064 00000000 		.word	out_I2C_Interrupt
   49 0068 00000000 		.word	Cpu_Interrupt
   50 006c 00000000 		.word	Cpu_Interrupt
   51 0070 00000000 		.word	Cpu_Interrupt
@@ -73,8 +73,8 @@
   75              		.file 3 "../Generated_Code/Vectors.c"
 DEFINED SYMBOLS
                             *ABS*:00000000 Vectors.c
-C:\Users\SKRA~1\AppData\Local\Temp\cc3Hr3Nm.s:22     .vectortable:00000000 __vect_table
-C:\Users\SKRA~1\AppData\Local\Temp\cc3Hr3Nm.s:19     .vectortable:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccH2Cyoh.s:22     .vectortable:00000000 __vect_table
+C:\Users\SKRA~1\AppData\Local\Temp\ccH2Cyoh.s:19     .vectortable:00000000 $d
 
 UNDEFINED SYMBOLS
 __SP_INIT
@@ -82,4 +82,5 @@ __thumb_startup
 Cpu_INT_NMIInterrupt
 Cpu_Interrupt
 I2C2_Interrupt
+out_I2C_Interrupt
 TU1_Interrupt

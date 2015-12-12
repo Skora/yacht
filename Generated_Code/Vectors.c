@@ -5,7 +5,7 @@
 **     Processor   : MKL25Z128VLK4
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-11-11, 15:26, # CodeGen: 15
+**     Date/Time   : 2015-12-12, 12:27, # CodeGen: 18
 **     Abstract    :
 **
 **     Settings    :
@@ -65,6 +65,7 @@
   #include "LEDred.h"
   #include "LEDpin2.h"
   #include "BitIoLdd2.h"
+  #include "out_I2C.h"
   #include "Events.h"
 
 
@@ -109,7 +110,7 @@
     (tIsrFunc)&Cpu_Interrupt,          /* 0x16  0x00000058   -   ivINT_LVD_LVW                 unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x17  0x0000005C   -   ivINT_LLW                     unused by PE */
     (tIsrFunc)&I2C2_Interrupt,         /* 0x18  0x00000060   2   ivINT_I2C0                    used by PE */
-    (tIsrFunc)&Cpu_Interrupt,          /* 0x19  0x00000064   -   ivINT_I2C1                    unused by PE */
+    (tIsrFunc)&out_I2C_Interrupt,      /* 0x19  0x00000064   2   ivINT_I2C1                    used by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x1A  0x00000068   -   ivINT_SPI0                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x1B  0x0000006C   -   ivINT_SPI1                    unused by PE */
     (tIsrFunc)&Cpu_Interrupt,          /* 0x1C  0x00000070   -   ivINT_UART0                   unused by PE */

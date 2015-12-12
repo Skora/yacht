@@ -1,0 +1,403 @@
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"LTC2945.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.comm	LtcInData,7,4
+  18              		.global	LtcOutData
+  19              		.section	.data.LtcOutData,"aw",%progbits
+  20              		.align	2
+  23              	LtcOutData:
+  24 0000 2A       		.byte	42
+  25 0001 01       		.byte	1
+  26              		.global	LTCDataReceivedFlg
+  27 0002 0000     		.section	.bss.LTCDataReceivedFlg,"aw",%nobits
+  30              	LTCDataReceivedFlg:
+  31 0000 00       		.space	1
+  32              		.global	LTCDataTransmittedFlg
+  33              		.section	.bss.LTCDataTransmittedFlg,"aw",%nobits
+  36              	LTCDataTransmittedFlg:
+  37 0000 00       		.space	1
+  38              		.comm	ltc2945,12,4
+  39              		.comm	Error,2,2
+  40              		.comm	Myout_I2CPtr,4,4
+  41              		.section	.text.LTC2945_Init,"ax",%progbits
+  42              		.align	2
+  43              		.global	LTC2945_Init
+  44              		.code	16
+  45              		.thumb_func
+  47              	LTC2945_Init:
+  48              	.LFB0:
+  49              		.file 1 "../Sources/LTC2945.c"
+   1:../Sources/LTC2945.c **** 
+   2:../Sources/LTC2945.c **** #include "LTC2945.h"
+   3:../Sources/LTC2945.c **** 
+   4:../Sources/LTC2945.c **** uint8_t LtcOutData[2] ={0x2A, 0x01};                // Inicjacja buforu wyjciowego 
+   5:../Sources/LTC2945.c **** 
+   6:../Sources/LTC2945.c **** volatile bool LTCDataReceivedFlg=FALSE;
+   7:../Sources/LTC2945.c **** volatile bool LTCDataTransmittedFlg=FALSE;
+   8:../Sources/LTC2945.c **** 
+   9:../Sources/LTC2945.c **** LTC2945 ltc2945;
+  10:../Sources/LTC2945.c **** LDD_TError Error;
+  11:../Sources/LTC2945.c **** 
+  12:../Sources/LTC2945.c **** LDD_TDeviceData *Myout_I2CPtr;
+  13:../Sources/LTC2945.c **** 
+  14:../Sources/LTC2945.c **** 
+  15:../Sources/LTC2945.c **** 
+  16:../Sources/LTC2945.c **** 
+  17:../Sources/LTC2945.c **** 
+  18:../Sources/LTC2945.c **** 
+  19:../Sources/LTC2945.c **** /*****************************************************************************
+  20:../Sources/LTC2945.c **** * Inicjacja I2C dla  MMA845x
+  21:../Sources/LTC2945.c **** ******************************************************************************/
+  22:../Sources/LTC2945.c **** void LTC2945_Init(void)
+  23:../Sources/LTC2945.c **** {
+  50              		.loc 1 23 0
+  51              		.cfi_startproc
+  52 0000 80B5     		push	{r7, lr}
+  53              	.LCFI0:
+  54              		.cfi_def_cfa_offset 8
+  55              		.cfi_offset 7, -8
+  56              		.cfi_offset 14, -4
+  57 0002 00AF     		add	r7, sp, #0
+  58              	.LCFI1:
+  59              		.cfi_def_cfa_register 7
+  24:../Sources/LTC2945.c **** 
+  25:../Sources/LTC2945.c ****   /* Configure I2C BUS devic - Write Operation */
+  26:../Sources/LTC2945.c ****   Error = out_I2C_MasterSendBlock(Myout_I2CPtr, &LtcOutData, 2, LDD_I2C_NO_SEND_STOP); /* Send LtcO
+  60              		.loc 1 26 0
+  61 0004 234B     		ldr	r3, .L5
+  62 0006 1A68     		ldr	r2, [r3]
+  63 0008 234B     		ldr	r3, .L5+4
+  64 000a 101C     		mov	r0, r2
+  65 000c 191C     		mov	r1, r3
+  66 000e 0222     		mov	r2, #2
+  67 0010 0023     		mov	r3, #0
+  68 0012 FFF7FEFF 		bl	out_I2C_MasterSendBlock
+  69 0016 031C     		mov	r3, r0
+  70 0018 1A1C     		mov	r2, r3
+  71 001a 204B     		ldr	r3, .L5+8
+  72 001c 1A80     		strh	r2, [r3]
+  27:../Sources/LTC2945.c ****   while (!LTCDataTransmittedFlg); 
+  73              		.loc 1 27 0
+  74 001e C046     		mov	r8, r8
+  75              	.L2:
+  76              		.loc 1 27 0 is_stmt 0
+  77 0020 1F4B     		ldr	r3, .L5+12
+  78 0022 1B78     		ldrb	r3, [r3]
+  79 0024 DBB2     		uxtb	r3, r3
+  80 0026 002B     		cmp	r3, #0
+  81 0028 FAD0     		beq	.L2
+  28:../Sources/LTC2945.c ****   LTCDataTransmittedFlg = FALSE;
+  82              		.loc 1 28 0 is_stmt 1
+  83 002a 1D4B     		ldr	r3, .L5+12
+  84 002c 0022     		mov	r2, #0
+  85 002e 1A70     		strb	r2, [r3]
+  29:../Sources/LTC2945.c ****   
+  30:../Sources/LTC2945.c ****   LtcOutData[0] = LTC2945_DIVICE_ADDR; 
+  86              		.loc 1 30 0
+  87 0030 194B     		ldr	r3, .L5+4
+  88 0032 DE22     		mov	r2, #222
+  89 0034 1A70     		strb	r2, [r3]
+  31:../Sources/LTC2945.c **** 
+  32:../Sources/LTC2945.c ****   Error = out_I2C_MasterSendBlock(Myout_I2CPtr, &LtcOutData, 1, LDD_I2C_NO_SEND_STOP);
+  90              		.loc 1 32 0
+  91 0036 174B     		ldr	r3, .L5
+  92 0038 1A68     		ldr	r2, [r3]
+  93 003a 174B     		ldr	r3, .L5+4
+  94 003c 101C     		mov	r0, r2
+  95 003e 191C     		mov	r1, r3
+  96 0040 0122     		mov	r2, #1
+  97 0042 0023     		mov	r3, #0
+  98 0044 FFF7FEFF 		bl	out_I2C_MasterSendBlock
+  99 0048 031C     		mov	r3, r0
+ 100 004a 1A1C     		mov	r2, r3
+ 101 004c 134B     		ldr	r3, .L5+8
+ 102 004e 1A80     		strh	r2, [r3]
+  33:../Sources/LTC2945.c ****   while (!LTCDataTransmittedFlg);  
+ 103              		.loc 1 33 0
+ 104 0050 C046     		mov	r8, r8
+ 105              	.L3:
+ 106              		.loc 1 33 0 is_stmt 0
+ 107 0052 134B     		ldr	r3, .L5+12
+ 108 0054 1B78     		ldrb	r3, [r3]
+ 109 0056 DBB2     		uxtb	r3, r3
+ 110 0058 002B     		cmp	r3, #0
+ 111 005a FAD0     		beq	.L3
+  34:../Sources/LTC2945.c ****   LTCDataTransmittedFlg = FALSE;
+ 112              		.loc 1 34 0 is_stmt 1
+ 113 005c 104B     		ldr	r3, .L5+12
+ 114 005e 0022     		mov	r2, #0
+ 115 0060 1A70     		strb	r2, [r3]
+  35:../Sources/LTC2945.c ****   
+  36:../Sources/LTC2945.c ****   Error = out_I2C_MasterReceiveBlock(Myout_I2CPtr, &ltc2945.id, 1, LDD_I2C_SEND_STOP);
+ 116              		.loc 1 36 0
+ 117 0062 0C4B     		ldr	r3, .L5
+ 118 0064 1A68     		ldr	r2, [r3]
+ 119 0066 0F4B     		ldr	r3, .L5+16
+ 120 0068 101C     		mov	r0, r2
+ 121 006a 191C     		mov	r1, r3
+ 122 006c 0122     		mov	r2, #1
+ 123 006e 0123     		mov	r3, #1
+ 124 0070 FFF7FEFF 		bl	out_I2C_MasterReceiveBlock
+ 125 0074 031C     		mov	r3, r0
+ 126 0076 1A1C     		mov	r2, r3
+ 127 0078 084B     		ldr	r3, .L5+8
+ 128 007a 1A80     		strh	r2, [r3]
+  37:../Sources/LTC2945.c ****   while (!LTCDataReceivedFlg);
+ 129              		.loc 1 37 0
+ 130 007c C046     		mov	r8, r8
+ 131              	.L4:
+ 132              		.loc 1 37 0 is_stmt 0
+ 133 007e 0A4B     		ldr	r3, .L5+20
+ 134 0080 1B78     		ldrb	r3, [r3]
+ 135 0082 DBB2     		uxtb	r3, r3
+ 136 0084 002B     		cmp	r3, #0
+ 137 0086 FAD0     		beq	.L4
+  38:../Sources/LTC2945.c ****   LTCDataReceivedFlg = FALSE;
+ 138              		.loc 1 38 0 is_stmt 1
+ 139 0088 074B     		ldr	r3, .L5+20
+ 140 008a 0022     		mov	r2, #0
+ 141 008c 1A70     		strb	r2, [r3]
+  39:../Sources/LTC2945.c **** }
+ 142              		.loc 1 39 0
+ 143 008e BD46     		mov	sp, r7
+ 144              		@ sp needed for prologue
+ 145 0090 80BD     		pop	{r7, pc}
+ 146              	.L6:
+ 147 0092 C046     		.align	2
+ 148              	.L5:
+ 149 0094 00000000 		.word	Myout_I2CPtr
+ 150 0098 00000000 		.word	LtcOutData
+ 151 009c 00000000 		.word	Error
+ 152 00a0 00000000 		.word	LTCDataTransmittedFlg
+ 153 00a4 08000000 		.word	ltc2945+8
+ 154 00a8 00000000 		.word	LTCDataReceivedFlg
+ 155              		.cfi_endproc
+ 156              	.LFE0:
+ 158              		.section	.text.LTC2945_Poll,"ax",%progbits
+ 159              		.align	2
+ 160              		.global	LTC2945_Poll
+ 161              		.code	16
+ 162              		.thumb_func
+ 164              	LTC2945_Poll:
+ 165              	.LFB1:
+  40:../Sources/LTC2945.c **** 
+  41:../Sources/LTC2945.c **** /**************************************************************************//*!
+  42:../Sources/LTC2945.c **** *    polling
+  43:../Sources/LTC2945.c **** ******************************************************************************/
+  44:../Sources/LTC2945.c **** void LTC2945_Poll(void)
+  45:../Sources/LTC2945.c **** {
+ 166              		.loc 1 45 0
+ 167              		.cfi_startproc
+ 168 0000 80B5     		push	{r7, lr}
+ 169              	.LCFI2:
+ 170              		.cfi_def_cfa_offset 8
+ 171              		.cfi_offset 7, -8
+ 172              		.cfi_offset 14, -4
+ 173 0002 00AF     		add	r7, sp, #0
+ 174              	.LCFI3:
+ 175              		.cfi_def_cfa_register 7
+  46:../Sources/LTC2945.c **** 
+  47:../Sources/LTC2945.c **** 	LtcOutData[0] = LTC2945_DIVICE_ADDR; //device dares with R/W st to 0
+ 176              		.loc 1 47 0
+ 177 0004 364B     		ldr	r3, .L12
+ 178 0006 DE22     		mov	r2, #222
+ 179 0008 1A70     		strb	r2, [r3]
+  48:../Sources/LTC2945.c **** 	Error = out_I2C_MasterSendBlock(Myout_I2CPtr, &LtcOutData, 1, LDD_I2C_NO_SEND_STOP); 
+ 180              		.loc 1 48 0
+ 181 000a 364B     		ldr	r3, .L12+4
+ 182 000c 1A68     		ldr	r2, [r3]
+ 183 000e 344B     		ldr	r3, .L12
+ 184 0010 101C     		mov	r0, r2
+ 185 0012 191C     		mov	r1, r3
+ 186 0014 0122     		mov	r2, #1
+ 187 0016 0023     		mov	r3, #0
+ 188 0018 FFF7FEFF 		bl	out_I2C_MasterSendBlock
+ 189 001c 031C     		mov	r3, r0
+ 190 001e 1A1C     		mov	r2, r3
+ 191 0020 314B     		ldr	r3, .L12+8
+ 192 0022 1A80     		strh	r2, [r3]
+  49:../Sources/LTC2945.c **** 	while (!LTCDataTransmittedFlg); 
+ 193              		.loc 1 49 0
+ 194 0024 C046     		mov	r8, r8
+ 195              	.L8:
+ 196              		.loc 1 49 0 is_stmt 0
+ 197 0026 314B     		ldr	r3, .L12+12
+ 198 0028 1B78     		ldrb	r3, [r3]
+ 199 002a DBB2     		uxtb	r3, r3
+ 200 002c 002B     		cmp	r3, #0
+ 201 002e FAD0     		beq	.L8
+  50:../Sources/LTC2945.c **** 	LTCDataTransmittedFlg = FALSE;
+ 202              		.loc 1 50 0 is_stmt 1
+ 203 0030 2E4B     		ldr	r3, .L12+12
+ 204 0032 0022     		mov	r2, #0
+ 205 0034 1A70     		strb	r2, [r3]
+  51:../Sources/LTC2945.c **** 	LtcOutData[0] = CURRENT_MSB; //choosing the register form witch read
+ 206              		.loc 1 51 0
+ 207 0036 2A4B     		ldr	r3, .L12
+ 208 0038 1422     		mov	r2, #20
+ 209 003a 1A70     		strb	r2, [r3]
+  52:../Sources/LTC2945.c **** 	Error = out_I2C_MasterSendBlock(Myout_I2CPtr, &LtcOutData, 1, LDD_I2C_NO_SEND_STOP); // Send LtcOu
+ 210              		.loc 1 52 0
+ 211 003c 294B     		ldr	r3, .L12+4
+ 212 003e 1A68     		ldr	r2, [r3]
+ 213 0040 274B     		ldr	r3, .L12
+ 214 0042 101C     		mov	r0, r2
+ 215 0044 191C     		mov	r1, r3
+ 216 0046 0122     		mov	r2, #1
+ 217 0048 0023     		mov	r3, #0
+ 218 004a FFF7FEFF 		bl	out_I2C_MasterSendBlock
+ 219 004e 031C     		mov	r3, r0
+ 220 0050 1A1C     		mov	r2, r3
+ 221 0052 254B     		ldr	r3, .L12+8
+ 222 0054 1A80     		strh	r2, [r3]
+  53:../Sources/LTC2945.c **** 	while (!LTCDataTransmittedFlg); 
+ 223              		.loc 1 53 0
+ 224 0056 C046     		mov	r8, r8
+ 225              	.L9:
+ 226              		.loc 1 53 0 is_stmt 0
+ 227 0058 244B     		ldr	r3, .L12+12
+ 228 005a 1B78     		ldrb	r3, [r3]
+ 229 005c DBB2     		uxtb	r3, r3
+ 230 005e 002B     		cmp	r3, #0
+ 231 0060 FAD0     		beq	.L9
+  54:../Sources/LTC2945.c **** 	LTCDataTransmittedFlg = FALSE;
+ 232              		.loc 1 54 0 is_stmt 1
+ 233 0062 224B     		ldr	r3, .L12+12
+ 234 0064 0022     		mov	r2, #0
+ 235 0066 1A70     		strb	r2, [r3]
+  55:../Sources/LTC2945.c **** 	LtcOutData[0] = LTC2945_DIVICE_ADDR+1; //device dares with R/W st to 1
+ 236              		.loc 1 55 0
+ 237 0068 1D4B     		ldr	r3, .L12
+ 238 006a DF22     		mov	r2, #223
+ 239 006c 1A70     		strb	r2, [r3]
+  56:../Sources/LTC2945.c **** 	Error = out_I2C_MasterSendBlock(Myout_I2CPtr, &LtcOutData, 1, LDD_I2C_NO_SEND_STOP); 
+ 240              		.loc 1 56 0
+ 241 006e 1D4B     		ldr	r3, .L12+4
+ 242 0070 1A68     		ldr	r2, [r3]
+ 243 0072 1B4B     		ldr	r3, .L12
+ 244 0074 101C     		mov	r0, r2
+ 245 0076 191C     		mov	r1, r3
+ 246 0078 0122     		mov	r2, #1
+ 247 007a 0023     		mov	r3, #0
+ 248 007c FFF7FEFF 		bl	out_I2C_MasterSendBlock
+ 249 0080 031C     		mov	r3, r0
+ 250 0082 1A1C     		mov	r2, r3
+ 251 0084 184B     		ldr	r3, .L12+8
+ 252 0086 1A80     		strh	r2, [r3]
+  57:../Sources/LTC2945.c **** 	while (!LTCDataTransmittedFlg);
+ 253              		.loc 1 57 0
+ 254 0088 C046     		mov	r8, r8
+ 255              	.L10:
+ 256              		.loc 1 57 0 is_stmt 0
+ 257 008a 184B     		ldr	r3, .L12+12
+ 258 008c 1B78     		ldrb	r3, [r3]
+ 259 008e DBB2     		uxtb	r3, r3
+ 260 0090 002B     		cmp	r3, #0
+ 261 0092 FAD0     		beq	.L10
+  58:../Sources/LTC2945.c **** 	LTCDataTransmittedFlg = FALSE;
+ 262              		.loc 1 58 0 is_stmt 1
+ 263 0094 154B     		ldr	r3, .L12+12
+ 264 0096 0022     		mov	r2, #0
+ 265 0098 1A70     		strb	r2, [r3]
+  59:../Sources/LTC2945.c **** 	Error = out_I2C_MasterReceiveBlock(Myout_I2CPtr, &LtcInData, 2, LDD_I2C_SEND_STOP);  //getting who
+ 266              		.loc 1 59 0
+ 267 009a 124B     		ldr	r3, .L12+4
+ 268 009c 1A68     		ldr	r2, [r3]
+ 269 009e 144B     		ldr	r3, .L12+16
+ 270 00a0 101C     		mov	r0, r2
+ 271 00a2 191C     		mov	r1, r3
+ 272 00a4 0222     		mov	r2, #2
+ 273 00a6 0123     		mov	r3, #1
+ 274 00a8 FFF7FEFF 		bl	out_I2C_MasterReceiveBlock
+ 275 00ac 031C     		mov	r3, r0
+ 276 00ae 1A1C     		mov	r2, r3
+ 277 00b0 0D4B     		ldr	r3, .L12+8
+ 278 00b2 1A80     		strh	r2, [r3]
+  60:../Sources/LTC2945.c **** 	while (!LTCDataReceivedFlg);
+ 279              		.loc 1 60 0
+ 280 00b4 C046     		mov	r8, r8
+ 281              	.L11:
+ 282              		.loc 1 60 0 is_stmt 0
+ 283 00b6 0F4B     		ldr	r3, .L12+20
+ 284 00b8 1B78     		ldrb	r3, [r3]
+ 285 00ba DBB2     		uxtb	r3, r3
+ 286 00bc 002B     		cmp	r3, #0
+ 287 00be FAD0     		beq	.L11
+  61:../Sources/LTC2945.c **** 	LTCDataReceivedFlg = FALSE;  
+ 288              		.loc 1 61 0 is_stmt 1
+ 289 00c0 0C4B     		ldr	r3, .L12+20
+ 290 00c2 0022     		mov	r2, #0
+ 291 00c4 1A70     		strb	r2, [r3]
+  62:../Sources/LTC2945.c **** 
+  63:../Sources/LTC2945.c **** 	ltc2945.current= LtcInData[1] | (LtcInData[0] << 8);
+ 292              		.loc 1 63 0
+ 293 00c6 0A4B     		ldr	r3, .L12+16
+ 294 00c8 5B78     		ldrb	r3, [r3, #1]
+ 295 00ca 1A1C     		mov	r2, r3
+ 296 00cc 084B     		ldr	r3, .L12+16
+ 297 00ce 1B78     		ldrb	r3, [r3]
+ 298 00d0 1B02     		lsl	r3, r3, #8
+ 299 00d2 9BB2     		uxth	r3, r3
+ 300 00d4 1343     		orr	r3, r2
+ 301 00d6 9AB2     		uxth	r2, r3
+ 302 00d8 074B     		ldr	r3, .L12+24
+ 303 00da 1A80     		strh	r2, [r3]
+  64:../Sources/LTC2945.c **** 
+  65:../Sources/LTC2945.c **** }
+ 304              		.loc 1 65 0
+ 305 00dc BD46     		mov	sp, r7
+ 306              		@ sp needed for prologue
+ 307 00de 80BD     		pop	{r7, pc}
+ 308              	.L13:
+ 309              		.align	2
+ 310              	.L12:
+ 311 00e0 00000000 		.word	LtcOutData
+ 312 00e4 00000000 		.word	Myout_I2CPtr
+ 313 00e8 00000000 		.word	Error
+ 314 00ec 00000000 		.word	LTCDataTransmittedFlg
+ 315 00f0 00000000 		.word	LtcInData
+ 316 00f4 00000000 		.word	LTCDataReceivedFlg
+ 317 00f8 00000000 		.word	ltc2945
+ 318              		.cfi_endproc
+ 319              	.LFE1:
+ 321              		.text
+ 322              	.Letext0:
+ 323              		.file 2 "D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
+ 324              		.file 3 "D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/PE_Types.h"
+ 325              		.file 4 "../Sources/LTC2945.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 LTC2945.c
+                            *COM*:00000007 LtcInData
+C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:23     .data.LtcOutData:00000000 LtcOutData
+C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:20     .data.LtcOutData:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:30     .bss.LTCDataReceivedFlg:00000000 LTCDataReceivedFlg
+C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:31     .bss.LTCDataReceivedFlg:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:36     .bss.LTCDataTransmittedFlg:00000000 LTCDataTransmittedFlg
+C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:37     .bss.LTCDataTransmittedFlg:00000000 $d
+                            *COM*:0000000c ltc2945
+                            *COM*:00000002 Error
+                            *COM*:00000004 Myout_I2CPtr
+C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:42     .text.LTC2945_Init:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:47     .text.LTC2945_Init:00000000 LTC2945_Init
+C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:149    .text.LTC2945_Init:00000094 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:159    .text.LTC2945_Poll:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:164    .text.LTC2945_Poll:00000000 LTC2945_Poll
+C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:311    .text.LTC2945_Poll:000000e0 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+out_I2C_MasterSendBlock
+out_I2C_MasterReceiveBlock
