@@ -61,9 +61,13 @@ LDD_TDeviceData *Myout_I2CPtr;
 
 static uint16_t ADC_value[AD1_CHANNEL_COUNT];
 volatile bool ADC_koniec;
-float Voltage[AD1_CHANNEL_COUNT];
+float Voltage;
+float Current;
+float Power;
 
-
+int volt;
+int powe;
+int curr;
 
 int main(void)
 {
@@ -103,20 +107,25 @@ int main(void)
 		(void)AD1_Measure(TRUE);
 		}
 		
-		Voltage[0]=vlotage_scaling(ADC_value[0]);
-		Voltage[1]=vlotage_scaling(ADC_value[1]);
 		
+		Voltage=vlotage_scaling(ADC_value[1]);
+		Current=copm_current(vlotage_scaling(ADC_value[0]),Voltage);
+		Power=copm_current(Current,Voltage);
+		
+		volt=Voltage*1000;
+		curr=Current*1000;
+		powe=Power*1000;
 		
 		if(as5040data.Erorr){
 			LEDgreen_Off();
 			LEDred_On();
-			printf("tilt =  %d  ang_pos =ERORR  ADC1: %d ADC2: %d", mma845x.y, Voltage[0],Voltage[1]);
+			printf("tilt =  %d  ang_pos =ERORR  U: %d I: %d P: %d", mma845x.y, volt,curr,powe);
 			printf("\n");
 		}
 		else{
 			LEDgreen_On();
 			LEDred_Off();
-			printf("tilt =  %d  ang_pos =  %d  ADC1: %d ADC2: %d", mma845x.y, as5040data.ang_position,Voltage[0],Voltage[1]);
+			printf("tilt =  %d  ang_pos =  %d  U: %d I: %d P: %d", mma845x.y, as5040data.ang_position, volt,curr,powe);
 			printf("\n");
 		}
 

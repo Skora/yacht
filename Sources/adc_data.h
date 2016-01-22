@@ -14,3 +14,5 @@
 
 
 float vlotage_scaling(uint16_t adc_results);
+float copm_current(float vlotage1, float vlotage2);
+float copm_power(float current,float voltage);

@@ -96,13 +96,131 @@
   83 0054 0000F040 		.word	1089470464
   84              		.cfi_endproc
   85              	.LFE0:
-  87              		.text
-  88              	.Letext0:
+  87              		.section	.text.copm_current,"ax",%progbits
+  88              		.align	2
+  89              		.global	copm_current
+  90              		.code	16
+  91              		.thumb_func
+  93              	copm_current:
+  94              	.LFB1:
+  15:../Sources/adc_data.c **** 
+  16:../Sources/adc_data.c **** float copm_current(vlotage1,vlotage2)
+  17:../Sources/adc_data.c **** {
+  95              		.loc 1 17 0
+  96              		.cfi_startproc
+  97 0000 90B5     		push	{r4, r7, lr}
+  98              	.LCFI3:
+  99              		.cfi_def_cfa_offset 12
+ 100              		.cfi_offset 4, -12
+ 101              		.cfi_offset 7, -8
+ 102              		.cfi_offset 14, -4
+ 103 0002 85B0     		sub	sp, sp, #20
+ 104              	.LCFI4:
+ 105              		.cfi_def_cfa_offset 32
+ 106 0004 00AF     		add	r7, sp, #0
+ 107              	.LCFI5:
+ 108              		.cfi_def_cfa_register 7
+ 109 0006 7860     		str	r0, [r7, #4]
+ 110 0008 3960     		str	r1, [r7]
+  18:../Sources/adc_data.c **** 	float current;
+  19:../Sources/adc_data.c **** 	current=0.02*(vlotage2-vlotage1);
+ 111              		.loc 1 19 0
+ 112 000a 3A68     		ldr	r2, [r7]
+ 113 000c 7B68     		ldr	r3, [r7, #4]
+ 114 000e D31A     		sub	r3, r2, r3
+ 115 0010 181C     		mov	r0, r3
+ 116 0012 FFF7FEFF 		bl	__aeabi_i2d
+ 117 0016 031C     		mov	r3, r0
+ 118 0018 0C1C     		mov	r4, r1
+ 119 001a 181C     		mov	r0, r3
+ 120 001c 211C     		mov	r1, r4
+ 121 001e 094B     		ldr	r3, .L7+4
+ 122 0020 074A     		ldr	r2, .L7
+ 123 0022 FFF7FEFF 		bl	__aeabi_dmul
+ 124 0026 031C     		mov	r3, r0
+ 125 0028 0C1C     		mov	r4, r1
+ 126 002a 181C     		mov	r0, r3
+ 127 002c 211C     		mov	r1, r4
+ 128 002e FFF7FEFF 		bl	__aeabi_d2f
+ 129 0032 031C     		add	r3, r0, #0
+ 130 0034 FB60     		str	r3, [r7, #12]
+  20:../Sources/adc_data.c **** 	return current;
+ 131              		.loc 1 20 0
+ 132 0036 FB68     		ldr	r3, [r7, #12]
+  21:../Sources/adc_data.c **** }
+ 133              		.loc 1 21 0
+ 134 0038 181C     		add	r0, r3, #0
+ 135 003a BD46     		mov	sp, r7
+ 136 003c 05B0     		add	sp, sp, #20
+ 137              		@ sp needed for prologue
+ 138 003e 90BD     		pop	{r4, r7, pc}
+ 139              	.L8:
+ 140              		.align	3
+ 141              	.L7:
+ 142 0040 7B14AE47 		.word	1202590843
+ 143 0044 E17A943F 		.word	1066695393
+ 144              		.cfi_endproc
+ 145              	.LFE1:
+ 147              		.global	__aeabi_i2f
+ 148              		.section	.text.copm_power,"ax",%progbits
+ 149              		.align	2
+ 150              		.global	copm_power
+ 151              		.code	16
+ 152              		.thumb_func
+ 154              	copm_power:
+ 155              	.LFB2:
+  22:../Sources/adc_data.c **** 
+  23:../Sources/adc_data.c **** float copm_power(current,voltage)
+  24:../Sources/adc_data.c **** {
+ 156              		.loc 1 24 0
+ 157              		.cfi_startproc
+ 158 0000 80B5     		push	{r7, lr}
+ 159              	.LCFI6:
+ 160              		.cfi_def_cfa_offset 8
+ 161              		.cfi_offset 7, -8
+ 162              		.cfi_offset 14, -4
+ 163 0002 84B0     		sub	sp, sp, #16
+ 164              	.LCFI7:
+ 165              		.cfi_def_cfa_offset 24
+ 166 0004 00AF     		add	r7, sp, #0
+ 167              	.LCFI8:
+ 168              		.cfi_def_cfa_register 7
+ 169 0006 7860     		str	r0, [r7, #4]
+ 170 0008 3960     		str	r1, [r7]
+  25:../Sources/adc_data.c **** 	float power;
+  26:../Sources/adc_data.c **** 	power=current*voltage;
+ 171              		.loc 1 26 0
+ 172 000a 7B68     		ldr	r3, [r7, #4]
+ 173 000c 3A68     		ldr	r2, [r7]
+ 174 000e 5343     		mul	r3, r2
+ 175 0010 181C     		mov	r0, r3
+ 176 0012 FFF7FEFF 		bl	__aeabi_i2f
+ 177 0016 031C     		add	r3, r0, #0
+ 178 0018 FB60     		str	r3, [r7, #12]
+  27:../Sources/adc_data.c **** 	return power;
+ 179              		.loc 1 27 0
+ 180 001a FB68     		ldr	r3, [r7, #12]
+  28:../Sources/adc_data.c **** }
+ 181              		.loc 1 28 0
+ 182 001c 181C     		add	r0, r3, #0
+ 183 001e BD46     		mov	sp, r7
+ 184 0020 04B0     		add	sp, sp, #16
+ 185              		@ sp needed for prologue
+ 186 0022 80BD     		pop	{r7, pc}
+ 187              		.cfi_endproc
+ 188              	.LFE2:
+ 190              		.text
+ 191              	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 adc_data.c
-C:\Users\SKRA~1\AppData\Local\Temp\ccebg6jo.s:22     .text.vlotage_scaling:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccebg6jo.s:27     .text.vlotage_scaling:00000000 vlotage_scaling
-C:\Users\SKRA~1\AppData\Local\Temp\ccebg6jo.s:80     .text.vlotage_scaling:00000048 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccKMIPvj.s:22     .text.vlotage_scaling:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccKMIPvj.s:27     .text.vlotage_scaling:00000000 vlotage_scaling
+C:\Users\SKRA~1\AppData\Local\Temp\ccKMIPvj.s:80     .text.vlotage_scaling:00000048 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccKMIPvj.s:88     .text.copm_current:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccKMIPvj.s:93     .text.copm_current:00000000 copm_current
+C:\Users\SKRA~1\AppData\Local\Temp\ccKMIPvj.s:142    .text.copm_current:00000040 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccKMIPvj.s:149    .text.copm_power:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccKMIPvj.s:154    .text.copm_power:00000000 copm_power
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
@@ -110,3 +228,4 @@ __aeabi_i2d
 __aeabi_dmul
 __aeabi_ddiv
 __aeabi_d2f
+__aeabi_i2f
