@@ -35,7 +35,9 @@ Generated_Code/PE_LDD.o: ../Generated_Code/PE_LDD.c \
  ../Generated_Code/BitIoLdd1.h \
  D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h \
  ../Generated_Code/LEDred.h ../Generated_Code/LEDpin2.h \
- ../Generated_Code/BitIoLdd2.h ../Generated_Code/out_I2C.h
+ ../Generated_Code/BitIoLdd2.h ../Generated_Code/out_I2C.h \
+ ../Generated_Code/AD1.h ../Generated_Code/AdcLdd1.h \
+ D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/ADC_PDD.h
 
 ../Generated_Code/PE_LDD.h:
 
@@ -126,3 +128,9 @@ D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/GPIO_PDD.h
 ../Generated_Code/BitIoLdd2.h:
 
 ../Generated_Code/out_I2C.h:
+
+../Generated_Code/AD1.h:
+
+../Generated_Code/AdcLdd1.h:
+
+D:/CodeWarrior/CW\ MCU\ v10.6/MCU/ProcessorExpert/lib/Kinetis/pdd/inc/ADC_PDD.h:

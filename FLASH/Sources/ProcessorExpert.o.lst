@@ -20,29 +20,38 @@
   20              		.comm	MyI2CPtr,4,4
   21              		.comm	MyTimerPtr,4,4
   22              		.comm	Myout_I2CPtr,4,4
-  23              		.section	.rodata
+  23              		.section	.bss.ADC_value,"aw",%nobits
   24              		.align	2
-  25              	.LC7:
-  26 0000 74696C74 		.ascii	"tilt =  %d  ang_pos =ERORR current= %d\000"
-  26      203D2020 
-  26      25642020 
-  26      616E675F 
-  26      706F7320 
-  27 0027 00       		.align	2
-  28              	.LC9:
-  29 0028 74696C74 		.ascii	"tilt =  %d  ang_pos =  %d current= %d\000"
-  29      203D2020 
-  29      25642020 
-  29      616E675F 
-  29      706F7320 
-  30 004e 0000     		.section	.text.main,"ax",%progbits
+  27              	ADC_value:
+  28 0000 00000000 		.space	4
+  29              		.comm	ADC_koniec,1,1
+  30              		.section	.rodata
   31              		.align	2
-  32              		.global	main
-  33              		.code	16
-  34              		.thumb_func
-  36              	main:
-  37              	.LFB0:
-  38              		.file 1 "../Sources/ProcessorExpert.c"
+  32              	.LC9:
+  33 0000 74696C74 		.ascii	"tilt =  %d  ang_pos =ERORR current= %d ADC1: %d ADC"
+  33      203D2020 
+  33      25642020 
+  33      616E675F 
+  33      706F7320 
+  34 0033 323A2025 		.ascii	"2: %d\000"
+  34      6400
+  35 0039 000000   		.align	2
+  36              	.LC11:
+  37 003c 74696C74 		.ascii	"tilt =  %d  ang_pos =  %d current= %d ADC1: %d ADC2"
+  37      203D2020 
+  37      25642020 
+  37      616E675F 
+  37      706F7320 
+  38 006f 3A202564 		.ascii	": %d\000"
+  38      00
+  39              		.section	.text.main,"ax",%progbits
+  40              		.align	2
+  41              		.global	main
+  42              		.code	16
+  43              		.thumb_func
+  45              	main:
+  46              	.LFB0:
+  47              		.file 1 "../Sources/ProcessorExpert.c"
    1:../Sources/ProcessorExpert.c **** /** ###################################################################
    2:../Sources/ProcessorExpert.c **** **     Filename    : ProcessorExpert.c
    3:../Sources/ProcessorExpert.c **** **     Project     : ProcessorExpert
@@ -66,229 +75,278 @@
   21:../Sources/ProcessorExpert.c **** #include "Events.h"
   22:../Sources/ProcessorExpert.c **** #include "I2C2.h"
   23:../Sources/ProcessorExpert.c **** #include "out_I2C.h"
-  24:../Sources/ProcessorExpert.c **** #include "IO1.h"
-  25:../Sources/ProcessorExpert.c **** #include "WAIT1.h"
-  26:../Sources/ProcessorExpert.c **** #include "LEDgreen.h"
-  27:../Sources/ProcessorExpert.c **** #include "LEDpin1.h"
-  28:../Sources/ProcessorExpert.c **** #include "BitIoLdd1.h"
-  29:../Sources/ProcessorExpert.c **** #include "LEDred.h"
-  30:../Sources/ProcessorExpert.c **** #include "LEDpin2.h"
-  31:../Sources/ProcessorExpert.c **** #include "BitIoLdd2.h"
-  32:../Sources/ProcessorExpert.c **** #include "out_I2C.h"
-  33:../Sources/ProcessorExpert.c **** #include "TU1.h"
-  34:../Sources/ProcessorExpert.c **** #include "CsIO1.h"
-  35:../Sources/ProcessorExpert.c **** /* Including shared modules, which are used for whole project */
-  36:../Sources/ProcessorExpert.c **** #include "PE_Types.h"
-  37:../Sources/ProcessorExpert.c **** #include "PE_Error.h"
-  38:../Sources/ProcessorExpert.c **** #include "PE_Const.h"
-  39:../Sources/ProcessorExpert.c **** #include "IO_Map.h"
-  40:../Sources/ProcessorExpert.c **** 
-  41:../Sources/ProcessorExpert.c **** /* User includes (#include below this line is not maintained by Processor Expert) */
-  42:../Sources/ProcessorExpert.c **** #include "stdio.h"
-  43:../Sources/ProcessorExpert.c **** #include "AS5040.h"
-  44:../Sources/ProcessorExpert.c **** #include "mma8453.h"
-  45:../Sources/ProcessorExpert.c **** #include "LTC2945.h"
-  46:../Sources/ProcessorExpert.c **** 
-  47:../Sources/ProcessorExpert.c **** /* User includes (#include below this line is not maintained by Processor Expert) */
-  48:../Sources/ProcessorExpert.c **** extern AS5040data as5040data;
-  49:../Sources/ProcessorExpert.c **** extern MMA845X mma845x;
-  50:../Sources/ProcessorExpert.c **** extern LTC2945 ltc2945;
-  51:../Sources/ProcessorExpert.c **** 
-  52:../Sources/ProcessorExpert.c **** 
-  53:../Sources/ProcessorExpert.c **** LDD_TDeviceData *MyI2CPtr;
-  54:../Sources/ProcessorExpert.c **** LDD_TDeviceData *MyTimerPtr;
-  55:../Sources/ProcessorExpert.c **** LDD_TDeviceData *Myout_I2CPtr;
-  56:../Sources/ProcessorExpert.c **** 
-  57:../Sources/ProcessorExpert.c **** 
-  58:../Sources/ProcessorExpert.c **** int main(void)
-  59:../Sources/ProcessorExpert.c **** {
-  39              		.loc 1 59 0
-  40              		.cfi_startproc
-  41 0000 80B5     		push	{r7, lr}
-  42              	.LCFI0:
-  43              		.cfi_def_cfa_offset 8
-  44              		.cfi_offset 7, -8
-  45              		.cfi_offset 14, -4
-  46 0002 82B0     		sub	sp, sp, #8
-  47              	.LCFI1:
-  48              		.cfi_def_cfa_offset 16
-  49 0004 00AF     		add	r7, sp, #0
-  50              	.LCFI2:
-  51              		.cfi_def_cfa_register 7
-  60:../Sources/ProcessorExpert.c **** 	uint16_t i=0;
-  52              		.loc 1 60 0
-  53 0006 BB1D     		add	r3, r7, #6
-  54 0008 0022     		mov	r2, #0
-  55 000a 1A80     		strh	r2, [r3]
-  61:../Sources/ProcessorExpert.c **** 
-  62:../Sources/ProcessorExpert.c **** 	/*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
-  63:../Sources/ProcessorExpert.c **** 	PE_low_level_init();
-  56              		.loc 1 63 0
-  57 000c FFF7FEFF 		bl	PE_low_level_init
-  64:../Sources/ProcessorExpert.c **** 	/*** End of Processor Expert internal initialization. 
-  65:../Sources/ProcessorExpert.c **** 	 *                    ***/
-  66:../Sources/ProcessorExpert.c **** 	LEDred_Off();
-  58              		.loc 1 66 0
-  59 0010 2D4B     		ldr	r3, .L5
-  60 0012 1B69     		ldr	r3, [r3, #16]
-  61 0014 181C     		mov	r0, r3
-  62 0016 FFF7FEFF 		bl	BitIoLdd2_SetVal
-  67:../Sources/ProcessorExpert.c **** 	LEDgreen_Off();
-  63              		.loc 1 67 0
-  64 001a 2B4B     		ldr	r3, .L5
-  65 001c DB68     		ldr	r3, [r3, #12]
-  66 001e 181C     		mov	r0, r3
-  67 0020 FFF7FEFF 		bl	BitIoLdd1_SetVal
-  68:../Sources/ProcessorExpert.c **** 	// Inicjacja I2C
-  69:../Sources/ProcessorExpert.c **** 	MyI2CPtr = I2C2_Init(NULL); //mma88453
-  68              		.loc 1 69 0
-  69 0024 0020     		mov	r0, #0
-  70 0026 FFF7FEFF 		bl	I2C2_Init
-  71 002a 021C     		mov	r2, r0
-  72 002c 274B     		ldr	r3, .L5+4
-  73 002e 1A60     		str	r2, [r3]
-  70:../Sources/ProcessorExpert.c **** 	Myout_I2CPtr = out_I2C_Init(NULL); //LTC2945
-  74              		.loc 1 70 0
-  75 0030 0020     		mov	r0, #0
-  76 0032 FFF7FEFF 		bl	out_I2C_Init
-  77 0036 021C     		mov	r2, r0
-  78 0038 254B     		ldr	r3, .L5+8
-  79 003a 1A60     		str	r2, [r3]
-  71:../Sources/ProcessorExpert.c **** 	// Inicjacja Timera (for I2C)
-  72:../Sources/ProcessorExpert.c **** 	MyTimerPtr = TU1_Init(NULL);
-  80              		.loc 1 72 0
-  81 003c 0020     		mov	r0, #0
-  82 003e FFF7FEFF 		bl	TU1_Init
-  83 0042 021C     		mov	r2, r0
-  84 0044 234B     		ldr	r3, .L5+12
-  85 0046 1A60     		str	r2, [r3]
-  73:../Sources/ProcessorExpert.c **** 
-  74:../Sources/ProcessorExpert.c **** 
-  75:../Sources/ProcessorExpert.c **** 	// Inicjacja Akcelerometru MMA855X
-  76:../Sources/ProcessorExpert.c **** 	MMA845X_Init();
-  86              		.loc 1 76 0
-  87 0048 FFF7FEFF 		bl	MMA845X_Init
-  77:../Sources/ProcessorExpert.c **** 	//LTC2945_Init();
-  78:../Sources/ProcessorExpert.c **** 	AS5040_Init();
-  88              		.loc 1 78 0
-  89 004c FFF7FEFF 		bl	AS5040_Init
-  90              	.L4:
-  79:../Sources/ProcessorExpert.c **** 
-  80:../Sources/ProcessorExpert.c **** 	for(;;)
-  81:../Sources/ProcessorExpert.c **** 	{
-  82:../Sources/ProcessorExpert.c **** 		//	  i++;
-  83:../Sources/ProcessorExpert.c **** 		//	 WAIT1_WaitOSms(10);
-  84:../Sources/ProcessorExpert.c **** 		//	 if(i%25==0)
-  85:../Sources/ProcessorExpert.c **** 		//	 LEDgreen_Neg();
-  86:../Sources/ProcessorExpert.c **** 		AS5040_data_parser();
-  91              		.loc 1 86 0
-  92 0050 FFF7FEFF 		bl	AS5040_data_parser
-  87:../Sources/ProcessorExpert.c **** 		MMA845X_Poll();
-  93              		.loc 1 87 0
-  94 0054 FFF7FEFF 		bl	MMA845X_Poll
-  88:../Sources/ProcessorExpert.c **** 		//LTC2945_Poll();
-  89:../Sources/ProcessorExpert.c **** 
-  90:../Sources/ProcessorExpert.c **** 
-  91:../Sources/ProcessorExpert.c **** 		if(as5040data.Erorr){
-  95              		.loc 1 91 0
-  96 0058 1F4B     		ldr	r3, .L5+16
-  97 005a 1B7A     		ldrb	r3, [r3, #8]
-  98 005c 002B     		cmp	r3, #0
-  99 005e 19D0     		beq	.L2
-  92:../Sources/ProcessorExpert.c **** 			LEDgreen_Off();
- 100              		.loc 1 92 0
- 101 0060 194B     		ldr	r3, .L5
- 102 0062 DB68     		ldr	r3, [r3, #12]
- 103 0064 181C     		mov	r0, r3
- 104 0066 FFF7FEFF 		bl	BitIoLdd1_SetVal
-  93:../Sources/ProcessorExpert.c **** 			LEDred_On();
- 105              		.loc 1 93 0
- 106 006a 174B     		ldr	r3, .L5
- 107 006c 1B69     		ldr	r3, [r3, #16]
- 108 006e 181C     		mov	r0, r3
- 109 0070 FFF7FEFF 		bl	BitIoLdd2_ClrVal
-  94:../Sources/ProcessorExpert.c **** 			printf("tilt =  %d  ang_pos =ERORR current= %d", mma845x.y, ltc2945.current);
- 110              		.loc 1 94 0
- 111 0074 194B     		ldr	r3, .L5+20
- 112 0076 5B88     		ldrh	r3, [r3, #2]
- 113 0078 1AB2     		sxth	r2, r3
- 114 007a 194B     		ldr	r3, .L5+24
- 115 007c 1B88     		ldrh	r3, [r3]
- 116 007e 1BB2     		sxth	r3, r3
- 117 0080 1849     		ldr	r1, .L5+28
- 118 0082 081C     		mov	r0, r1
- 119 0084 111C     		mov	r1, r2
- 120 0086 1A1C     		mov	r2, r3
- 121 0088 FFF7FEFF 		bl	printf
-  95:../Sources/ProcessorExpert.c **** 			printf("\n");
- 122              		.loc 1 95 0
- 123 008c 0A20     		mov	r0, #10
- 124 008e FFF7FEFF 		bl	putchar
-  96:../Sources/ProcessorExpert.c **** 		}
-  97:../Sources/ProcessorExpert.c **** 		else{
-  98:../Sources/ProcessorExpert.c **** 			LEDgreen_On();
-  99:../Sources/ProcessorExpert.c **** 			LEDred_Off();
- 100:../Sources/ProcessorExpert.c **** 			printf("tilt =  %d  ang_pos =  %d current= %d", mma845x.y, as5040data.ang_position, ltc2945.curr
- 101:../Sources/ProcessorExpert.c **** 			printf("\n");
+  24:../Sources/ProcessorExpert.c **** #include "AD1.h"
+  25:../Sources/ProcessorExpert.c **** #include "AdcLdd1.h"
+  26:../Sources/ProcessorExpert.c **** #include "IO1.h"
+  27:../Sources/ProcessorExpert.c **** #include "WAIT1.h"
+  28:../Sources/ProcessorExpert.c **** #include "LEDgreen.h"
+  29:../Sources/ProcessorExpert.c **** #include "LEDpin1.h"
+  30:../Sources/ProcessorExpert.c **** #include "BitIoLdd1.h"
+  31:../Sources/ProcessorExpert.c **** #include "LEDred.h"
+  32:../Sources/ProcessorExpert.c **** #include "LEDpin2.h"
+  33:../Sources/ProcessorExpert.c **** #include "BitIoLdd2.h"
+  34:../Sources/ProcessorExpert.c **** #include "out_I2C.h"
+  35:../Sources/ProcessorExpert.c **** #include "TU1.h"
+  36:../Sources/ProcessorExpert.c **** #include "CsIO1.h"
+  37:../Sources/ProcessorExpert.c **** /* Including shared modules, which are used for whole project */
+  38:../Sources/ProcessorExpert.c **** #include "PE_Types.h"
+  39:../Sources/ProcessorExpert.c **** #include "PE_Error.h"
+  40:../Sources/ProcessorExpert.c **** #include "PE_Const.h"
+  41:../Sources/ProcessorExpert.c **** #include "IO_Map.h"
+  42:../Sources/ProcessorExpert.c **** 
+  43:../Sources/ProcessorExpert.c **** /* User includes (#include below this line is not maintained by Processor Expert) */
+  44:../Sources/ProcessorExpert.c **** #include "stdio.h"
+  45:../Sources/ProcessorExpert.c **** #include "AS5040.h"
+  46:../Sources/ProcessorExpert.c **** #include "mma8453.h"
+  47:../Sources/ProcessorExpert.c **** #include "LTC2945.h"
+  48:../Sources/ProcessorExpert.c **** 
+  49:../Sources/ProcessorExpert.c **** /* User includes (#include below this line is not maintained by Processor Expert) */
+  50:../Sources/ProcessorExpert.c **** extern AS5040data as5040data;
+  51:../Sources/ProcessorExpert.c **** extern MMA845X mma845x;
+  52:../Sources/ProcessorExpert.c **** extern LTC2945 ltc2945;
+  53:../Sources/ProcessorExpert.c **** 
+  54:../Sources/ProcessorExpert.c **** 
+  55:../Sources/ProcessorExpert.c **** LDD_TDeviceData *MyI2CPtr;
+  56:../Sources/ProcessorExpert.c **** LDD_TDeviceData *MyTimerPtr;
+  57:../Sources/ProcessorExpert.c **** LDD_TDeviceData *Myout_I2CPtr;
+  58:../Sources/ProcessorExpert.c **** 
+  59:../Sources/ProcessorExpert.c **** 
+  60:../Sources/ProcessorExpert.c **** 
+  61:../Sources/ProcessorExpert.c **** static uint16_t ADC_value[AD1_CHANNEL_COUNT];
+  62:../Sources/ProcessorExpert.c **** volatile bool ADC_koniec;
+  63:../Sources/ProcessorExpert.c **** 
+  64:../Sources/ProcessorExpert.c **** 
+  65:../Sources/ProcessorExpert.c **** 
+  66:../Sources/ProcessorExpert.c **** int main(void)
+  67:../Sources/ProcessorExpert.c **** {
+  48              		.loc 1 67 0
+  49              		.cfi_startproc
+  50 0000 B0B5     		push	{r4, r5, r7, lr}
+  51              	.LCFI0:
+  52              		.cfi_def_cfa_offset 16
+  53              		.cfi_offset 4, -16
+  54              		.cfi_offset 5, -12
+  55              		.cfi_offset 7, -8
+  56              		.cfi_offset 14, -4
+  57 0002 84B0     		sub	sp, sp, #16
+  58              	.LCFI1:
+  59              		.cfi_def_cfa_offset 32
+  60 0004 02AF     		add	r7, sp, #8
+  61              	.LCFI2:
+  62              		.cfi_def_cfa 7, 24
+  68:../Sources/ProcessorExpert.c **** 	uint16_t i=0;
+  63              		.loc 1 68 0
+  64 0006 BB1D     		add	r3, r7, #6
+  65 0008 0022     		mov	r2, #0
+  66 000a 1A80     		strh	r2, [r3]
+  69:../Sources/ProcessorExpert.c **** 
+  70:../Sources/ProcessorExpert.c **** 	/*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
+  71:../Sources/ProcessorExpert.c **** 	PE_low_level_init();
+  67              		.loc 1 71 0
+  68 000c FFF7FEFF 		bl	PE_low_level_init
+  72:../Sources/ProcessorExpert.c **** 	/*** End of Processor Expert internal initialization. 
+  73:../Sources/ProcessorExpert.c **** 	 *                    ***/
+  74:../Sources/ProcessorExpert.c **** 	LEDred_Off();
+  69              		.loc 1 74 0
+  70 0010 3C4B     		ldr	r3, .L6
+  71 0012 1B69     		ldr	r3, [r3, #16]
+  72 0014 181C     		mov	r0, r3
+  73 0016 FFF7FEFF 		bl	BitIoLdd2_SetVal
+  75:../Sources/ProcessorExpert.c **** 	LEDgreen_Off();
+  74              		.loc 1 75 0
+  75 001a 3A4B     		ldr	r3, .L6
+  76 001c DB68     		ldr	r3, [r3, #12]
+  77 001e 181C     		mov	r0, r3
+  78 0020 FFF7FEFF 		bl	BitIoLdd1_SetVal
+  76:../Sources/ProcessorExpert.c **** 	// Inicjacja I2C
+  77:../Sources/ProcessorExpert.c **** 	MyI2CPtr = I2C2_Init(NULL); //mma88453
+  79              		.loc 1 77 0
+  80 0024 0020     		mov	r0, #0
+  81 0026 FFF7FEFF 		bl	I2C2_Init
+  82 002a 021C     		mov	r2, r0
+  83 002c 364B     		ldr	r3, .L6+4
+  84 002e 1A60     		str	r2, [r3]
+  78:../Sources/ProcessorExpert.c **** 	Myout_I2CPtr = out_I2C_Init(NULL); //LTC2945
+  85              		.loc 1 78 0
+  86 0030 0020     		mov	r0, #0
+  87 0032 FFF7FEFF 		bl	out_I2C_Init
+  88 0036 021C     		mov	r2, r0
+  89 0038 344B     		ldr	r3, .L6+8
+  90 003a 1A60     		str	r2, [r3]
+  79:../Sources/ProcessorExpert.c **** 	// Inicjacja Timera (for I2C)
+  80:../Sources/ProcessorExpert.c **** 	MyTimerPtr = TU1_Init(NULL);
+  91              		.loc 1 80 0
+  92 003c 0020     		mov	r0, #0
+  93 003e FFF7FEFF 		bl	TU1_Init
+  94 0042 021C     		mov	r2, r0
+  95 0044 324B     		ldr	r3, .L6+12
+  96 0046 1A60     		str	r2, [r3]
+  81:../Sources/ProcessorExpert.c **** 
+  82:../Sources/ProcessorExpert.c **** 
+  83:../Sources/ProcessorExpert.c **** 	// Inicjacja Akcelerometru MMA855X
+  84:../Sources/ProcessorExpert.c **** 	MMA845X_Init();
+  97              		.loc 1 84 0
+  98 0048 FFF7FEFF 		bl	MMA845X_Init
+  85:../Sources/ProcessorExpert.c **** 	//LTC2945_Init();
+  86:../Sources/ProcessorExpert.c **** 	AS5040_Init();
+  99              		.loc 1 86 0
+ 100 004c FFF7FEFF 		bl	AS5040_Init
+  87:../Sources/ProcessorExpert.c **** 	(void)AD1_Measure(TRUE);
+ 101              		.loc 1 87 0
+ 102 0050 0120     		mov	r0, #1
+ 103 0052 FFF7FEFF 		bl	AD1_Measure
+ 104              	.L5:
+  88:../Sources/ProcessorExpert.c **** 
+  89:../Sources/ProcessorExpert.c **** 	for(;;)
+  90:../Sources/ProcessorExpert.c **** 	{
+  91:../Sources/ProcessorExpert.c **** 		//	  i++;
+  92:../Sources/ProcessorExpert.c **** 		//	 WAIT1_WaitOSms(10);
+  93:../Sources/ProcessorExpert.c **** 		//	 if(i%25==0)
+  94:../Sources/ProcessorExpert.c **** 		//	 LEDgreen_Neg();
+  95:../Sources/ProcessorExpert.c **** 		AS5040_data_parser();
+ 105              		.loc 1 95 0
+ 106 0056 FFF7FEFF 		bl	AS5040_data_parser
+  96:../Sources/ProcessorExpert.c **** 		MMA845X_Poll();
+ 107              		.loc 1 96 0
+ 108 005a FFF7FEFF 		bl	MMA845X_Poll
+  97:../Sources/ProcessorExpert.c **** 		//LTC2945_Poll();
+  98:../Sources/ProcessorExpert.c **** 		if (ADC_koniec){
+ 109              		.loc 1 98 0
+ 110 005e 2D4B     		ldr	r3, .L6+16
+ 111 0060 1B78     		ldrb	r3, [r3]
+ 112 0062 DBB2     		uxtb	r3, r3
+ 113 0064 002B     		cmp	r3, #0
+ 114 0066 09D0     		beq	.L2
+  99:../Sources/ProcessorExpert.c **** 		(void)AD1_GetValue16(&ADC_value[0]);
+ 115              		.loc 1 99 0
+ 116 0068 2B4B     		ldr	r3, .L6+20
+ 117 006a 181C     		mov	r0, r3
+ 118 006c FFF7FEFF 		bl	AD1_GetValue16
+ 100:../Sources/ProcessorExpert.c **** 		ADC_koniec=FALSE;
+ 119              		.loc 1 100 0
+ 120 0070 284B     		ldr	r3, .L6+16
+ 121 0072 0022     		mov	r2, #0
+ 122 0074 1A70     		strb	r2, [r3]
+ 101:../Sources/ProcessorExpert.c **** 		(void)AD1_Measure(TRUE);
+ 123              		.loc 1 101 0
+ 124 0076 0120     		mov	r0, #1
+ 125 0078 FFF7FEFF 		bl	AD1_Measure
+ 126              	.L2:
  102:../Sources/ProcessorExpert.c **** 		}
- 103:../Sources/ProcessorExpert.c **** 
- 104:../Sources/ProcessorExpert.c **** 
- 105:../Sources/ProcessorExpert.c **** 	}
- 125              		.loc 1 105 0
- 126 0092 DDE7     		b	.L4
- 127              	.L2:
-  98:../Sources/ProcessorExpert.c **** 			LEDgreen_On();
- 128              		.loc 1 98 0
- 129 0094 0C4B     		ldr	r3, .L5
- 130 0096 DB68     		ldr	r3, [r3, #12]
- 131 0098 181C     		mov	r0, r3
- 132 009a FFF7FEFF 		bl	BitIoLdd1_ClrVal
-  99:../Sources/ProcessorExpert.c **** 			LEDred_Off();
- 133              		.loc 1 99 0
- 134 009e 0A4B     		ldr	r3, .L5
- 135 00a0 1B69     		ldr	r3, [r3, #16]
- 136 00a2 181C     		mov	r0, r3
- 137 00a4 FFF7FEFF 		bl	BitIoLdd2_SetVal
- 100:../Sources/ProcessorExpert.c **** 			printf("tilt =  %d  ang_pos =  %d current= %d", mma845x.y, as5040data.ang_position, ltc2945.curr
- 138              		.loc 1 100 0
- 139 00a8 0C4B     		ldr	r3, .L5+20
- 140 00aa 5B88     		ldrh	r3, [r3, #2]
- 141 00ac 19B2     		sxth	r1, r3
- 142 00ae 0A4B     		ldr	r3, .L5+16
- 143 00b0 1B88     		ldrh	r3, [r3]
- 144 00b2 1AB2     		sxth	r2, r3
- 145 00b4 0A4B     		ldr	r3, .L5+24
- 146 00b6 1B88     		ldrh	r3, [r3]
- 147 00b8 1BB2     		sxth	r3, r3
- 148 00ba 0B48     		ldr	r0, .L5+32
- 149 00bc FFF7FEFF 		bl	printf
- 101:../Sources/ProcessorExpert.c **** 			printf("\n");
- 150              		.loc 1 101 0
- 151 00c0 0A20     		mov	r0, #10
- 152 00c2 FFF7FEFF 		bl	putchar
- 153              		.loc 1 105 0
- 154 00c6 C3E7     		b	.L4
- 155              	.L6:
- 156              		.align	2
- 157              	.L5:
- 158 00c8 00000000 		.word	PE_LDD_DeviceDataList
- 159 00cc 00000000 		.word	MyI2CPtr
- 160 00d0 00000000 		.word	Myout_I2CPtr
- 161 00d4 00000000 		.word	MyTimerPtr
- 162 00d8 00000000 		.word	as5040data
- 163 00dc 00000000 		.word	mma845x
- 164 00e0 00000000 		.word	ltc2945
- 165 00e4 00000000 		.word	.LC7
- 166 00e8 28000000 		.word	.LC9
- 167              		.cfi_endproc
- 168              	.LFE0:
- 170              		.text
- 171              	.Letext0:
- 172              		.file 2 "D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
- 173              		.file 3 "D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/PE_Types.h"
- 174              		.file 4 "../Sources/AS5040.h"
- 175              		.file 5 "../Sources/mma8453.h"
- 176              		.file 6 "../Sources/LTC2945.h"
+ 103:../Sources/ProcessorExpert.c **** 		
+ 104:../Sources/ProcessorExpert.c **** 		if(as5040data.Erorr){
+ 127              		.loc 1 104 0
+ 128 007c 274B     		ldr	r3, .L6+24
+ 129 007e 1B7A     		ldrb	r3, [r3, #8]
+ 130 0080 002B     		cmp	r3, #0
+ 131 0082 1CD0     		beq	.L3
+ 105:../Sources/ProcessorExpert.c **** 			LEDgreen_Off();
+ 132              		.loc 1 105 0
+ 133 0084 1F4B     		ldr	r3, .L6
+ 134 0086 DB68     		ldr	r3, [r3, #12]
+ 135 0088 181C     		mov	r0, r3
+ 136 008a FFF7FEFF 		bl	BitIoLdd1_SetVal
+ 106:../Sources/ProcessorExpert.c **** 			LEDred_On();
+ 137              		.loc 1 106 0
+ 138 008e 1D4B     		ldr	r3, .L6
+ 139 0090 1B69     		ldr	r3, [r3, #16]
+ 140 0092 181C     		mov	r0, r3
+ 141 0094 FFF7FEFF 		bl	BitIoLdd2_ClrVal
+ 107:../Sources/ProcessorExpert.c **** 			printf("tilt =  %d  ang_pos =ERORR current= %d ADC1: %d ADC2: %d", mma845x.y, ltc2945.current,AD
+ 142              		.loc 1 107 0
+ 143 0098 214B     		ldr	r3, .L6+28
+ 144 009a 5B88     		ldrh	r3, [r3, #2]
+ 145 009c 19B2     		sxth	r1, r3
+ 146 009e 214B     		ldr	r3, .L6+32
+ 147 00a0 1B88     		ldrh	r3, [r3]
+ 148 00a2 1AB2     		sxth	r2, r3
+ 149 00a4 1C4B     		ldr	r3, .L6+20
+ 150 00a6 1B88     		ldrh	r3, [r3]
+ 151 00a8 1B48     		ldr	r0, .L6+20
+ 152 00aa 4088     		ldrh	r0, [r0, #2]
+ 153 00ac 041C     		mov	r4, r0
+ 154 00ae 1E48     		ldr	r0, .L6+36
+ 155 00b0 0094     		str	r4, [sp]
+ 156 00b2 FFF7FEFF 		bl	printf
+ 108:../Sources/ProcessorExpert.c **** 			printf("\n");
+ 157              		.loc 1 108 0
+ 158 00b6 0A20     		mov	r0, #10
+ 159 00b8 FFF7FEFF 		bl	putchar
+ 109:../Sources/ProcessorExpert.c **** 		}
+ 110:../Sources/ProcessorExpert.c **** 		else{
+ 111:../Sources/ProcessorExpert.c **** 			LEDgreen_On();
+ 112:../Sources/ProcessorExpert.c **** 			LEDred_Off();
+ 113:../Sources/ProcessorExpert.c **** 			printf("tilt =  %d  ang_pos =  %d current= %d ADC1: %d ADC2: %d", mma845x.y, as5040data.ang_posi
+ 114:../Sources/ProcessorExpert.c **** 			printf("\n");
+ 115:../Sources/ProcessorExpert.c **** 		}
+ 116:../Sources/ProcessorExpert.c **** 
+ 117:../Sources/ProcessorExpert.c **** 
+ 118:../Sources/ProcessorExpert.c **** 	}
+ 160              		.loc 1 118 0
+ 161 00bc CBE7     		b	.L5
+ 162              	.L3:
+ 111:../Sources/ProcessorExpert.c **** 			LEDgreen_On();
+ 163              		.loc 1 111 0
+ 164 00be 114B     		ldr	r3, .L6
+ 165 00c0 DB68     		ldr	r3, [r3, #12]
+ 166 00c2 181C     		mov	r0, r3
+ 167 00c4 FFF7FEFF 		bl	BitIoLdd1_ClrVal
+ 112:../Sources/ProcessorExpert.c **** 			LEDred_Off();
+ 168              		.loc 1 112 0
+ 169 00c8 0E4B     		ldr	r3, .L6
+ 170 00ca 1B69     		ldr	r3, [r3, #16]
+ 171 00cc 181C     		mov	r0, r3
+ 172 00ce FFF7FEFF 		bl	BitIoLdd2_SetVal
+ 113:../Sources/ProcessorExpert.c **** 			printf("tilt =  %d  ang_pos =  %d current= %d ADC1: %d ADC2: %d", mma845x.y, as5040data.ang_posi
+ 173              		.loc 1 113 0
+ 174 00d2 134B     		ldr	r3, .L6+28
+ 175 00d4 5B88     		ldrh	r3, [r3, #2]
+ 176 00d6 19B2     		sxth	r1, r3
+ 177 00d8 104B     		ldr	r3, .L6+24
+ 178 00da 1B88     		ldrh	r3, [r3]
+ 179 00dc 1AB2     		sxth	r2, r3
+ 180 00de 114B     		ldr	r3, .L6+32
+ 181 00e0 1B88     		ldrh	r3, [r3]
+ 182 00e2 1BB2     		sxth	r3, r3
+ 183 00e4 0C48     		ldr	r0, .L6+20
+ 184 00e6 0088     		ldrh	r0, [r0]
+ 185 00e8 051C     		mov	r5, r0
+ 186 00ea 0B48     		ldr	r0, .L6+20
+ 187 00ec 4088     		ldrh	r0, [r0, #2]
+ 188 00ee 041C     		mov	r4, r0
+ 189 00f0 0E48     		ldr	r0, .L6+40
+ 190 00f2 0095     		str	r5, [sp]
+ 191 00f4 0194     		str	r4, [sp, #4]
+ 192 00f6 FFF7FEFF 		bl	printf
+ 114:../Sources/ProcessorExpert.c **** 			printf("\n");
+ 193              		.loc 1 114 0
+ 194 00fa 0A20     		mov	r0, #10
+ 195 00fc FFF7FEFF 		bl	putchar
+ 196              		.loc 1 118 0
+ 197 0100 A9E7     		b	.L5
+ 198              	.L7:
+ 199 0102 C046     		.align	2
+ 200              	.L6:
+ 201 0104 00000000 		.word	PE_LDD_DeviceDataList
+ 202 0108 00000000 		.word	MyI2CPtr
+ 203 010c 00000000 		.word	Myout_I2CPtr
+ 204 0110 00000000 		.word	MyTimerPtr
+ 205 0114 00000000 		.word	ADC_koniec
+ 206 0118 00000000 		.word	ADC_value
+ 207 011c 00000000 		.word	as5040data
+ 208 0120 00000000 		.word	mma845x
+ 209 0124 00000000 		.word	ltc2945
+ 210 0128 00000000 		.word	.LC9
+ 211 012c 3C000000 		.word	.LC11
+ 212              		.cfi_endproc
+ 213              	.LFE0:
+ 215              		.text
+ 216              	.Letext0:
+ 217              		.file 2 "D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
+ 218              		.file 3 "D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/PE_Types.h"
+ 219              		.file 4 "../Sources/AS5040.h"
+ 220              		.file 5 "../Sources/mma8453.h"
+ 221              		.file 6 "../Sources/LTC2945.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 ProcessorExpert.c
                             *COM*:00000006 InData
@@ -297,10 +355,13 @@ DEFINED SYMBOLS
                             *COM*:00000004 MyI2CPtr
                             *COM*:00000004 MyTimerPtr
                             *COM*:00000004 Myout_I2CPtr
-C:\Users\SKRA~1\AppData\Local\Temp\ccFoRiCs.s:24     .rodata:00000000 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccFoRiCs.s:31     .text.main:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccFoRiCs.s:36     .text.main:00000000 main
-C:\Users\SKRA~1\AppData\Local\Temp\ccFoRiCs.s:158    .text.main:000000c8 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccWTEz3Z.s:24     .bss.ADC_value:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccWTEz3Z.s:27     .bss.ADC_value:00000000 ADC_value
+                            *COM*:00000001 ADC_koniec
+C:\Users\SKRA~1\AppData\Local\Temp\ccWTEz3Z.s:31     .rodata:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccWTEz3Z.s:40     .text.main:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccWTEz3Z.s:45     .text.main:00000000 main
+C:\Users\SKRA~1\AppData\Local\Temp\ccWTEz3Z.s:201    .text.main:00000104 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
@@ -312,8 +373,10 @@ out_I2C_Init
 TU1_Init
 MMA845X_Init
 AS5040_Init
+AD1_Measure
 AS5040_data_parser
 MMA845X_Poll
+AD1_GetValue16
 BitIoLdd2_ClrVal
 printf
 putchar

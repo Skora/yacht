@@ -13,6 +13,8 @@
 "./Generated_Code/Cpu.o"
 "./Generated_Code/BitIoLdd2.o"
 "./Generated_Code/BitIoLdd1.o"
+"./Generated_Code/AdcLdd1.o"
+"./Generated_Code/AD1.o"
 "./Project_Settings/Startup_Code/__arm_start.o"
 "./Project_Settings/Startup_Code/__arm_end.o"
 "./Sources/mma8453.o"

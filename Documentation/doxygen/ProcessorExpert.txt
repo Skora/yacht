@@ -34,6 +34,7 @@
 - \subpage BitIoLdd1
 - \subpage BitIoLdd2
 - \subpage out_I2C
+- \subpage AdcLdd1
 
 
 */

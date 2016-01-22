@@ -436,14 +436,14 @@
  282              		.file 5 "D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/file_struc.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 CsIO1.c
-C:\Users\SKRA~1\AppData\Local\Temp\cc5MVJHx.s:18     .text.__read_console:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\cc5MVJHx.s:23     .text.__read_console:00000000 __read_console
-C:\Users\SKRA~1\AppData\Local\Temp\cc5MVJHx.s:134    .text.__read_console:00000088 $d
-C:\Users\SKRA~1\AppData\Local\Temp\cc5MVJHx.s:139    .text.__write_console:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\cc5MVJHx.s:144    .text.__write_console:00000000 __write_console
-C:\Users\SKRA~1\AppData\Local\Temp\cc5MVJHx.s:240    .text.__write_console:00000078 $d
-C:\Users\SKRA~1\AppData\Local\Temp\cc5MVJHx.s:245    .text.__close_console:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\cc5MVJHx.s:250    .text.__close_console:00000000 __close_console
+C:\Users\SKRA~1\AppData\Local\Temp\cc358AU8.s:18     .text.__read_console:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\cc358AU8.s:23     .text.__read_console:00000000 __read_console
+C:\Users\SKRA~1\AppData\Local\Temp\cc358AU8.s:134    .text.__read_console:00000088 $d
+C:\Users\SKRA~1\AppData\Local\Temp\cc358AU8.s:139    .text.__write_console:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\cc358AU8.s:144    .text.__write_console:00000000 __write_console
+C:\Users\SKRA~1\AppData\Local\Temp\cc358AU8.s:240    .text.__write_console:00000078 $d
+C:\Users\SKRA~1\AppData\Local\Temp\cc358AU8.s:245    .text.__close_console:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\cc358AU8.s:250    .text.__close_console:00000000 __close_console
                      .debug_frame:00000010 $d
 
 NO UNDEFINED SYMBOLS

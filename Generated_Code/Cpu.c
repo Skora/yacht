@@ -7,7 +7,7 @@
 **     Version     : Component 01.025, Driver 01.04, CPU db: 3.00.000
 **     Datasheet   : KL25P80M48SF0RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2015-12-12, 12:27, # CodeGen: 18
+**     Date/Time   : 2016-01-22, 19:27, # CodeGen: 24
 **     Abstract    :
 **
 **     Settings    :
@@ -72,6 +72,8 @@
 #include "LEDpin2.h"
 #include "BitIoLdd2.h"
 #include "out_I2C.h"
+#include "AD1.h"
+#include "AdcLdd1.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -286,6 +288,8 @@ void PE_low_level_init(void)
   (void)BitIoLdd2_Init(NULL);
   /* ### LED "LEDred" init code ... */
   LEDred_Init(); /* initializes the driver */
+  /* ### ADC "AD1" init code ... */
+  AD1_Init();
   __EI();
 }
 

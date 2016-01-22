@@ -21,6 +21,8 @@
 #include "Events.h"
 #include "I2C2.h"
 #include "out_I2C.h"
+#include "AD1.h"
+#include "AdcLdd1.h"
 #include "IO1.h"
 #include "WAIT1.h"
 #include "LEDgreen.h"
@@ -55,6 +57,12 @@ LDD_TDeviceData *MyTimerPtr;
 LDD_TDeviceData *Myout_I2CPtr;
 
 
+
+static uint16_t ADC_value[AD1_CHANNEL_COUNT];
+volatile bool ADC_koniec;
+
+
+
 int main(void)
 {
 	uint16_t i=0;
@@ -76,6 +84,7 @@ int main(void)
 	MMA845X_Init();
 	//LTC2945_Init();
 	AS5040_Init();
+	(void)AD1_Measure(TRUE);
 
 	for(;;)
 	{
@@ -86,18 +95,22 @@ int main(void)
 		AS5040_data_parser();
 		MMA845X_Poll();
 		//LTC2945_Poll();
-
-
+		if (ADC_koniec){
+		(void)AD1_GetValue16(&ADC_value[0]);
+		ADC_koniec=FALSE;
+		(void)AD1_Measure(TRUE);
+		}
+		
 		if(as5040data.Erorr){
 			LEDgreen_Off();
 			LEDred_On();
-			printf("tilt =  %d  ang_pos =ERORR current= %d", mma845x.y, ltc2945.current);
+			printf("tilt =  %d  ang_pos =ERORR  ADC1: %d ADC2: %d", mma845x.y, ADC_value[0],ADC_value[1]);
 			printf("\n");
 		}
 		else{
 			LEDgreen_On();
 			LEDred_Off();
-			printf("tilt =  %d  ang_pos =  %d current= %d", mma845x.y, as5040data.ang_position, ltc2945.current);
+			printf("tilt =  %d  ang_pos =  %d  ADC1: %d ADC2: %d", mma845x.y, as5040data.ang_position,ADC_value[0],ADC_value[1]);
 			printf("\n");
 		}
 

@@ -796,41 +796,140 @@
  508 0014 00000000 		.word	LTCDataReceivedFlg
  509              		.cfi_endproc
  510              	.LFE10:
- 512              		.text
- 513              	.Letext0:
- 514              		.file 2 "D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
- 515              		.file 3 "D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/PE_Types.h"
- 516              		.file 4 "D:/CodeWarrior/CW MCU v10.6/MCU/ProcessorExpert/lib/Kinetis/iofiles/MKL25Z4.h"
+ 512              		.section	.text.AD1_OnEnd,"ax",%progbits
+ 513              		.align	2
+ 514              		.global	AD1_OnEnd
+ 515              		.code	16
+ 516              		.thumb_func
+ 518              	AD1_OnEnd:
+ 519              	.LFB11:
+ 310:../Sources/Events.c **** 
+ 311:../Sources/Events.c **** /*
+ 312:../Sources/Events.c **** ** ===================================================================
+ 313:../Sources/Events.c **** **     Event       :  AD1_OnEnd (module Events)
+ 314:../Sources/Events.c **** **
+ 315:../Sources/Events.c **** **     Component   :  AD1 [ADC]
+ 316:../Sources/Events.c **** **     Description :
+ 317:../Sources/Events.c **** **         This event is called after the measurement (which consists
+ 318:../Sources/Events.c **** **         of <1 or more conversions>) is/are finished.
+ 319:../Sources/Events.c **** **         The event is available only when the <Interrupt
+ 320:../Sources/Events.c **** **         service/event> property is enabled.
+ 321:../Sources/Events.c **** **     Parameters  : None
+ 322:../Sources/Events.c **** **     Returns     : Nothing
+ 323:../Sources/Events.c **** ** ===================================================================
+ 324:../Sources/Events.c **** */
+ 325:../Sources/Events.c **** void AD1_OnEnd(void)
+ 326:../Sources/Events.c **** {
+ 520              		.loc 1 326 0
+ 521              		.cfi_startproc
+ 522 0000 80B5     		push	{r7, lr}
+ 523              	.LCFI32:
+ 524              		.cfi_def_cfa_offset 8
+ 525              		.cfi_offset 7, -8
+ 526              		.cfi_offset 14, -4
+ 527 0002 00AF     		add	r7, sp, #0
+ 528              	.LCFI33:
+ 529              		.cfi_def_cfa_register 7
+ 327:../Sources/Events.c ****   /* Write your code here ... */
+ 328:../Sources/Events.c **** 	extern volatile bool ADC_koniec;
+ 329:../Sources/Events.c **** 	ADC_koniec = TRUE;
+ 530              		.loc 1 329 0
+ 531 0004 024B     		ldr	r3, .L39
+ 532 0006 0122     		mov	r2, #1
+ 533 0008 1A70     		strb	r2, [r3]
+ 330:../Sources/Events.c **** }
+ 534              		.loc 1 330 0
+ 535 000a BD46     		mov	sp, r7
+ 536              		@ sp needed for prologue
+ 537 000c 80BD     		pop	{r7, pc}
+ 538              	.L40:
+ 539 000e C046     		.align	2
+ 540              	.L39:
+ 541 0010 00000000 		.word	ADC_koniec
+ 542              		.cfi_endproc
+ 543              	.LFE11:
+ 545              		.section	.text.AD1_OnCalibrationEnd,"ax",%progbits
+ 546              		.align	2
+ 547              		.global	AD1_OnCalibrationEnd
+ 548              		.code	16
+ 549              		.thumb_func
+ 551              	AD1_OnCalibrationEnd:
+ 552              	.LFB12:
+ 331:../Sources/Events.c **** 
+ 332:../Sources/Events.c **** /*
+ 333:../Sources/Events.c **** ** ===================================================================
+ 334:../Sources/Events.c **** **     Event       :  AD1_OnCalibrationEnd (module Events)
+ 335:../Sources/Events.c **** **
+ 336:../Sources/Events.c **** **     Component   :  AD1 [ADC]
+ 337:../Sources/Events.c **** **     Description :
+ 338:../Sources/Events.c **** **         This event is called when the calibration has been finished.
+ 339:../Sources/Events.c **** **         User should check if the calibration pass or fail by
+ 340:../Sources/Events.c **** **         Calibration status method./nThis event is enabled only if
+ 341:../Sources/Events.c **** **         the <Interrupt service/event> property is enabled.
+ 342:../Sources/Events.c **** **     Parameters  : None
+ 343:../Sources/Events.c **** **     Returns     : Nothing
+ 344:../Sources/Events.c **** ** ===================================================================
+ 345:../Sources/Events.c **** */
+ 346:../Sources/Events.c **** void AD1_OnCalibrationEnd(void)
+ 347:../Sources/Events.c **** {
+ 553              		.loc 1 347 0
+ 554              		.cfi_startproc
+ 555 0000 80B5     		push	{r7, lr}
+ 556              	.LCFI34:
+ 557              		.cfi_def_cfa_offset 8
+ 558              		.cfi_offset 7, -8
+ 559              		.cfi_offset 14, -4
+ 560 0002 00AF     		add	r7, sp, #0
+ 561              	.LCFI35:
+ 562              		.cfi_def_cfa_register 7
+ 348:../Sources/Events.c **** 	
+ 349:../Sources/Events.c **** }
+ 563              		.loc 1 349 0
+ 564 0004 BD46     		mov	sp, r7
+ 565              		@ sp needed for prologue
+ 566 0006 80BD     		pop	{r7, pc}
+ 567              		.cfi_endproc
+ 568              	.LFE12:
+ 570              		.text
+ 571              	.Letext0:
+ 572              		.file 2 "D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
+ 573              		.file 3 "D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/PE_Types.h"
+ 574              		.file 4 "D:/CodeWarrior/CW MCU v10.6/MCU/ProcessorExpert/lib/Kinetis/iofiles/MKL25Z4.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 Events.c
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:18     .text.IO1_OnBlockReceived:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:23     .text.IO1_OnBlockReceived:00000000 IO1_OnBlockReceived
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:49     .text.IO1_OnBlockSent:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:54     .text.IO1_OnBlockSent:00000000 IO1_OnBlockSent
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:79     .text.TU1_OnCounterRestart:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:84     .text.TU1_OnCounterRestart:00000000 TU1_OnCounterRestart
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:111    .text.I2C2_OnMasterBlockSent:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:116    .text.I2C2_OnMasterBlockSent:00000000 I2C2_OnMasterBlockSent
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:144    .text.I2C2_OnMasterBlockSent:00000014 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:149    .text.I2C2_OnMasterBlockReceived:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:154    .text.I2C2_OnMasterBlockReceived:00000000 I2C2_OnMasterBlockReceived
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:182    .text.I2C2_OnMasterBlockReceived:00000014 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:187    .text.I2C2_OnError:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:192    .text.I2C2_OnError:00000000 I2C2_OnError
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:217    .text.Cpu_OnNMIINT:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:222    .text.Cpu_OnNMIINT:00000000 Cpu_OnNMIINT
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:242    .text.uart_putchar:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:247    .text.uart_putchar:00000000 uart_putchar
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:335    .text.uart_putchar:0000006c $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:342    .text.uart_getchar:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:347    .text.uart_getchar:00000000 uart_getchar
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:430    .text.uart_getchar:00000064 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:437    .text.out_I2C_OnMasterBlockSent:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:442    .text.out_I2C_OnMasterBlockSent:00000000 out_I2C_OnMasterBlockSent
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:470    .text.out_I2C_OnMasterBlockSent:00000014 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:475    .text.out_I2C_OnMasterBlockReceived:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:480    .text.out_I2C_OnMasterBlockReceived:00000000 out_I2C_OnMasterBlockReceived
-C:\Users\SKRA~1\AppData\Local\Temp\ccm1SZ0j.s:508    .text.out_I2C_OnMasterBlockReceived:00000014 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:18     .text.IO1_OnBlockReceived:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:23     .text.IO1_OnBlockReceived:00000000 IO1_OnBlockReceived
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:49     .text.IO1_OnBlockSent:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:54     .text.IO1_OnBlockSent:00000000 IO1_OnBlockSent
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:79     .text.TU1_OnCounterRestart:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:84     .text.TU1_OnCounterRestart:00000000 TU1_OnCounterRestart
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:111    .text.I2C2_OnMasterBlockSent:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:116    .text.I2C2_OnMasterBlockSent:00000000 I2C2_OnMasterBlockSent
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:144    .text.I2C2_OnMasterBlockSent:00000014 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:149    .text.I2C2_OnMasterBlockReceived:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:154    .text.I2C2_OnMasterBlockReceived:00000000 I2C2_OnMasterBlockReceived
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:182    .text.I2C2_OnMasterBlockReceived:00000014 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:187    .text.I2C2_OnError:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:192    .text.I2C2_OnError:00000000 I2C2_OnError
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:217    .text.Cpu_OnNMIINT:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:222    .text.Cpu_OnNMIINT:00000000 Cpu_OnNMIINT
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:242    .text.uart_putchar:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:247    .text.uart_putchar:00000000 uart_putchar
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:335    .text.uart_putchar:0000006c $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:342    .text.uart_getchar:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:347    .text.uart_getchar:00000000 uart_getchar
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:430    .text.uart_getchar:00000064 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:437    .text.out_I2C_OnMasterBlockSent:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:442    .text.out_I2C_OnMasterBlockSent:00000000 out_I2C_OnMasterBlockSent
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:470    .text.out_I2C_OnMasterBlockSent:00000014 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:475    .text.out_I2C_OnMasterBlockReceived:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:480    .text.out_I2C_OnMasterBlockReceived:00000000 out_I2C_OnMasterBlockReceived
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:508    .text.out_I2C_OnMasterBlockReceived:00000014 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:513    .text.AD1_OnEnd:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:518    .text.AD1_OnEnd:00000000 AD1_OnEnd
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:541    .text.AD1_OnEnd:00000010 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:546    .text.AD1_OnCalibrationEnd:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccG5YTGX.s:551    .text.AD1_OnCalibrationEnd:00000000 AD1_OnCalibrationEnd
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
@@ -839,3 +938,4 @@ DataTransmittedFlg
 DataReceivedFlg
 LTCDataTransmittedFlg
 LTCDataReceivedFlg
+ADC_koniec

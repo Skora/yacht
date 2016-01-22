@@ -108,7 +108,7 @@
   30:../Sources/LTC2945.c ****   LtcOutData[0] = LTC2945_DIVICE_ADDR; 
   86              		.loc 1 30 0
   87 0030 194B     		ldr	r3, .L5+4
-  88 0032 DE22     		mov	r2, #222
+  88 0032 6F22     		mov	r2, #111
   89 0034 1A70     		strb	r2, [r3]
   31:../Sources/LTC2945.c **** 
   32:../Sources/LTC2945.c ****   Error = out_I2C_MasterSendBlock(Myout_I2CPtr, &LtcOutData, 1, LDD_I2C_NO_SEND_STOP);
@@ -213,7 +213,7 @@
   47:../Sources/LTC2945.c **** 	LtcOutData[0] = LTC2945_DIVICE_ADDR; //device dares with R/W st to 0
  176              		.loc 1 47 0
  177 0004 364B     		ldr	r3, .L12
- 178 0006 DE22     		mov	r2, #222
+ 178 0006 6F22     		mov	r2, #111
  179 0008 1A70     		strb	r2, [r3]
   48:../Sources/LTC2945.c **** 	Error = out_I2C_MasterSendBlock(Myout_I2CPtr, &LtcOutData, 1, LDD_I2C_NO_SEND_STOP); 
  180              		.loc 1 48 0
@@ -281,7 +281,7 @@
   55:../Sources/LTC2945.c **** 	LtcOutData[0] = LTC2945_DIVICE_ADDR+1; //device dares with R/W st to 1
  236              		.loc 1 55 0
  237 0068 1D4B     		ldr	r3, .L12
- 238 006a DF22     		mov	r2, #223
+ 238 006a 7022     		mov	r2, #112
  239 006c 1A70     		strb	r2, [r3]
   56:../Sources/LTC2945.c **** 	Error = out_I2C_MasterSendBlock(Myout_I2CPtr, &LtcOutData, 1, LDD_I2C_NO_SEND_STOP); 
  240              		.loc 1 56 0
@@ -381,21 +381,21 @@
 DEFINED SYMBOLS
                             *ABS*:00000000 LTC2945.c
                             *COM*:00000007 LtcInData
-C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:23     .data.LtcOutData:00000000 LtcOutData
-C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:20     .data.LtcOutData:00000000 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:30     .bss.LTCDataReceivedFlg:00000000 LTCDataReceivedFlg
-C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:31     .bss.LTCDataReceivedFlg:00000000 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:36     .bss.LTCDataTransmittedFlg:00000000 LTCDataTransmittedFlg
-C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:37     .bss.LTCDataTransmittedFlg:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccN9PmpR.s:23     .data.LtcOutData:00000000 LtcOutData
+C:\Users\SKRA~1\AppData\Local\Temp\ccN9PmpR.s:20     .data.LtcOutData:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccN9PmpR.s:30     .bss.LTCDataReceivedFlg:00000000 LTCDataReceivedFlg
+C:\Users\SKRA~1\AppData\Local\Temp\ccN9PmpR.s:31     .bss.LTCDataReceivedFlg:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccN9PmpR.s:36     .bss.LTCDataTransmittedFlg:00000000 LTCDataTransmittedFlg
+C:\Users\SKRA~1\AppData\Local\Temp\ccN9PmpR.s:37     .bss.LTCDataTransmittedFlg:00000000 $d
                             *COM*:0000000c ltc2945
                             *COM*:00000002 Error
                             *COM*:00000004 Myout_I2CPtr
-C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:42     .text.LTC2945_Init:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:47     .text.LTC2945_Init:00000000 LTC2945_Init
-C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:149    .text.LTC2945_Init:00000094 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:159    .text.LTC2945_Poll:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:164    .text.LTC2945_Poll:00000000 LTC2945_Poll
-C:\Users\SKRA~1\AppData\Local\Temp\ccu3Ju4o.s:311    .text.LTC2945_Poll:000000e0 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccN9PmpR.s:42     .text.LTC2945_Init:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccN9PmpR.s:47     .text.LTC2945_Init:00000000 LTC2945_Init
+C:\Users\SKRA~1\AppData\Local\Temp\ccN9PmpR.s:149    .text.LTC2945_Init:00000094 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccN9PmpR.s:159    .text.LTC2945_Poll:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccN9PmpR.s:164    .text.LTC2945_Poll:00000000 LTC2945_Poll
+C:\Users\SKRA~1\AppData\Local\Temp\ccN9PmpR.s:311    .text.LTC2945_Poll:000000e0 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

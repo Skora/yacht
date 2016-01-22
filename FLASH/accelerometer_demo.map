@@ -46,12 +46,16 @@ D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_ea
 Allocating common symbols
 Common symbol       size              file
 
+ADC_koniec          0x1               ./Sources/ProcessorExpert.o
 mma845x             0x8               ./Sources/mma8453.o
 LtcInData           0x7               ./Sources/ProcessorExpert.o
+AD1_OutV            0x4               ./Generated_Code/AD1.o
 Myout_I2CPtr        0x4               ./Sources/ProcessorExpert.o
 as5040data          0xa               ./Sources/AS5040.o
 stdout_buff         0x40              D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
 mma845_tmp          0x2               ./Sources/mma8453.o
+AdcLdd1_DeviceDataPtr
+                    0x4               ./Generated_Code/AD1.o
 ltc2945             0xc               ./Sources/LTC2945.o
 InData              0x6               ./Sources/mma8453.o
 MyI2CPtr            0x4               ./Sources/mma8453.o
@@ -93,7 +97,7 @@ Discarded input sections
  .text.PE_FillMemory
                 0x00000000       0x28 ./Generated_Code/PE_LDD.o
  .text.PE_PeripheralUsed
-                0x00000000       0x68 ./Generated_Code/PE_LDD.o
+                0x00000000       0x70 ./Generated_Code/PE_LDD.o
  .text.LDD_SetClockConfiguration
                 0x00000000       0x14 ./Generated_Code/PE_LDD.o
  .text          0x00000000        0x0 ./Generated_Code/LEDred.o
@@ -109,7 +113,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x28 ./Generated_Code/LEDred.o
  .debug_macinfo
-                0x00000000    0x2efb2 ./Generated_Code/LEDred.o
+                0x00000000    0x2efd7 ./Generated_Code/LEDred.o
  .debug_line    0x00000000      0x28f ./Generated_Code/LEDred.o
  .debug_str     0x00000000      0x17e ./Generated_Code/LEDred.o
  .comment       0x00000000       0x7a ./Generated_Code/LEDred.o
@@ -124,7 +128,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 ./Generated_Code/LEDpin2.o
  .debug_macinfo
-                0x00000000    0x2ee10 ./Generated_Code/LEDpin2.o
+                0x00000000    0x2ee35 ./Generated_Code/LEDpin2.o
  .debug_line    0x00000000      0x25f ./Generated_Code/LEDpin2.o
  .debug_str     0x00000000      0x12e ./Generated_Code/LEDpin2.o
  .comment       0x00000000       0x7a ./Generated_Code/LEDpin2.o
@@ -138,7 +142,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x18 ./Generated_Code/LEDpin1.o
  .debug_macinfo
-                0x00000000    0x2ee10 ./Generated_Code/LEDpin1.o
+                0x00000000    0x2ee35 ./Generated_Code/LEDpin1.o
  .debug_line    0x00000000      0x25f ./Generated_Code/LEDpin1.o
  .debug_str     0x00000000      0x12e ./Generated_Code/LEDpin1.o
  .comment       0x00000000       0x7a ./Generated_Code/LEDpin1.o
@@ -157,7 +161,7 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x28 ./Generated_Code/LEDgreen.o
  .debug_macinfo
-                0x00000000    0x2efd0 ./Generated_Code/LEDgreen.o
+                0x00000000    0x2eff5 ./Generated_Code/LEDgreen.o
  .debug_line    0x00000000      0x293 ./Generated_Code/LEDgreen.o
  .debug_str     0x00000000      0x184 ./Generated_Code/LEDgreen.o
  .comment       0x00000000       0x7a ./Generated_Code/LEDgreen.o
@@ -204,6 +208,20 @@ Discarded input sections
                 0x00000000       0x28 ./Generated_Code/BitIoLdd1.o
  .text.BitIoLdd1_NegVal
                 0x00000000       0x1c ./Generated_Code/BitIoLdd1.o
+ .text          0x00000000        0x0 ./Generated_Code/AdcLdd1.o
+ .data          0x00000000        0x0 ./Generated_Code/AdcLdd1.o
+ .bss           0x00000000        0x0 ./Generated_Code/AdcLdd1.o
+ .text.AdcLdd1_CancelMeasurement
+                0x00000000       0x28 ./Generated_Code/AdcLdd1.o
+ .text.AdcLdd1_GetMeasurementCompleteStatus
+                0x00000000       0x84 ./Generated_Code/AdcLdd1.o
+ .text.AdcLdd1_StartCalibration
+                0x00000000       0x44 ./Generated_Code/AdcLdd1.o
+ .text          0x00000000        0x0 ./Generated_Code/AD1.o
+ .data          0x00000000        0x0 ./Generated_Code/AD1.o
+ .bss           0x00000000        0x0 ./Generated_Code/AD1.o
+ .text.AD1_Calibrate
+                0x00000000       0x80 ./Generated_Code/AD1.o
  .text          0x00000000        0x0 ./Project_Settings/Startup_Code/__arm_start.o
  .data          0x00000000        0x0 ./Project_Settings/Startup_Code/__arm_start.o
  .bss           0x00000000        0x0 ./Project_Settings/Startup_Code/__arm_start.o
@@ -367,6 +385,8 @@ LOAD ./Generated_Code/CsIO1.o
 LOAD ./Generated_Code/Cpu.o
 LOAD ./Generated_Code/BitIoLdd2.o
 LOAD ./Generated_Code/BitIoLdd1.o
+LOAD ./Generated_Code/AdcLdd1.o
+LOAD ./Generated_Code/AD1.o
 LOAD ./Project_Settings/Startup_Code/__arm_start.o
 LOAD ./Project_Settings/Startup_Code/__arm_end.o
 LOAD ./Sources/mma8453.o
@@ -374,7 +394,7 @@ LOAD ./Sources/ProcessorExpert.o
 LOAD ./Sources/LTC2945.o
 LOAD ./Sources/Events.o
 LOAD ./Sources/AS5040.o
-                0x00001e64                __pformatter = __pformatter_
+                0x0000236c                __pformatter = __pformatter_
 START GROUP
 LOAD D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a
 LOAD D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libm.a
@@ -400,7 +420,7 @@ END GROUP
  *(.cfmconfig)
                 0x00000400                . = ALIGN (0x4)
 
-.text           0x00000410     0x235c
+.text           0x00000410     0x288c
                 0x00000410                . = ALIGN (0x4)
  *(.text)
  .text          0x00000410       0x9c d:/codewarrior/cw mcu v10.6/cross_tools/arm-none-eabi-gcc-4_7_3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_udivsi3.o)
@@ -463,148 +483,190 @@ END GROUP
                 0x000012f0      0x174 ./Generated_Code/Cpu.o
                 0x000012f0                __init_hardware
  .text.PE_low_level_init
-                0x00001464       0xf4 ./Generated_Code/Cpu.o
+                0x00001464       0xf8 ./Generated_Code/Cpu.o
                 0x00001464                PE_low_level_init
  .text.BitIoLdd2_Init
-                0x00001558       0x68 ./Generated_Code/BitIoLdd2.o
-                0x00001558                BitIoLdd2_Init
+                0x0000155c       0x68 ./Generated_Code/BitIoLdd2.o
+                0x0000155c                BitIoLdd2_Init
  .text.BitIoLdd2_ClrVal
-                0x000015c0       0x1c ./Generated_Code/BitIoLdd2.o
-                0x000015c0                BitIoLdd2_ClrVal
+                0x000015c4       0x1c ./Generated_Code/BitIoLdd2.o
+                0x000015c4                BitIoLdd2_ClrVal
  .text.BitIoLdd2_SetVal
-                0x000015dc       0x1c ./Generated_Code/BitIoLdd2.o
-                0x000015dc                BitIoLdd2_SetVal
+                0x000015e0       0x1c ./Generated_Code/BitIoLdd2.o
+                0x000015e0                BitIoLdd2_SetVal
  .text.BitIoLdd1_Init
-                0x000015f8       0x68 ./Generated_Code/BitIoLdd1.o
-                0x000015f8                BitIoLdd1_Init
+                0x000015fc       0x68 ./Generated_Code/BitIoLdd1.o
+                0x000015fc                BitIoLdd1_Init
  .text.BitIoLdd1_ClrVal
-                0x00001660       0x1c ./Generated_Code/BitIoLdd1.o
-                0x00001660                BitIoLdd1_ClrVal
+                0x00001664       0x1c ./Generated_Code/BitIoLdd1.o
+                0x00001664                BitIoLdd1_ClrVal
  .text.BitIoLdd1_SetVal
-                0x0000167c       0x1c ./Generated_Code/BitIoLdd1.o
-                0x0000167c                BitIoLdd1_SetVal
+                0x00001680       0x1c ./Generated_Code/BitIoLdd1.o
+                0x00001680                BitIoLdd1_SetVal
+ .text.AdcLdd1_Init
+                0x0000169c       0xd4 ./Generated_Code/AdcLdd1.o
+                0x0000169c                AdcLdd1_Init
+ .text.AdcLdd1_StartSingleMeasurement
+                0x00001770       0x44 ./Generated_Code/AdcLdd1.o
+                0x00001770                AdcLdd1_StartSingleMeasurement
+ .text.AdcLdd1_CreateSampleGroup
+                0x000017b4       0x6c ./Generated_Code/AdcLdd1.o
+                0x000017b4                AdcLdd1_CreateSampleGroup
+ .text.AdcLdd1_GetMeasuredValues
+                0x00001820       0x60 ./Generated_Code/AdcLdd1.o
+                0x00001820                AdcLdd1_GetMeasuredValues
+ .text.AdcLdd1_GetCalibrationResultStatus
+                0x00001880       0xb8 ./Generated_Code/AdcLdd1.o
+                0x00001880                AdcLdd1_GetCalibrationResultStatus
+ .text.AdcLdd1_MeasurementCompleteInterrupt
+                0x00001938       0x30 ./Generated_Code/AdcLdd1.o
+                0x00001938                AdcLdd1_MeasurementCompleteInterrupt
+ .text.ClrSumV  0x00001968       0x18 ./Generated_Code/AD1.o
+ .text.AD1_HWEnDi
+                0x00001980       0x58 ./Generated_Code/AD1.o
+                0x00001980                AD1_HWEnDi
+ .text.AD1_Measure
+                0x000019d8       0x48 ./Generated_Code/AD1.o
+                0x000019d8                AD1_Measure
+ .text.AD1_GetValue16
+                0x00001a20       0x40 ./Generated_Code/AD1.o
+                0x00001a20                AD1_GetValue16
+ .text.AdcLdd1_OnMeasurementComplete
+                0x00001a60       0xb4 ./Generated_Code/AD1.o
+                0x00001a60                AdcLdd1_OnMeasurementComplete
+ .text.AD1_Init
+                0x00001b14       0x2c ./Generated_Code/AD1.o
+                0x00001b14                AD1_Init
  .text.zero_fill_bss
-                0x00001698       0x24 ./Project_Settings/Startup_Code/__arm_start.o
+                0x00001b40       0x24 ./Project_Settings/Startup_Code/__arm_start.o
  .text.__thumb_startup
-                0x000016bc       0x30 ./Project_Settings/Startup_Code/__arm_start.o
-                0x000016bc                __thumb_startup
+                0x00001b64       0x30 ./Project_Settings/Startup_Code/__arm_start.o
+                0x00001b64                __thumb_startup
  .text._ExitProcess
-                0x000016ec        0xc ./Project_Settings/Startup_Code/__arm_end.o
-                0x000016ec                _ExitProcess
+                0x00001b94        0xc ./Project_Settings/Startup_Code/__arm_end.o
+                0x00001b94                _ExitProcess
  .text.Timer_Interrupt_CB
-                0x000016f8       0x38 ./Sources/mma8453.o
-                0x000016f8                Timer_Interrupt_CB
+                0x00001ba0       0x38 ./Sources/mma8453.o
+                0x00001ba0                Timer_Interrupt_CB
  .text.MMA845X_Init
-                0x00001730       0xac ./Sources/mma8453.o
-                0x00001730                MMA845X_Init
+                0x00001bd8       0xac ./Sources/mma8453.o
+                0x00001bd8                MMA845X_Init
  .text.MMA845X_Poll
-                0x000017dc      0x138 ./Sources/mma8453.o
-                0x000017dc                MMA845X_Poll
- .text.main     0x00001914       0xec ./Sources/ProcessorExpert.o
-                0x00001914                main
+                0x00001c84      0x138 ./Sources/mma8453.o
+                0x00001c84                MMA845X_Poll
+ .text.main     0x00001dbc      0x130 ./Sources/ProcessorExpert.o
+                0x00001dbc                main
  .text.TU1_OnCounterRestart
-                0x00001a00       0x14 ./Sources/Events.o
-                0x00001a00                TU1_OnCounterRestart
+                0x00001eec       0x14 ./Sources/Events.o
+                0x00001eec                TU1_OnCounterRestart
  .text.I2C2_OnMasterBlockSent
-                0x00001a14       0x18 ./Sources/Events.o
-                0x00001a14                I2C2_OnMasterBlockSent
+                0x00001f00       0x18 ./Sources/Events.o
+                0x00001f00                I2C2_OnMasterBlockSent
  .text.I2C2_OnMasterBlockReceived
-                0x00001a2c       0x18 ./Sources/Events.o
-                0x00001a2c                I2C2_OnMasterBlockReceived
+                0x00001f18       0x18 ./Sources/Events.o
+                0x00001f18                I2C2_OnMasterBlockReceived
  .text.I2C2_OnError
-                0x00001a44       0x10 ./Sources/Events.o
-                0x00001a44                I2C2_OnError
+                0x00001f30       0x10 ./Sources/Events.o
+                0x00001f30                I2C2_OnError
  .text.Cpu_OnNMIINT
-                0x00001a54        0x8 ./Sources/Events.o
-                0x00001a54                Cpu_OnNMIINT
+                0x00001f40        0x8 ./Sources/Events.o
+                0x00001f40                Cpu_OnNMIINT
  .text.out_I2C_OnMasterBlockSent
-                0x00001a5c       0x18 ./Sources/Events.o
-                0x00001a5c                out_I2C_OnMasterBlockSent
+                0x00001f48       0x18 ./Sources/Events.o
+                0x00001f48                out_I2C_OnMasterBlockSent
  .text.out_I2C_OnMasterBlockReceived
-                0x00001a74       0x18 ./Sources/Events.o
-                0x00001a74                out_I2C_OnMasterBlockReceived
+                0x00001f60       0x18 ./Sources/Events.o
+                0x00001f60                out_I2C_OnMasterBlockReceived
+ .text.AD1_OnEnd
+                0x00001f78       0x14 ./Sources/Events.o
+                0x00001f78                AD1_OnEnd
+ .text.AD1_OnCalibrationEnd
+                0x00001f8c        0x8 ./Sources/Events.o
+                0x00001f8c                AD1_OnCalibrationEnd
  .text.AS5040_Init
-                0x00001a8c       0x64 ./Sources/AS5040.o
-                0x00001a8c                AS5040_Init
+                0x00001f94       0x64 ./Sources/AS5040.o
+                0x00001f94                AS5040_Init
  .text.AS5040_Data_read
-                0x00001af0       0x8c ./Sources/AS5040.o
-                0x00001af0                AS5040_Data_read
+                0x00001ff8       0x8c ./Sources/AS5040.o
+                0x00001ff8                AS5040_Data_read
  .text.AS5040_data_parser
-                0x00001b7c       0xb8 ./Sources/AS5040.o
-                0x00001b7c                AS5040_data_parser
- .text.printf   0x00001c34       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
-                0x00001c34                printf
- .text.putchar  0x00001c5c       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
-                0x00001c5c                putchar
- .text.exit     0x00001c84       0x38 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
-                0x00001c84                exit
- .text.memset   0x00001cbc        0xc D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
-                0x00001cbc                memset
+                0x00002084       0xb8 ./Sources/AS5040.o
+                0x00002084                AS5040_data_parser
+ .text.printf   0x0000213c       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
+                0x0000213c                printf
+ .text.putchar  0x00002164       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
+                0x00002164                putchar
+ .text.exit     0x0000218c       0x38 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
+                0x0000218c                exit
+ .text.memset   0x000021c4        0xc D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
+                0x000021c4                memset
  .text.long2str.isra.0
-                0x00001cc8      0x19c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+                0x000021d0      0x19c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
  .text.__pformatter_
-                0x00001e64      0x428 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
-                0x00001e64                __pformatter_
+                0x0000236c      0x428 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+                0x0000236c                __pformatter_
  .text.__put_char
-                0x0000228c       0x90 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
-                0x0000228c                __put_char
+                0x00002794       0x90 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
+                0x00002794                __put_char
  .text.__fwrite
-                0x0000231c      0x160 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
-                0x0000231c                __fwrite
+                0x00002824      0x160 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
+                0x00002824                __fwrite
  .text.__FileWrite
-                0x0000247c       0x1c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
-                0x0000247c                __FileWrite
+                0x00002984       0x1c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
+                0x00002984                __FileWrite
  .text.__fill_mem
-                0x00002498       0x7e D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
-                0x00002498                __fill_mem
+                0x000029a0       0x7e D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
+                0x000029a0                __fill_mem
  .text.__memrchr
-                0x00002516       0x1e D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
-                0x00002516                __memrchr
- .text.memchr   0x00002534       0x1a D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
-                0x00002534                memchr
- .text.memcpy   0x0000254e       0x12 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
-                0x0000254e                memcpy
- .text.strchr   0x00002560       0x1e D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
-                0x00002560                strchr
- .text.strlen   0x0000257e       0x10 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
-                0x0000257e                strlen
+                0x00002a1e       0x1e D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
+                0x00002a1e                __memrchr
+ .text.memchr   0x00002a3c       0x1a D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
+                0x00002a3c                memchr
+ .text.memcpy   0x00002a56       0x12 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
+                0x00002a56                memcpy
+ .text.strchr   0x00002a68       0x1e D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
+                0x00002a68                strchr
+ .text.strlen   0x00002a86       0x10 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
+                0x00002a86                strlen
  .text.__prep_buffer
-                0x0000258e       0x14 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
-                0x0000258e                __prep_buffer
+                0x00002a96       0x14 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
+                0x00002a96                __prep_buffer
  .text.__flush_buffer
-                0x000025a2       0x38 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
-                0x000025a2                __flush_buffer
- *fill*         0x000025da        0x2 00
+                0x00002aaa       0x38 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
+                0x00002aaa                __flush_buffer
+ *fill*         0x00002ae2        0x2 00
  .text.__init_cpp
-                0x000025dc       0x48 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
-                0x000025dc                __init_cpp
+                0x00002ae4       0x48 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+                0x00002ae4                __init_cpp
  .text.__fini_cpp
-                0x00002624       0x34 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
-                0x00002624                __fini_cpp
+                0x00002b2c       0x34 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+                0x00002b2c                __fini_cpp
  .text.__copy_rom_section
-                0x00002658       0x48 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
-                0x00002658                __copy_rom_section
+                0x00002b60       0x48 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+                0x00002b60                __copy_rom_section
  .text.__copy_rom_sections_to_ram
-                0x000026a0       0x34 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
-                0x000026a0                __copy_rom_sections_to_ram
+                0x00002ba8       0x34 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+                0x00002ba8                __copy_rom_sections_to_ram
  .text.__destroy_global_chain
-                0x000026d4       0x1c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
-                0x000026d4                __destroy_global_chain
+                0x00002bdc       0x1c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+                0x00002bdc                __destroy_global_chain
  .text.__init_registers
-                0x000026f0       0x1c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
-                0x000026f0                __init_registers
+                0x00002bf8       0x1c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+                0x00002bf8                __init_registers
  .text.__init_user
-                0x0000270c        0x4 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
-                0x0000270c                __init_user
+                0x00002c14        0x4 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+                0x00002c14                __init_user
  *(.rodata)
- .rodata        0x00002710       0x50 ./Sources/ProcessorExpert.o
+ .rodata        0x00002c18       0x74 ./Sources/ProcessorExpert.o
  *(.rodata*)
+ .rodata.ChannelToPin
+                0x00002c8c        0x4 ./Generated_Code/AdcLdd1.o
  .rodata.str1.1
-                0x00002760        0x1 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+                0x00002c90        0x1 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
  .rodata.CSWTCH.20
-                0x00002761        0x5 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+                0x00002c91        0x5 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
  .rodata.CSWTCH.21
-                0x00002766        0x5 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+                0x00002c96        0x5 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
  *(.glue_7)
  .glue_7        0x00000000        0x0 linker stubs
  *(.glue_7t)
@@ -612,63 +674,63 @@ END GROUP
  *(.eh_frame)
  *(.init)
  *(.fini)
-                0x0000276c                . = ALIGN (0x4)
- *fill*         0x0000276b        0x1 00
-                0x0000276c                _etext = .
+                0x00002c9c                . = ALIGN (0x4)
+ *fill*         0x00002c9b        0x1 00
+                0x00002c9c                _etext = .
 
-.vfp11_veneer   0x0000276c        0x0
+.vfp11_veneer   0x00002c9c        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x0000276c        0x0
+.v4_bx          0x00002c9c        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x0000276c        0x0
+.iplt           0x00002c9c        0x0
  .iplt          0x00000000        0x0 ./Generated_Code/out_I2C.o
 
-.rel.dyn        0x0000276c        0x0
+.rel.dyn        0x00002c9c        0x0
  .rel.iplt      0x00000000        0x0 ./Generated_Code/out_I2C.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x0000276c        0x0
-                0x0000276c                __exidx_start = .
+.ARM            0x00002c9c        0x0
+                0x00002c9c                __exidx_start = .
  *(.ARM.exidx*)
-                0x0000276c                __exidx_end = .
+                0x00002c9c                __exidx_end = .
 
-.ctors          0x0000276c        0x0
-                0x0000276c                __CTOR_LIST__ = .
+.ctors          0x00002c9c        0x0
+                0x00002c9c                __CTOR_LIST__ = .
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *(.ctors)
-                0x0000276c                __CTOR_END__ = .
+                0x00002c9c                __CTOR_END__ = .
 
-.dtors          0x0000276c        0x0
-                0x0000276c                __DTOR_LIST__ = .
+.dtors          0x00002c9c        0x0
+                0x00002c9c                __DTOR_LIST__ = .
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *(.dtors)
-                0x0000276c                __DTOR_END__ = .
+                0x00002c9c                __DTOR_END__ = .
 
-.preinit_array  0x0000276c        0x0
-                0x0000276c                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x00002c9c        0x0
+                0x00002c9c                PROVIDE (__preinit_array_start, .)
  *(.preinit_array*)
-                0x0000276c                PROVIDE (__preinit_array_end, .)
+                0x00002c9c                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x0000276c        0x0
-                0x0000276c                PROVIDE (__init_array_start, .)
+.init_array     0x00002c9c        0x0
+                0x00002c9c                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array*)
-                0x0000276c                PROVIDE (__init_array_end, .)
+                0x00002c9c                PROVIDE (__init_array_end, .)
 
-.fini_array     0x0000276c        0x0
-                0x0000276c                PROVIDE (__fini_array_start, .)
+.fini_array     0x00002c9c        0x0
+                0x00002c9c                PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*))
  *(.fini_array*)
-                0x0000276c                PROVIDE (__fini_array_end, .)
-                0x0000276c                ___ROM_AT = .
+                0x00002c9c                PROVIDE (__fini_array_end, .)
+                0x00002c9c                ___ROM_AT = .
 
 .mtb            0x20000000        0x0
                 0x20000000                . = ALIGN (0x8)
@@ -677,7 +739,7 @@ END GROUP
                 0x20000000                . = ALIGN (0x8)
                 0x20000000                _mtb_end = .
 
-.data           0x20000000       0xd4 load address 0x0000276c
+.data           0x20000000       0xd4 load address 0x00002c9c
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
@@ -692,13 +754,13 @@ END GROUP
                 0x200000d4                . = ALIGN (0x4)
                 0x200000d4                _edata = .
                 0x000000d4                ___data_size = (_edata - _sdata)
-                0x00002840                ___m_data_1FFFF000_ROMStart = (___ROM_AT + SIZEOF (.data))
+                0x00002d70                ___m_data_1FFFF000_ROMStart = (___ROM_AT + SIZEOF (.data))
 
-.igot.plt       0x200000d4        0x0 load address 0x00002840
+.igot.plt       0x200000d4        0x0 load address 0x00002d70
  .igot.plt      0x00000000        0x0 ./Generated_Code/out_I2C.o
 
 .m_data_1FFFF000
-                0x1ffff000        0x0 load address 0x00002840
+                0x1ffff000        0x0 load address 0x00002d70
                 0x1ffff000                . = ALIGN (0x4)
                 0x1ffff000                ___m_data_1FFFF000_RAMStart = .
  *(.m_data_1FFFF000)
@@ -707,7 +769,7 @@ END GROUP
                 0x00000000                ___m_data_1FFFF000_ROMSize = (___m_data_1FFFF000_RAMEnd - ___m_data_1FFFF000_RAMStart)
                 0x1ffff000                . = ALIGN (0x4)
 
-.bss            0x200000d4      0x1a8 load address 0x00002840
+.bss            0x200000d4      0x1d4 load address 0x00002d70
                 0x200000d4                __START_BSS = .
                 0x200000d4                PROVIDE (__bss_start__, __START_BSS)
  *(.bss)
@@ -721,98 +783,116 @@ END GROUP
  .bss.INT_TPM0__DEFAULT_RTOS_ISRPARAM
                 0x200000f4        0x4 ./Generated_Code/TU1.o
  .bss.PE_LDD_DeviceDataList
-                0x200000f8       0x18 ./Generated_Code/PE_LDD.o
+                0x200000f8       0x1c ./Generated_Code/PE_LDD.o
                 0x200000f8                PE_LDD_DeviceDataList
  .bss.DeviceDataPrv__DEFAULT_RTOS_ALLOC
-                0x20000110       0x18 ./Generated_Code/IO1.o
+                0x20000114       0x18 ./Generated_Code/IO1.o
  .bss.DeviceDataPrv__DEFAULT_RTOS_ALLOC
-                0x20000128       0x18 ./Generated_Code/I2C2.o
+                0x2000012c       0x18 ./Generated_Code/I2C2.o
  .bss.INT_I2C0__DEFAULT_RTOS_ISRPARAM
-                0x20000140        0x4 ./Generated_Code/I2C2.o
- .bss.SR_lock   0x20000144        0x1 ./Generated_Code/Cpu.o
-                0x20000144                SR_lock
- *fill*         0x20000145        0x3 00
+                0x20000144        0x4 ./Generated_Code/I2C2.o
+ .bss.SR_lock   0x20000148        0x1 ./Generated_Code/Cpu.o
+                0x20000148                SR_lock
+ *fill*         0x20000149        0x3 00
  .bss.DeviceDataPrv__DEFAULT_RTOS_ALLOC
-                0x20000148        0x4 ./Generated_Code/BitIoLdd2.o
+                0x2000014c        0x4 ./Generated_Code/BitIoLdd2.o
  .bss.DeviceDataPrv__DEFAULT_RTOS_ALLOC
-                0x2000014c        0x4 ./Generated_Code/BitIoLdd1.o
- .bss.argv      0x20000150        0x4 ./Project_Settings/Startup_Code/__arm_start.o
+                0x20000150        0x4 ./Generated_Code/BitIoLdd1.o
+ .bss.DeviceDataPrv__DEFAULT_RTOS_ALLOC
+                0x20000154        0x8 ./Generated_Code/AdcLdd1.o
+ .bss.INT_ADC0__DEFAULT_RTOS_ISRPARAM
+                0x2000015c        0x4 ./Generated_Code/AdcLdd1.o
+ .bss.SumChan   0x20000160        0x1 ./Generated_Code/AD1.o
+ .bss.ModeFlg   0x20000161        0x1 ./Generated_Code/AD1.o
+ *fill*         0x20000162        0x2 00
+ .bss.SampleGroup
+                0x20000164        0x4 ./Generated_Code/AD1.o
+ .bss.OutFlg    0x20000168        0x1 ./Generated_Code/AD1.o
+ *fill*         0x20000169        0x3 00
+ .bss.argv      0x2000016c        0x4 ./Project_Settings/Startup_Code/__arm_start.o
  .bss.DataReceivedFlg
-                0x20000154        0x1 ./Sources/mma8453.o
-                0x20000154                DataReceivedFlg
+                0x20000170        0x1 ./Sources/mma8453.o
+                0x20000170                DataReceivedFlg
  .bss.DataTransmittedFlg
-                0x20000155        0x1 ./Sources/mma8453.o
-                0x20000155                DataTransmittedFlg
+                0x20000171        0x1 ./Sources/mma8453.o
+                0x20000171                DataTransmittedFlg
  .bss.measuring
-                0x20000156        0x1 ./Sources/mma8453.o
+                0x20000172        0x1 ./Sources/mma8453.o
+ *fill*         0x20000173        0x1 00
+ .bss.ADC_value
+                0x20000174        0x4 ./Sources/ProcessorExpert.o
  .bss.LTCDataReceivedFlg
-                0x20000157        0x1 ./Sources/LTC2945.o
-                0x20000157                LTCDataReceivedFlg
+                0x20000178        0x1 ./Sources/LTC2945.o
+                0x20000178                LTCDataReceivedFlg
  .bss.LTCDataTransmittedFlg
-                0x20000158        0x1 ./Sources/LTC2945.o
-                0x20000158                LTCDataTransmittedFlg
- *fill*         0x20000159        0x3 00
+                0x20000179        0x1 ./Sources/LTC2945.o
+                0x20000179                LTCDataTransmittedFlg
+ *fill*         0x2000017a        0x2 00
  .bss.__stdio_exit
-                0x2000015c        0x4 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
-                0x2000015c                __stdio_exit
+                0x2000017c        0x4 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
+                0x2000017c                __stdio_exit
  .bss.__console_exit
-                0x20000160        0x4 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
-                0x20000160                __console_exit
- .bss.__S_romp  0x20000164        0xc D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+                0x20000180        0x4 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
+                0x20000180                __console_exit
+ .bss.__S_romp  0x20000184        0xc D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
  .bss.__global_destructor_chain
-                0x20000170        0x4 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
-                0x20000170                __global_destructor_chain
+                0x20000190        0x4 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+                0x20000190                __global_destructor_chain
  *(COMMON)
- COMMON         0x20000174        0x1 ./Generated_Code/Cpu.o
-                0x20000174                SR_reg
- *fill*         0x20000175        0x3 00
- COMMON         0x20000178       0x1e ./Sources/mma8453.o
-                0x20000178                mma845x
-                0x20000180                mma845_tmp
-                0x20000184                InData
-                0x2000018c                MyI2CPtr
-                0x20000190                MyTimerPtr
-                0x20000194                Error
- *fill*         0x20000196        0x2 00
- COMMON         0x20000198        0xc ./Sources/ProcessorExpert.o
-                0x20000198                LtcInData
-                0x200001a0                Myout_I2CPtr
- COMMON         0x200001a4        0xc ./Sources/LTC2945.o
-                0x200001a4                ltc2945
- COMMON         0x200001b0        0xa ./Sources/AS5040.o
-                0x200001b0                as5040data
- COMMON         0x200001ba       0xc0 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
-                0x200001ba                stdout_buff
-                0x200001fa                stdin_buff
-                0x2000023a                stderr_buff
-                0x2000027c                . = ALIGN (0x4)
- *fill*         0x2000027a        0x2 00
-                0x2000027c                __END_BSS = .
-                0x2000027c                PROVIDE (__bss_end__, __END_BSS)
-                0x00002840                _romp_at = ((___ROM_AT + SIZEOF (.data)) + SIZEOF (.m_data_1FFFF000))
+ COMMON         0x20000194        0x1 ./Generated_Code/Cpu.o
+                0x20000194                SR_reg
+ *fill*         0x20000195        0x3 00
+ COMMON         0x20000198        0x8 ./Generated_Code/AD1.o
+                0x20000198                AD1_OutV
+                0x2000019c                AdcLdd1_DeviceDataPtr
+ COMMON         0x200001a0       0x1e ./Sources/mma8453.o
+                0x200001a0                mma845x
+                0x200001a8                mma845_tmp
+                0x200001ac                InData
+                0x200001b4                MyI2CPtr
+                0x200001b8                MyTimerPtr
+                0x200001bc                Error
+ *fill*         0x200001be        0x2 00
+ COMMON         0x200001c0       0x10 ./Sources/ProcessorExpert.o
+                0x200001c0                ADC_koniec
+                0x200001c4                LtcInData
+                0x200001cc                Myout_I2CPtr
+ COMMON         0x200001d0        0xc ./Sources/LTC2945.o
+                0x200001d0                ltc2945
+ COMMON         0x200001dc        0xa ./Sources/AS5040.o
+                0x200001dc                as5040data
+ COMMON         0x200001e6       0xc0 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
+                0x200001e6                stdout_buff
+                0x20000226                stdin_buff
+                0x20000266                stderr_buff
+                0x200002a8                . = ALIGN (0x4)
+ *fill*         0x200002a6        0x2 00
+                0x200002a8                __END_BSS = .
+                0x200002a8                PROVIDE (__bss_end__, __END_BSS)
+                0x00002d70                _romp_at = ((___ROM_AT + SIZEOF (.data)) + SIZEOF (.m_data_1FFFF000))
 
-.romp           0x2000027c       0x24 load address 0x00002840
-                0x00002840                __S_romp = _romp_at
-                0x2000027c        0x4 LONG 0x276c ___ROM_AT
-                0x20000280        0x4 LONG 0x20000000 _sdata
-                0x20000284        0x4 LONG 0xd4 ___data_size
-                0x20000288        0x4 LONG 0x2840 ___m_data_1FFFF000_ROMStart
-                0x2000028c        0x4 LONG 0x1ffff000 ___m_data_1FFFF000_RAMStart
-                0x20000290        0x4 LONG 0x0 ___m_data_1FFFF000_ROMSize
-                0x20000294        0x4 LONG 0x0
-                0x20000298        0x4 LONG 0x0
-                0x2000029c        0x4 LONG 0x0
+.romp           0x200002a8       0x24 load address 0x00002d70
+                0x00002d70                __S_romp = _romp_at
+                0x200002a8        0x4 LONG 0x2c9c ___ROM_AT
+                0x200002ac        0x4 LONG 0x20000000 _sdata
+                0x200002b0        0x4 LONG 0xd4 ___data_size
+                0x200002b4        0x4 LONG 0x2d70 ___m_data_1FFFF000_ROMStart
+                0x200002b8        0x4 LONG 0x1ffff000 ___m_data_1FFFF000_RAMStart
+                0x200002bc        0x4 LONG 0x0 ___m_data_1FFFF000_ROMSize
+                0x200002c0        0x4 LONG 0x0
+                0x200002c4        0x4 LONG 0x0
+                0x200002c8        0x4 LONG 0x0
 
 ._user_heap_stack
-                0x200002a0      0x400 load address 0x00002864
-                0x200002a0                . = ALIGN (0x4)
-                0x200002a0                PROVIDE (end, .)
-                0x200002a0                PROVIDE (_end, .)
-                0x200002a0                __heap_addr = .
-                0x200002a0                . = (. + __heap_size)
-                0x200006a0                . = (. + __stack_size)
- *fill*         0x200002a0      0x400 00
-                0x200006a0                . = ALIGN (0x4)
+                0x200002cc      0x400 load address 0x00002d94
+                0x200002cc                . = ALIGN (0x4)
+                0x200002cc                PROVIDE (end, .)
+                0x200002cc                PROVIDE (_end, .)
+                0x200002cc                __heap_addr = .
+                0x200002cc                . = (. + __heap_size)
+                0x200006cc                . = (. + __stack_size)
+ *fill*         0x200002cc      0x400 00
+                0x200006cc                . = ALIGN (0x4)
 
 .ARM.attributes
                 0x00000000       0x31
@@ -840,62 +920,66 @@ END GROUP
  .ARM.attributes
                 0x000001ea       0x31 ./Generated_Code/BitIoLdd1.o
  .ARM.attributes
-                0x0000021b       0x31 ./Project_Settings/Startup_Code/__arm_start.o
+                0x0000021b       0x31 ./Generated_Code/AdcLdd1.o
  .ARM.attributes
-                0x0000024c       0x31 ./Project_Settings/Startup_Code/__arm_end.o
+                0x0000024c       0x31 ./Generated_Code/AD1.o
  .ARM.attributes
-                0x0000027d       0x31 ./Sources/mma8453.o
+                0x0000027d       0x31 ./Project_Settings/Startup_Code/__arm_start.o
  .ARM.attributes
-                0x000002ae       0x31 ./Sources/ProcessorExpert.o
+                0x000002ae       0x31 ./Project_Settings/Startup_Code/__arm_end.o
  .ARM.attributes
-                0x000002df       0x31 ./Sources/LTC2945.o
+                0x000002df       0x31 ./Sources/mma8453.o
  .ARM.attributes
-                0x00000310       0x31 ./Sources/Events.o
+                0x00000310       0x31 ./Sources/ProcessorExpert.o
  .ARM.attributes
-                0x00000341       0x31 ./Sources/AS5040.o
+                0x00000341       0x31 ./Sources/LTC2945.o
  .ARM.attributes
-                0x00000372       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
+                0x00000372       0x31 ./Sources/Events.o
  .ARM.attributes
-                0x000003a3       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
+                0x000003a3       0x31 ./Sources/AS5040.o
  .ARM.attributes
-                0x000003d4       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
+                0x000003d4       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
  .ARM.attributes
-                0x00000405       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
+                0x00000405       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
  .ARM.attributes
-                0x00000436       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+                0x00000436       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
  .ARM.attributes
-                0x00000467       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
+                0x00000467       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
  .ARM.attributes
-                0x00000498       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
+                0x00000498       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
  .ARM.attributes
-                0x000004c9       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
+                0x000004c9       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
  .ARM.attributes
-                0x000004fa       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
+                0x000004fa       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
  .ARM.attributes
-                0x0000052b       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
+                0x0000052b       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
  .ARM.attributes
-                0x0000055c       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
+                0x0000055c       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
  .ARM.attributes
-                0x0000058d       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
+                0x0000058d       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
  .ARM.attributes
-                0x000005be       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
+                0x000005be       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
  .ARM.attributes
-                0x000005ef       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
+                0x000005ef       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
  .ARM.attributes
-                0x00000620       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
+                0x00000620       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
  .ARM.attributes
-                0x00000651       0x1e d:/codewarrior/cw mcu v10.6/cross_tools/arm-none-eabi-gcc-4_7_3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_udivsi3.o)
+                0x00000651       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
  .ARM.attributes
-                0x0000066f       0x1e d:/codewarrior/cw mcu v10.6/cross_tools/arm-none-eabi-gcc-4_7_3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_dvmd_tls.o)
+                0x00000682       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
  .ARM.attributes
-                0x0000068d       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+                0x000006b3       0x1e d:/codewarrior/cw mcu v10.6/cross_tools/arm-none-eabi-gcc-4_7_3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_udivsi3.o)
  .ARM.attributes
-                0x000006be       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+                0x000006d1       0x1e d:/codewarrior/cw mcu v10.6/cross_tools/arm-none-eabi-gcc-4_7_3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_dvmd_tls.o)
  .ARM.attributes
-                0x000006ef       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+                0x000006ef       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+ .ARM.attributes
+                0x00000720       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+ .ARM.attributes
+                0x00000751       0x31 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
 OUTPUT(accelerometer_demo.elf elf32-littlearm)
 
-.debug_info     0x00000000     0x7247
+.debug_info     0x00000000     0x7eb0
  .debug_info    0x00000000      0x7c6 ./Generated_Code/out_I2C.o
  .debug_info    0x000007c6      0x117 ./Generated_Code/WAIT1.o
  .debug_info    0x000008dd      0x10b ./Generated_Code/Vectors.o
@@ -907,33 +991,35 @@ OUTPUT(accelerometer_demo.elf elf32-littlearm)
  .debug_info    0x00002380      0x8fa ./Generated_Code/Cpu.o
  .debug_info    0x00002c7a      0x38b ./Generated_Code/BitIoLdd2.o
  .debug_info    0x00003005      0x38b ./Generated_Code/BitIoLdd1.o
- .debug_info    0x00003390      0x12a ./Project_Settings/Startup_Code/__arm_start.o
- .debug_info    0x000034ba       0x54 ./Project_Settings/Startup_Code/__arm_end.o
- .debug_info    0x0000350e      0x26e ./Sources/mma8453.o
- .debug_info    0x0000377c      0x2d5 ./Sources/ProcessorExpert.o
- .debug_info    0x00003a51      0x1fe ./Sources/LTC2945.o
- .debug_info    0x00003c4f      0x412 ./Sources/Events.o
- .debug_info    0x00004061      0x4f7 ./Sources/AS5040.o
- .debug_info    0x00004558      0x399 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
- .debug_info    0x000048f1      0x357 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
- .debug_info    0x00004c48       0xe8 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
- .debug_info    0x00004d30       0xec D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
- .debug_info    0x00004e1c      0x50d D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
- .debug_info    0x00005329      0x3fa D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
- .debug_info    0x00005723      0x4be D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
- .debug_info    0x00005be1      0x60d D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
- .debug_info    0x000061ee      0x137 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
- .debug_info    0x00006325      0x116 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
- .debug_info    0x0000643b      0x121 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
- .debug_info    0x0000655c      0x10f D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
- .debug_info    0x0000666b      0x10b D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
- .debug_info    0x00006776       0xea D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
- .debug_info    0x00006860      0x45d D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
- .debug_info    0x00006cbd      0x136 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
- .debug_info    0x00006df3      0x19b D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
- .debug_info    0x00006f8e      0x2b9 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+ .debug_info    0x00003390      0x969 ./Generated_Code/AdcLdd1.o
+ .debug_info    0x00003cf9      0x27b ./Generated_Code/AD1.o
+ .debug_info    0x00003f74      0x12a ./Project_Settings/Startup_Code/__arm_start.o
+ .debug_info    0x0000409e       0x54 ./Project_Settings/Startup_Code/__arm_end.o
+ .debug_info    0x000040f2      0x26e ./Sources/mma8453.o
+ .debug_info    0x00004360      0x30d ./Sources/ProcessorExpert.o
+ .debug_info    0x0000466d      0x1fe ./Sources/LTC2945.o
+ .debug_info    0x0000486b      0x45f ./Sources/Events.o
+ .debug_info    0x00004cca      0x4f7 ./Sources/AS5040.o
+ .debug_info    0x000051c1      0x399 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
+ .debug_info    0x0000555a      0x357 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
+ .debug_info    0x000058b1       0xe8 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
+ .debug_info    0x00005999       0xec D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
+ .debug_info    0x00005a85      0x50d D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+ .debug_info    0x00005f92      0x3fa D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
+ .debug_info    0x0000638c      0x4be D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
+ .debug_info    0x0000684a      0x60d D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
+ .debug_info    0x00006e57      0x137 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
+ .debug_info    0x00006f8e      0x116 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
+ .debug_info    0x000070a4      0x121 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
+ .debug_info    0x000071c5      0x10f D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
+ .debug_info    0x000072d4      0x10b D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
+ .debug_info    0x000073df       0xea D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
+ .debug_info    0x000074c9      0x45d D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
+ .debug_info    0x00007926      0x136 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+ .debug_info    0x00007a5c      0x19b D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+ .debug_info    0x00007bf7      0x2b9 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
 
-.debug_abbrev   0x00000000     0x21b6
+.debug_abbrev   0x00000000     0x24e7
  .debug_abbrev  0x00000000      0x162 ./Generated_Code/out_I2C.o
  .debug_abbrev  0x00000162       0xaa ./Generated_Code/WAIT1.o
  .debug_abbrev  0x0000020c       0xa3 ./Generated_Code/Vectors.o
@@ -945,33 +1031,35 @@ OUTPUT(accelerometer_demo.elf elf32-littlearm)
  .debug_abbrev  0x000008a8      0x121 ./Generated_Code/Cpu.o
  .debug_abbrev  0x000009c9      0x11c ./Generated_Code/BitIoLdd2.o
  .debug_abbrev  0x00000ae5      0x11c ./Generated_Code/BitIoLdd1.o
- .debug_abbrev  0x00000c01       0x92 ./Project_Settings/Startup_Code/__arm_start.o
- .debug_abbrev  0x00000c93       0x4c ./Project_Settings/Startup_Code/__arm_end.o
- .debug_abbrev  0x00000cdf       0xd6 ./Sources/mma8453.o
- .debug_abbrev  0x00000db5       0xd5 ./Sources/ProcessorExpert.o
- .debug_abbrev  0x00000e8a       0xc9 ./Sources/LTC2945.o
- .debug_abbrev  0x00000f53      0x115 ./Sources/Events.o
- .debug_abbrev  0x00001068      0x142 ./Sources/AS5040.o
- .debug_abbrev  0x000011aa      0x107 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
- .debug_abbrev  0x000012b1       0xe7 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
- .debug_abbrev  0x00001398       0x7a D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
- .debug_abbrev  0x00001412       0x62 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
- .debug_abbrev  0x00001474      0x200 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
- .debug_abbrev  0x00001674       0xf8 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
- .debug_abbrev  0x0000176c      0x107 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
- .debug_abbrev  0x00001873      0x16a D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
- .debug_abbrev  0x000019dd       0x78 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
- .debug_abbrev  0x00001a55       0x95 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
- .debug_abbrev  0x00001aea       0x95 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
- .debug_abbrev  0x00001b7f       0x95 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
- .debug_abbrev  0x00001c14       0x7a D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
- .debug_abbrev  0x00001c8e       0x7a D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
- .debug_abbrev  0x00001d08      0x142 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
- .debug_abbrev  0x00001e4a       0x99 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
- .debug_abbrev  0x00001ee3      0x120 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
- .debug_abbrev  0x00002003      0x1b3 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+ .debug_abbrev  0x00000c01      0x1a6 ./Generated_Code/AdcLdd1.o
+ .debug_abbrev  0x00000da7      0x14f ./Generated_Code/AD1.o
+ .debug_abbrev  0x00000ef6       0x92 ./Project_Settings/Startup_Code/__arm_start.o
+ .debug_abbrev  0x00000f88       0x4c ./Project_Settings/Startup_Code/__arm_end.o
+ .debug_abbrev  0x00000fd4       0xd6 ./Sources/mma8453.o
+ .debug_abbrev  0x000010aa       0xeb ./Sources/ProcessorExpert.o
+ .debug_abbrev  0x00001195       0xc9 ./Sources/LTC2945.o
+ .debug_abbrev  0x0000125e      0x13b ./Sources/Events.o
+ .debug_abbrev  0x00001399      0x142 ./Sources/AS5040.o
+ .debug_abbrev  0x000014db      0x107 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
+ .debug_abbrev  0x000015e2       0xe7 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
+ .debug_abbrev  0x000016c9       0x7a D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
+ .debug_abbrev  0x00001743       0x62 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
+ .debug_abbrev  0x000017a5      0x200 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+ .debug_abbrev  0x000019a5       0xf8 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
+ .debug_abbrev  0x00001a9d      0x107 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
+ .debug_abbrev  0x00001ba4      0x16a D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
+ .debug_abbrev  0x00001d0e       0x78 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
+ .debug_abbrev  0x00001d86       0x95 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
+ .debug_abbrev  0x00001e1b       0x95 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
+ .debug_abbrev  0x00001eb0       0x95 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
+ .debug_abbrev  0x00001f45       0x7a D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
+ .debug_abbrev  0x00001fbf       0x7a D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
+ .debug_abbrev  0x00002039      0x142 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
+ .debug_abbrev  0x0000217b       0x99 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+ .debug_abbrev  0x00002214      0x120 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+ .debug_abbrev  0x00002334      0x1b3 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
 
-.debug_loc      0x00000000     0x2a61
+.debug_loc      0x00000000     0x2e15
  .debug_loc     0x00000000       0xe0 ./Generated_Code/out_I2C.o
  .debug_loc     0x000000e0       0xd4 ./Generated_Code/WAIT1.o
  .debug_loc     0x000001b4       0xa8 ./Generated_Code/TU1.o
@@ -982,33 +1070,35 @@ OUTPUT(accelerometer_demo.elf elf32-littlearm)
  .debug_loc     0x00000608       0xdc ./Generated_Code/Cpu.o
  .debug_loc     0x000006e4      0x118 ./Generated_Code/BitIoLdd2.o
  .debug_loc     0x000007fc      0x118 ./Generated_Code/BitIoLdd1.o
- .debug_loc     0x00000914       0x2c ./Project_Settings/Startup_Code/__arm_start.o
- .debug_loc     0x00000940       0x38 ./Project_Settings/Startup_Code/__arm_end.o
- .debug_loc     0x00000978       0x84 ./Sources/mma8453.o
- .debug_loc     0x000009fc       0x38 ./Sources/ProcessorExpert.o
- .debug_loc     0x00000a34       0x58 ./Sources/LTC2945.o
- .debug_loc     0x00000a8c      0x25c ./Sources/Events.o
- .debug_loc     0x00000ce8       0x9c ./Sources/AS5040.o
- .debug_loc     0x00000d84       0x2c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
- .debug_loc     0x00000db0       0x3e D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
- .debug_loc     0x00000dee       0x3e D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
- .debug_loc     0x00000e2c       0x6f D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
- .debug_loc     0x00000e9b     0x104b D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
- .debug_loc     0x00001ee6       0x87 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
- .debug_loc     0x00001f6d       0x8c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
- .debug_loc     0x00001ff9      0x2c2 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
- .debug_loc     0x000022bb      0x14a D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
- .debug_loc     0x00002405       0x77 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
- .debug_loc     0x0000247c       0x77 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
- .debug_loc     0x000024f3       0x59 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
- .debug_loc     0x0000254c       0xaf D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
- .debug_loc     0x000025fb       0x33 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
- .debug_loc     0x0000262e      0x126 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
- .debug_loc     0x00002754       0x9d D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
- .debug_loc     0x000027f1       0xd9 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
- .debug_loc     0x000028ca      0x197 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+ .debug_loc     0x00000914      0x1f8 ./Generated_Code/AdcLdd1.o
+ .debug_loc     0x00000b0c      0x164 ./Generated_Code/AD1.o
+ .debug_loc     0x00000c70       0x2c ./Project_Settings/Startup_Code/__arm_start.o
+ .debug_loc     0x00000c9c       0x38 ./Project_Settings/Startup_Code/__arm_end.o
+ .debug_loc     0x00000cd4       0x84 ./Sources/mma8453.o
+ .debug_loc     0x00000d58       0x38 ./Sources/ProcessorExpert.o
+ .debug_loc     0x00000d90       0x58 ./Sources/LTC2945.o
+ .debug_loc     0x00000de8      0x2b4 ./Sources/Events.o
+ .debug_loc     0x0000109c       0x9c ./Sources/AS5040.o
+ .debug_loc     0x00001138       0x2c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
+ .debug_loc     0x00001164       0x3e D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
+ .debug_loc     0x000011a2       0x3e D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
+ .debug_loc     0x000011e0       0x6f D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
+ .debug_loc     0x0000124f     0x104b D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+ .debug_loc     0x0000229a       0x87 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
+ .debug_loc     0x00002321       0x8c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
+ .debug_loc     0x000023ad      0x2c2 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
+ .debug_loc     0x0000266f      0x14a D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
+ .debug_loc     0x000027b9       0x77 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
+ .debug_loc     0x00002830       0x77 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
+ .debug_loc     0x000028a7       0x59 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
+ .debug_loc     0x00002900       0xaf D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
+ .debug_loc     0x000029af       0x33 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
+ .debug_loc     0x000029e2      0x126 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
+ .debug_loc     0x00002b08       0x9d D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+ .debug_loc     0x00002ba5       0xd9 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+ .debug_loc     0x00002c7e      0x197 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
 
-.debug_aranges  0x00000000      0x688
+.debug_aranges  0x00000000      0x748
  .debug_aranges
                 0x00000000       0x38 ./Generated_Code/out_I2C.o
  .debug_aranges
@@ -1032,204 +1122,218 @@ OUTPUT(accelerometer_demo.elf elf32-littlearm)
  .debug_aranges
                 0x00000220       0x40 ./Generated_Code/BitIoLdd1.o
  .debug_aranges
-                0x00000260       0x30 ./Project_Settings/Startup_Code/__arm_start.o
+                0x00000260       0x60 ./Generated_Code/AdcLdd1.o
  .debug_aranges
-                0x00000290       0x20 ./Project_Settings/Startup_Code/__arm_end.o
+                0x000002c0       0x50 ./Generated_Code/AD1.o
  .debug_aranges
-                0x000002b0       0x30 ./Sources/mma8453.o
+                0x00000310       0x30 ./Project_Settings/Startup_Code/__arm_start.o
  .debug_aranges
-                0x000002e0       0x20 ./Sources/ProcessorExpert.o
+                0x00000340       0x20 ./Project_Settings/Startup_Code/__arm_end.o
  .debug_aranges
-                0x00000300       0x28 ./Sources/LTC2945.o
+                0x00000360       0x30 ./Sources/mma8453.o
  .debug_aranges
-                0x00000328       0x70 ./Sources/Events.o
+                0x00000390       0x20 ./Sources/ProcessorExpert.o
  .debug_aranges
-                0x00000398       0x30 ./Sources/AS5040.o
+                0x000003b0       0x28 ./Sources/LTC2945.o
  .debug_aranges
-                0x000003c8       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
+                0x000003d8       0x80 ./Sources/Events.o
  .debug_aranges
-                0x000003e8       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
+                0x00000458       0x30 ./Sources/AS5040.o
  .debug_aranges
-                0x00000408       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
+                0x00000488       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
  .debug_aranges
-                0x00000428       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
+                0x000004a8       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
  .debug_aranges
-                0x00000448       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+                0x000004c8       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
  .debug_aranges
-                0x00000470       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
+                0x000004e8       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
  .debug_aranges
-                0x00000490       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
+                0x00000508       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
  .debug_aranges
-                0x000004b8       0x30 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
+                0x00000530       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
  .debug_aranges
-                0x000004e8       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
+                0x00000550       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
  .debug_aranges
-                0x00000508       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
+                0x00000578       0x30 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
  .debug_aranges
-                0x00000528       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
+                0x000005a8       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
  .debug_aranges
-                0x00000548       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
+                0x000005c8       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
  .debug_aranges
-                0x00000568       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
+                0x000005e8       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
  .debug_aranges
-                0x00000588       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
+                0x00000608       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
  .debug_aranges
-                0x000005a8       0x30 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
+                0x00000628       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
  .debug_aranges
-                0x000005d8       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+                0x00000648       0x20 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
  .debug_aranges
-                0x00000600       0x30 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+                0x00000668       0x30 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
  .debug_aranges
-                0x00000630       0x58 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+                0x00000698       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+ .debug_aranges
+                0x000006c0       0x30 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+ .debug_aranges
+                0x000006f0       0x58 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
 
-.debug_macinfo  0x00000000   0x315743
+.debug_macinfo  0x00000000   0x3a7a83
  .debug_macinfo
-                0x00000000    0x3867f ./Generated_Code/out_I2C.o
+                0x00000000    0x3d692 ./Generated_Code/out_I2C.o
  .debug_macinfo
-                0x0003867f    0x2e09b ./Generated_Code/WAIT1.o
+                0x0003d692    0x2e0c0 ./Generated_Code/WAIT1.o
  .debug_macinfo
-                0x0006671a    0x31db4 ./Generated_Code/Vectors.o
+                0x0006b752    0x36dcf ./Generated_Code/Vectors.o
  .debug_macinfo
-                0x000984ce    0x31dd0 ./Generated_Code/TU1.o
+                0x000a2521    0x36de3 ./Generated_Code/TU1.o
  .debug_macinfo
-                0x000ca29e    0x31d28 ./Generated_Code/PE_LDD.o
+                0x000d9304    0x36d33 ./Generated_Code/PE_LDD.o
  .debug_macinfo
-                0x000fbfc6    0x31c8f ./Generated_Code/IO1.o
+                0x00110037    0x31cb4 ./Generated_Code/IO1.o
  .debug_macinfo
-                0x0012dc55    0x386fb ./Generated_Code/I2C2.o
+                0x00141ceb    0x3d70e ./Generated_Code/I2C2.o
  .debug_macinfo
-                0x00166350    0x2a8e2 ./Generated_Code/CsIO1.o
+                0x0017f3f9    0x2a8e2 ./Generated_Code/CsIO1.o
  .debug_macinfo
-                0x00190c32    0x31db9 ./Generated_Code/Cpu.o
+                0x001a9cdb    0x36dd4 ./Generated_Code/Cpu.o
  .debug_macinfo
-                0x001c29eb    0x2ed09 ./Generated_Code/BitIoLdd2.o
+                0x001e0aaf    0x2ed2e ./Generated_Code/BitIoLdd2.o
  .debug_macinfo
-                0x001f16f4    0x2ed09 ./Generated_Code/BitIoLdd1.o
+                0x0020f7dd    0x2ed2e ./Generated_Code/BitIoLdd1.o
  .debug_macinfo
-                0x002203fd     0x3e5e ./Project_Settings/Startup_Code/__arm_start.o
+                0x0023e50b    0x333e6 ./Generated_Code/AdcLdd1.o
  .debug_macinfo
-                0x0022425b     0x3447 ./Project_Settings/Startup_Code/__arm_end.o
+                0x002718f1    0x36de7 ./Generated_Code/AD1.o
  .debug_macinfo
-                0x002276a2    0x2df6d ./Sources/mma8453.o
+                0x002a86d8     0x3e5e ./Project_Settings/Startup_Code/__arm_start.o
  .debug_macinfo
-                0x0025560f    0x3213e ./Sources/ProcessorExpert.o
+                0x002ac536     0x3447 ./Project_Settings/Startup_Code/__arm_end.o
  .debug_macinfo
-                0x0028774d    0x2df60 ./Sources/LTC2945.o
+                0x002af97d    0x2df92 ./Sources/mma8453.o
  .debug_macinfo
-                0x002b56ad    0x31d7d ./Sources/Events.o
+                0x002dd90f    0x37139 ./Sources/ProcessorExpert.o
  .debug_macinfo
-                0x002e742a    0x2e319 ./Sources/AS5040.o
+                0x00314a48    0x2df6d ./Sources/LTC2945.o
+ .debug_macinfo
+                0x003429b5    0x36d90 ./Sources/Events.o
+ .debug_macinfo
+                0x00379745    0x2e33e ./Sources/AS5040.o
 
-.debug_line     0x00000000     0x4f30
- .debug_line    0x00000000      0x518 ./Generated_Code/out_I2C.o
- .debug_line    0x00000518      0x23f ./Generated_Code/WAIT1.o
- .debug_line    0x00000757      0x4e5 ./Generated_Code/Vectors.o
- .debug_line    0x00000c3c      0x480 ./Generated_Code/TU1.o
- .debug_line    0x000010bc      0x3dd ./Generated_Code/PE_LDD.o
- .debug_line    0x00001499      0x2be ./Generated_Code/IO1.o
- .debug_line    0x00001757      0x58b ./Generated_Code/I2C2.o
- .debug_line    0x00001ce2      0x326 ./Generated_Code/CsIO1.o
- .debug_line    0x00002008      0x570 ./Generated_Code/Cpu.o
- .debug_line    0x00002578      0x2b4 ./Generated_Code/BitIoLdd2.o
- .debug_line    0x0000282c      0x2b4 ./Generated_Code/BitIoLdd1.o
- .debug_line    0x00002ae0      0x280 ./Project_Settings/Startup_Code/__arm_start.o
- .debug_line    0x00002d60      0x24b ./Project_Settings/Startup_Code/__arm_end.o
- .debug_line    0x00002fab      0x292 ./Sources/mma8453.o
- .debug_line    0x0000323d      0x437 ./Sources/ProcessorExpert.o
- .debug_line    0x00003674      0x282 ./Sources/LTC2945.o
- .debug_line    0x000038f6      0x4bf ./Sources/Events.o
- .debug_line    0x00003db5      0x28f ./Sources/AS5040.o
- .debug_line    0x00004044       0xb0 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
- .debug_line    0x000040f4       0x97 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
- .debug_line    0x0000418b       0x8d D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
- .debug_line    0x00004218       0x90 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
- .debug_line    0x000042a8      0x2c3 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
- .debug_line    0x0000456b       0xc2 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
- .debug_line    0x0000462d       0xc0 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
- .debug_line    0x000046ed      0x158 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
- .debug_line    0x00004845       0xf6 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
- .debug_line    0x0000493b       0x99 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
- .debug_line    0x000049d4       0x9f D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
- .debug_line    0x00004a73       0x8b D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
- .debug_line    0x00004afe       0x7d D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
- .debug_line    0x00004b7b       0x85 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
- .debug_line    0x00004c00       0xf0 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
- .debug_line    0x00004cf0       0x6c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
- .debug_line    0x00004d5c       0xbd D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
- .debug_line    0x00004e19      0x117 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+.debug_line     0x00000000     0x58e3
+ .debug_line    0x00000000      0x53b ./Generated_Code/out_I2C.o
+ .debug_line    0x0000053b      0x23f ./Generated_Code/WAIT1.o
+ .debug_line    0x0000077a      0x51e ./Generated_Code/Vectors.o
+ .debug_line    0x00000c98      0x4a3 ./Generated_Code/TU1.o
+ .debug_line    0x0000113b      0x400 ./Generated_Code/PE_LDD.o
+ .debug_line    0x0000153b      0x2be ./Generated_Code/IO1.o
+ .debug_line    0x000017f9      0x5ae ./Generated_Code/I2C2.o
+ .debug_line    0x00001da7      0x326 ./Generated_Code/CsIO1.o
+ .debug_line    0x000020cd      0x5aa ./Generated_Code/Cpu.o
+ .debug_line    0x00002677      0x2b4 ./Generated_Code/BitIoLdd2.o
+ .debug_line    0x0000292b      0x2b4 ./Generated_Code/BitIoLdd1.o
+ .debug_line    0x00002bdf      0x34d ./Generated_Code/AdcLdd1.o
+ .debug_line    0x00002f2c      0x4f7 ./Generated_Code/AD1.o
+ .debug_line    0x00003423      0x280 ./Project_Settings/Startup_Code/__arm_start.o
+ .debug_line    0x000036a3      0x24b ./Project_Settings/Startup_Code/__arm_end.o
+ .debug_line    0x000038ee      0x292 ./Sources/mma8453.o
+ .debug_line    0x00003b80      0x461 ./Sources/ProcessorExpert.o
+ .debug_line    0x00003fe1      0x282 ./Sources/LTC2945.o
+ .debug_line    0x00004263      0x505 ./Sources/Events.o
+ .debug_line    0x00004768      0x28f ./Sources/AS5040.o
+ .debug_line    0x000049f7       0xb0 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
+ .debug_line    0x00004aa7       0x97 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
+ .debug_line    0x00004b3e       0x8d D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
+ .debug_line    0x00004bcb       0x90 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
+ .debug_line    0x00004c5b      0x2c3 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+ .debug_line    0x00004f1e       0xc2 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
+ .debug_line    0x00004fe0       0xc0 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
+ .debug_line    0x000050a0      0x158 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
+ .debug_line    0x000051f8       0xf6 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
+ .debug_line    0x000052ee       0x99 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
+ .debug_line    0x00005387       0x9f D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
+ .debug_line    0x00005426       0x8b D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
+ .debug_line    0x000054b1       0x7d D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
+ .debug_line    0x0000552e       0x85 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
+ .debug_line    0x000055b3       0xf0 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
+ .debug_line    0x000056a3       0x6c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+ .debug_line    0x0000570f       0xbd D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+ .debug_line    0x000057cc      0x117 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
 
-.debug_str      0x00000000     0x1c29
- .debug_str     0x00000000      0x43e ./Generated_Code/out_I2C.o
+.debug_str      0x00000000     0x1f49
+ .debug_str     0x00000000      0x437 ./Generated_Code/out_I2C.o
                                 0x49c (size before relaxing)
- .debug_str     0x0000043e       0x70 ./Generated_Code/WAIT1.o
+ .debug_str     0x00000437       0x70 ./Generated_Code/WAIT1.o
                                 0x182 (size before relaxing)
- .debug_str     0x000004ae       0x55 ./Generated_Code/Vectors.o
+ .debug_str     0x000004a7       0x55 ./Generated_Code/Vectors.o
                                 0x17d (size before relaxing)
- .debug_str     0x00000503       0xce ./Generated_Code/TU1.o
+ .debug_str     0x000004fc       0xce ./Generated_Code/TU1.o
                                 0x391 (size before relaxing)
- .debug_str     0x000005d1      0x170 ./Generated_Code/PE_LDD.o
+ .debug_str     0x000005ca      0x170 ./Generated_Code/PE_LDD.o
                                 0x2e0 (size before relaxing)
- .debug_str     0x00000741       0xda ./Generated_Code/IO1.o
+ .debug_str     0x0000073a       0xda ./Generated_Code/IO1.o
                                 0x3a3 (size before relaxing)
- .debug_str     0x0000081b      0x17a ./Generated_Code/I2C2.o
+ .debug_str     0x00000814      0x17a ./Generated_Code/I2C2.o
                                 0x575 (size before relaxing)
- .debug_str     0x00000995       0x9b ./Generated_Code/CsIO1.o
+ .debug_str     0x0000098e       0x9b ./Generated_Code/CsIO1.o
                                 0x1e7 (size before relaxing)
- .debug_str     0x00000a30      0x186 ./Generated_Code/Cpu.o
+ .debug_str     0x00000a29      0x186 ./Generated_Code/Cpu.o
                                 0x45b (size before relaxing)
- .debug_str     0x00000bb6       0xe4 ./Generated_Code/BitIoLdd2.o
+ .debug_str     0x00000baf       0xe4 ./Generated_Code/BitIoLdd2.o
                                 0x2dc (size before relaxing)
- .debug_str     0x00000c9a       0xa0 ./Generated_Code/BitIoLdd1.o
+ .debug_str     0x00000c93       0xa0 ./Generated_Code/BitIoLdd1.o
                                 0x2dc (size before relaxing)
- .debug_str     0x00000d3a       0x85 ./Project_Settings/Startup_Code/__arm_start.o
+ .debug_str     0x00000d33      0x23b ./Generated_Code/AdcLdd1.o
+                                0x596 (size before relaxing)
+ .debug_str     0x00000f6e       0xbf ./Generated_Code/AD1.o
+                                0x257 (size before relaxing)
+ .debug_str     0x0000102d       0x85 ./Project_Settings/Startup_Code/__arm_start.o
                                 0x19e (size before relaxing)
- .debug_str     0x00000dbf       0x41 ./Project_Settings/Startup_Code/__arm_end.o
+ .debug_str     0x000010b2       0x41 ./Project_Settings/Startup_Code/__arm_end.o
                                  0xd5 (size before relaxing)
- .debug_str     0x00000e00       0xad ./Sources/mma8453.o
+ .debug_str     0x000010f3       0xad ./Sources/mma8453.o
                                 0x25e (size before relaxing)
- .debug_str     0x00000ead       0xa4 ./Sources/ProcessorExpert.o
-                                0x24c (size before relaxing)
- .debug_str     0x00000f51       0x63 ./Sources/LTC2945.o
+ .debug_str     0x000011a0       0xb9 ./Sources/ProcessorExpert.o
+                                0x261 (size before relaxing)
+ .debug_str     0x00001259       0x63 ./Sources/LTC2945.o
                                 0x227 (size before relaxing)
- .debug_str     0x00000fb4      0x11a ./Sources/Events.o
-                                0x2c9 (size before relaxing)
- .debug_str     0x000010ce       0x44 ./Sources/AS5040.o
+ .debug_str     0x000012bc      0x139 ./Sources/Events.o
+                                0x2f3 (size before relaxing)
+ .debug_str     0x000013f5       0x44 ./Sources/AS5040.o
                                 0x317 (size before relaxing)
- .debug_str     0x00001112      0x182 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
+ .debug_str     0x00001439      0x182 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
                                 0x2e9 (size before relaxing)
- .debug_str     0x00001294       0x1b D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
+ .debug_str     0x000015bb       0x1b D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
                                 0x2c6 (size before relaxing)
- .debug_str     0x000012af       0x2e D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
+ .debug_str     0x000015d6       0x2e D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
                                 0x157 (size before relaxing)
- .debug_str     0x000012dd       0x1c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
+ .debug_str     0x00001604       0x1c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
                                 0x140 (size before relaxing)
- .debug_str     0x000012f9      0x236 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+ .debug_str     0x00001620      0x236 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
                                 0x3b3 (size before relaxing)
- .debug_str     0x0000152f       0xe4 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
+ .debug_str     0x00001856       0xe4 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
                                 0x39e (size before relaxing)
- .debug_str     0x00001613       0xc6 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
+ .debug_str     0x0000193a       0xc6 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
                                 0x442 (size before relaxing)
- .debug_str     0x000016d9      0x164 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
+ .debug_str     0x00001a00      0x15d D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
                                 0x53b (size before relaxing)
- .debug_str     0x0000183d       0x25 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
+ .debug_str     0x00001b5d       0x25 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
                                 0x152 (size before relaxing)
- .debug_str     0x00001862       0x22 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
+ .debug_str     0x00001b82       0x22 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
                                 0x145 (size before relaxing)
- .debug_str     0x00001884       0x1c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
+ .debug_str     0x00001ba4       0x1c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
                                 0x148 (size before relaxing)
- .debug_str     0x000018a0       0x1c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
+ .debug_str     0x00001bc0       0x1c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
                                 0x138 (size before relaxing)
- .debug_str     0x000018bc       0x1c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
+ .debug_str     0x00001bdc       0x1c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
                                 0x137 (size before relaxing)
- .debug_str     0x000018d8       0x1c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
+ .debug_str     0x00001bf8       0x1c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
                                 0x140 (size before relaxing)
- .debug_str     0x000018f4       0x8b D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
+ .debug_str     0x00001c14       0x8b D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
                                 0x373 (size before relaxing)
- .debug_str     0x0000197f      0x126 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+ .debug_str     0x00001c9f      0x126 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
                                 0x181 (size before relaxing)
- .debug_str     0x00001aa5       0x96 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+ .debug_str     0x00001dc5       0x96 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
                                 0x13c (size before relaxing)
- .debug_str     0x00001b3b       0xee D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+ .debug_str     0x00001e5b       0xee D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
                                 0x1b5 (size before relaxing)
 
 .comment        0x00000000       0x79
@@ -1245,6 +1349,8 @@ OUTPUT(accelerometer_demo.elf elf32-littlearm)
  .comment       0x00000000       0x7a ./Generated_Code/Cpu.o
  .comment       0x00000000       0x7a ./Generated_Code/BitIoLdd2.o
  .comment       0x00000000       0x7a ./Generated_Code/BitIoLdd1.o
+ .comment       0x00000000       0x7a ./Generated_Code/AdcLdd1.o
+ .comment       0x00000000       0x7a ./Generated_Code/AD1.o
  .comment       0x00000000       0x7a ./Project_Settings/Startup_Code/__arm_start.o
  .comment       0x00000000       0x7a ./Project_Settings/Startup_Code/__arm_end.o
  .comment       0x00000000       0x7a ./Sources/mma8453.o
@@ -1271,7 +1377,7 @@ OUTPUT(accelerometer_demo.elf elf32-littlearm)
  .comment       0x00000000       0x7a D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
  .comment       0x00000000       0x7a D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
 
-.debug_frame    0x00000000      0xdc4
+.debug_frame    0x00000000     0x1018
  .debug_frame   0x00000000       0x94 ./Generated_Code/out_I2C.o
  .debug_frame   0x00000094       0x8c ./Generated_Code/WAIT1.o
  .debug_frame   0x00000120       0x70 ./Generated_Code/TU1.o
@@ -1282,29 +1388,31 @@ OUTPUT(accelerometer_demo.elf elf32-littlearm)
  .debug_frame   0x000003fc       0x9c ./Generated_Code/Cpu.o
  .debug_frame   0x00000498       0xb0 ./Generated_Code/BitIoLdd2.o
  .debug_frame   0x00000548       0xb0 ./Generated_Code/BitIoLdd1.o
- .debug_frame   0x000005f8       0x4c ./Project_Settings/Startup_Code/__arm_start.o
- .debug_frame   0x00000644       0x30 ./Project_Settings/Startup_Code/__arm_end.o
- .debug_frame   0x00000674       0x64 ./Sources/mma8453.o
- .debug_frame   0x000006d8       0x30 ./Sources/ProcessorExpert.o
- .debug_frame   0x00000708       0x48 ./Sources/LTC2945.o
- .debug_frame   0x00000750      0x16c ./Sources/Events.o
- .debug_frame   0x000008bc       0x70 ./Sources/AS5040.o
- .debug_frame   0x0000092c       0x34 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
- .debug_frame   0x00000960       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
- .debug_frame   0x00000988       0x2c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
- .debug_frame   0x000009b4       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
- .debug_frame   0x000009dc       0x54 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
- .debug_frame   0x00000a30       0x2c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
- .debug_frame   0x00000a5c       0x48 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
- .debug_frame   0x00000aa4       0x64 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
- .debug_frame   0x00000b08       0x2c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
- .debug_frame   0x00000b34       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
- .debug_frame   0x00000b5c       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
- .debug_frame   0x00000b84       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
- .debug_frame   0x00000bac       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
- .debug_frame   0x00000bd4       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
- .debug_frame   0x00000bfc       0x58 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
- .debug_frame   0x00000c54       0x20 d:/codewarrior/cw mcu v10.6/cross_tools/arm-none-eabi-gcc-4_7_3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_udivsi3.o)
- .debug_frame   0x00000c74       0x40 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
- .debug_frame   0x00000cb4       0x54 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
- .debug_frame   0x00000d08       0xbc D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)
+ .debug_frame   0x000005f8      0x130 ./Generated_Code/AdcLdd1.o
+ .debug_frame   0x00000728       0xe4 ./Generated_Code/AD1.o
+ .debug_frame   0x0000080c       0x4c ./Project_Settings/Startup_Code/__arm_start.o
+ .debug_frame   0x00000858       0x30 ./Project_Settings/Startup_Code/__arm_end.o
+ .debug_frame   0x00000888       0x64 ./Sources/mma8453.o
+ .debug_frame   0x000008ec       0x38 ./Sources/ProcessorExpert.o
+ .debug_frame   0x00000924       0x48 ./Sources/LTC2945.o
+ .debug_frame   0x0000096c      0x1a4 ./Sources/Events.o
+ .debug_frame   0x00000b10       0x70 ./Sources/AS5040.o
+ .debug_frame   0x00000b80       0x34 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printf.o)
+ .debug_frame   0x00000bb4       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(putchar.o)
+ .debug_frame   0x00000bdc       0x2c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(exit.o)
+ .debug_frame   0x00000c08       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memset.o)
+ .debug_frame   0x00000c30       0x54 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(printformat_.o)
+ .debug_frame   0x00000c84       0x2c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__putchar.o)
+ .debug_frame   0x00000cb0       0x48 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(ansi_files.o)
+ .debug_frame   0x00000cf8       0x64 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(fwrite.o)
+ .debug_frame   0x00000d5c       0x2c D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__filll_mem.o)
+ .debug_frame   0x00000d88       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__memrchr.o)
+ .debug_frame   0x00000db0       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memchr.o)
+ .debug_frame   0x00000dd8       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(memcpy.o)
+ .debug_frame   0x00000e00       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strchr.o)
+ .debug_frame   0x00000e28       0x28 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(strlen.o)
+ .debug_frame   0x00000e50       0x58 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\libc.a(__buffer_io.o)
+ .debug_frame   0x00000ea8       0x20 d:/codewarrior/cw mcu v10.6/cross_tools/arm-none-eabi-gcc-4_7_3/bin/../lib/gcc/arm-none-eabi/4.7.3/armv6-m\libgcc.a(_udivsi3.o)
+ .debug_frame   0x00000ec8       0x40 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(gcc_ctor_dtor.o)
+ .debug_frame   0x00000f08       0x54 D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(ROMCopy.o)
+ .debug_frame   0x00000f5c       0xbc D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/lib/armv6-m\librt.a(__arm_eabi_init.o)

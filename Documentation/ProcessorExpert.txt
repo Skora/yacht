@@ -99,6 +99,15 @@ Module "out_I2C"   (component I2C_LDD)
                 the buffer should not be changed until the transmission is complete. Event "OnMasterBlockReceived"can be used 
                 to detect the end of the reception. This method is available only for the MASTER or MASTER - SLAVE mode.
 
+Module "AD1"       (component ADC)
+   - AD1_Measure -This method performs one measurement on all channels that are set in the component inspector. (Note: If the 
+                <number of conversions> is more than one the conversion of A/D channels is performed specified number of times.)
+   - AD1_GetValue16 -This method returns the last measured values of all channels. Compared with <GetValue> method this method 
+                returns more accurate result if the <number of conversions> is greater than 1 and <AD resolution> is less than 
+                16 bits. In addition, the user code dependency on <AD resolution> is eliminated.
+   - AD1_Calibrate -This method starts self calibration process. Calibration is typically used to remove the effects of the 
+                gain and offset from a specific reading.
+
 Module "Cpu"       (component MKL25Z128LK4)
    - Cpu_EnableInt -Enables all maskable interrupts.
 

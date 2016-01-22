@@ -24,12 +24,12 @@ typedef struct
 
 
 // DEVICIE ADRESS DEFINITION
-#define ADR1_LOW  //addr choosing soldering pads
-#define ADR0_LOW
+//#define ADR1_LOW  //addr choosing soldering pads
+//#define ADR0_LOW
 // a6|a5|a4|a3|a3|a1|a0|R/W    //R/W bit set to 0 - R
-#if defined(ADR1_LOW) && defined(ADR0_LOW)
-	#define LTC2945_DIVICE_ADDR 0xDE  
-#endif
+//#if defined(ADR1_LOW) && defined(ADR0_LOW)
+	#define LTC2945_DIVICE_ADDR 0x6F 
+//#endif
 #if defined(ADR1_HIGH) && defined(ADR0_LOW)
 	#define LTC2945_DIVICE_ADDR 0xCE  
 #endif
