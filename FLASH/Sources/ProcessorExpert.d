@@ -67,7 +67,8 @@ Sources/ProcessorExpert.o: ../Sources/ProcessorExpert.c \
  D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/LEDred.h \
  D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/out_I2C.h \
  D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/AD1.h \
- ../Sources/AS5040.h ../Sources/mma8453.h ../Sources/LTC2945.h
+ ../Sources/AS5040.h ../Sources/mma8453.h ../Sources/LTC2945.h \
+ ../Sources/adc_data.h
 
 D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/Cpu.h:
 
@@ -210,3 +211,5 @@ D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/AD1.h:
 ../Sources/mma8453.h:
 
 ../Sources/LTC2945.h:
+
+../Sources/adc_data.h:

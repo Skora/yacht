@@ -6,7 +6,7 @@
 **     Component   : ADC
 **     Version     : Component 01.690, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2016-01-22, 19:55, # CodeGen: 27
+**     Date/Time   : 2016-01-22, 21:30, # CodeGen: 28
 **     Abstract    :
 **         This device "ADC" implements an A/D converter,
 **         its control methods and interrupt/event handling procedure.
@@ -20,11 +20,11 @@
 **            A/D interrupt priority                       : medium priority
 **          A/D channels                                   : 2
 **            Channel0                                     : 
-**              A/D channel (pin)                          : ADC0_DP0/ADC0_SE0/PTE20/TPM1_CH0/UART0_TX
+**              A/D channel (pin)                          : ADC0_DM0/ADC0_SE4a/PTE21/TPM1_CH1/UART0_RX
 **              A/D channel (pin) signal                   : 
 **              Mode select                                : Single Ended
 **            Channel1                                     : 
-**              A/D channel (pin)                          : ADC0_DM0/ADC0_SE4a/PTE21/TPM1_CH1/UART0_RX
+**              A/D channel (pin)                          : ADC0_DP3/ADC0_SE3/PTE22/TPM2_CH0/UART2_TX
 **              A/D channel (pin) signal                   : 
 **              Mode select                                : Single Ended
 **          A/D resolution                                 : Autoselect

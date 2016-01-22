@@ -1012,7 +1012,7 @@ PE_DEBUGHALT();
             <group name="Channel 1">
               <enumgroup name="Channel mode" v="Single Ended">
                 <group name="Input">
-                  <A_D_channel__pin_ v="ADC0_DM3/ADC0_SE7a/PTE23/TPM2_CH1/UART2_RX" />
+                  <A_D_channel__pin_ v="ADC0_DM0/ADC0_SE4a/PTE21/TPM1_CH1/UART0_RX" />
                 </group>
               </enumgroup>
             </group>
@@ -1113,7 +1113,7 @@ Autoselect
           <boolgroup name="Mode select" v="Single Ended" />
         </group>
         <group name="Channel1">
-          <A_D_channel__pin_ v="ADC0_DM3/ADC0_SE7a/PTE23/TPM2_CH1/UART2_RX" />
+          <A_D_channel__pin_ v="ADC0_DM0/ADC0_SE4a/PTE21/TPM1_CH1/UART0_RX" />
           <boolgroup name="Mode select" v="Single Ended" />
         </group>
       </list>

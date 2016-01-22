@@ -1005,14 +1005,14 @@ PE_DEBUGHALT();
             <group name="Channel 0">
               <enumgroup name="Channel mode" v="Single Ended">
                 <group name="Input">
-                  <A_D_channel__pin_ v="ADC0_DP0/ADC0_SE0/PTE20/TPM1_CH0/UART0_TX" />
+                  <A_D_channel__pin_ v="ADC0_DM0/ADC0_SE4a/PTE21/TPM1_CH1/UART0_RX" />
                 </group>
               </enumgroup>
             </group>
             <group name="Channel 1">
               <enumgroup name="Channel mode" v="Single Ended">
                 <group name="Input">
-                  <A_D_channel__pin_ v="ADC0_DM0/ADC0_SE4a/PTE21/TPM1_CH1/UART0_RX" />
+                  <A_D_channel__pin_ v="ADC0_DP3/ADC0_SE3/PTE22/TPM2_CH0/UART2_TX" />
                 </group>
               </enumgroup>
             </group>
@@ -1109,11 +1109,11 @@ Autoselect
       </boolgroup>
       <list name="A/D channels" v="2">
         <group name="Channel0">
-          <A_D_channel__pin_ v="ADC0_DP0/ADC0_SE0/PTE20/TPM1_CH0/UART0_TX" />
+          <A_D_channel__pin_ v="ADC0_DM0/ADC0_SE4a/PTE21/TPM1_CH1/UART0_RX" />
           <boolgroup name="Mode select" v="Single Ended" />
         </group>
         <group name="Channel1">
-          <A_D_channel__pin_ v="ADC0_DM0/ADC0_SE4a/PTE21/TPM1_CH1/UART0_RX" />
+          <A_D_channel__pin_ v="ADC0_DP3/ADC0_SE3/PTE22/TPM2_CH0/UART2_TX" />
           <boolgroup name="Mode select" v="Single Ended" />
         </group>
       </list>

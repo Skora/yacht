@@ -10,6 +10,7 @@ C_SRCS_QUOTED += \
 "../Sources/Events.c" \
 "../Sources/LTC2945.c" \
 "../Sources/ProcessorExpert.c" \
+"../Sources/adc_data.c" \
 "../Sources/mma8453.c" \
 
 C_SRCS += \
@@ -17,6 +18,7 @@ C_SRCS += \
 ../Sources/Events.c \
 ../Sources/LTC2945.c \
 ../Sources/ProcessorExpert.c \
+../Sources/adc_data.c \
 ../Sources/mma8453.c \
 
 OBJS += \
@@ -24,6 +26,7 @@ OBJS += \
 ./Sources/Events.o \
 ./Sources/LTC2945.o \
 ./Sources/ProcessorExpert.o \
+./Sources/adc_data.o \
 ./Sources/mma8453.o \
 
 C_DEPS += \
@@ -31,6 +34,7 @@ C_DEPS += \
 ./Sources/Events.d \
 ./Sources/LTC2945.d \
 ./Sources/ProcessorExpert.d \
+./Sources/adc_data.d \
 ./Sources/mma8453.d \
 
 OBJS_QUOTED += \
@@ -38,6 +42,7 @@ OBJS_QUOTED += \
 "./Sources/Events.o" \
 "./Sources/LTC2945.o" \
 "./Sources/ProcessorExpert.o" \
+"./Sources/adc_data.o" \
 "./Sources/mma8453.o" \
 
 C_DEPS_QUOTED += \
@@ -45,6 +50,7 @@ C_DEPS_QUOTED += \
 "./Sources/Events.d" \
 "./Sources/LTC2945.d" \
 "./Sources/ProcessorExpert.d" \
+"./Sources/adc_data.d" \
 "./Sources/mma8453.d" \
 
 OBJS_OS_FORMAT += \
@@ -52,6 +58,7 @@ OBJS_OS_FORMAT += \
 ./Sources/Events.o \
 ./Sources/LTC2945.o \
 ./Sources/ProcessorExpert.o \
+./Sources/adc_data.o \
 ./Sources/mma8453.o \
 
 
@@ -88,9 +95,17 @@ Sources/ProcessorExpert.o: ../Sources/ProcessorExpert.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Sources/mma8453.o: ../Sources/mma8453.c
+Sources/adc_data.o: ../Sources/adc_data.c
 	@echo 'Building file: $<'
 	@echo 'Executing target #5 $<'
+	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
+	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/adc_data.args" -Wa,-adhlns="$@.lst" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/adc_data.o"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Sources/mma8453.o: ../Sources/mma8453.c
+	@echo 'Building file: $<'
+	@echo 'Executing target #6 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/mma8453.args" -Wa,-adhlns="$@.lst" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/mma8453.o"
 	@echo 'Finished building: $<'

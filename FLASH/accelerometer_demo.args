@@ -18,6 +18,7 @@
 "./Project_Settings/Startup_Code/__arm_start.o"
 "./Project_Settings/Startup_Code/__arm_end.o"
 "./Sources/mma8453.o"
+"./Sources/adc_data.o"
 "./Sources/ProcessorExpert.o"
 "./Sources/LTC2945.o"
 "./Sources/Events.o"

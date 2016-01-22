@@ -44,7 +44,7 @@
    6:../Generated_Code/AD1.c **** **     Component   : ADC
    7:../Generated_Code/AD1.c **** **     Version     : Component 01.690, Driver 01.00, CPU db: 3.00.000
    8:../Generated_Code/AD1.c **** **     Compiler    : GNU C Compiler
-   9:../Generated_Code/AD1.c **** **     Date/Time   : 2016-01-22, 19:55, # CodeGen: 27
+   9:../Generated_Code/AD1.c **** **     Date/Time   : 2016-01-22, 21:30, # CodeGen: 28
   10:../Generated_Code/AD1.c **** **     Abstract    :
   11:../Generated_Code/AD1.c **** **         This device "ADC" implements an A/D converter,
   12:../Generated_Code/AD1.c **** **         its control methods and interrupt/event handling procedure.
@@ -58,11 +58,11 @@
   20:../Generated_Code/AD1.c **** **            A/D interrupt priority                       : medium priority
   21:../Generated_Code/AD1.c **** **          A/D channels                                   : 2
   22:../Generated_Code/AD1.c **** **            Channel0                                     : 
-  23:../Generated_Code/AD1.c **** **              A/D channel (pin)                          : ADC0_DP0/ADC0_SE0/PTE20/TPM1_CH0/UART0
+  23:../Generated_Code/AD1.c **** **              A/D channel (pin)                          : ADC0_DM0/ADC0_SE4a/PTE21/TPM1_CH1/UART
   24:../Generated_Code/AD1.c **** **              A/D channel (pin) signal                   : 
   25:../Generated_Code/AD1.c **** **              Mode select                                : Single Ended
   26:../Generated_Code/AD1.c **** **            Channel1                                     : 
-  27:../Generated_Code/AD1.c **** **              A/D channel (pin)                          : ADC0_DM0/ADC0_SE4a/PTE21/TPM1_CH1/UART
+  27:../Generated_Code/AD1.c **** **              A/D channel (pin)                          : ADC0_DP3/ADC0_SE3/PTE22/TPM2_CH0/UART2
   28:../Generated_Code/AD1.c **** **              A/D channel (pin) signal                   : 
   29:../Generated_Code/AD1.c **** **              Mode select                                : Single Ended
   30:../Generated_Code/AD1.c **** **          A/D resolution                                 : Autoselect
@@ -865,37 +865,37 @@
  548              		.file 3 "D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/PE_Types.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 AD1.c
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:20     .bss.SumChan:00000000 SumChan
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:21     .bss.SumChan:00000000 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:25     .bss.ModeFlg:00000000 ModeFlg
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:26     .bss.ModeFlg:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:20     .bss.SumChan:00000000 SumChan
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:21     .bss.SumChan:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:25     .bss.ModeFlg:00000000 ModeFlg
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:26     .bss.ModeFlg:00000000 $d
                             *COM*:00000004 AdcLdd1_DeviceDataPtr
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:29     .bss.SampleGroup:00000000 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:32     .bss.SampleGroup:00000000 SampleGroup
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:29     .bss.SampleGroup:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:32     .bss.SampleGroup:00000000 SampleGroup
                             *COM*:00000004 AD1_OutV
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:38     .bss.OutFlg:00000000 OutFlg
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:39     .bss.OutFlg:00000000 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:41     .text.ClrSumV:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:45     .text.ClrSumV:00000000 ClrSumV
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:73     .text.ClrSumV:00000014 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:78     .text.AD1_HWEnDi:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:83     .text.AD1_HWEnDi:00000000 AD1_HWEnDi
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:136    .text.AD1_HWEnDi:00000044 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:145    .text.AD1_Measure:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:150    .text.AD1_Measure:00000000 AD1_Measure
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:211    .text.AD1_Measure:00000044 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:216    .text.AD1_GetValue16:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:221    .text.AD1_GetValue16:00000000 AD1_GetValue16
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:272    .text.AD1_GetValue16:00000038 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:278    .text.AD1_Calibrate:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:283    .text.AD1_Calibrate:00000000 AD1_Calibrate
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:373    .text.AD1_Calibrate:00000078 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:379    .text.AdcLdd1_OnMeasurementComplete:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:384    .text.AdcLdd1_OnMeasurementComplete:00000000 AdcLdd1_OnMeasurementComplete
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:491    .text.AdcLdd1_OnMeasurementComplete:0000009c $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:501    .text.AD1_Init:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:506    .text.AD1_Init:00000000 AD1_Init
-C:\Users\SKRA~1\AppData\Local\Temp\ccG35Kyb.s:539    .text.AD1_Init:00000020 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:38     .bss.OutFlg:00000000 OutFlg
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:39     .bss.OutFlg:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:41     .text.ClrSumV:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:45     .text.ClrSumV:00000000 ClrSumV
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:73     .text.ClrSumV:00000014 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:78     .text.AD1_HWEnDi:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:83     .text.AD1_HWEnDi:00000000 AD1_HWEnDi
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:136    .text.AD1_HWEnDi:00000044 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:145    .text.AD1_Measure:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:150    .text.AD1_Measure:00000000 AD1_Measure
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:211    .text.AD1_Measure:00000044 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:216    .text.AD1_GetValue16:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:221    .text.AD1_GetValue16:00000000 AD1_GetValue16
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:272    .text.AD1_GetValue16:00000038 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:278    .text.AD1_Calibrate:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:283    .text.AD1_Calibrate:00000000 AD1_Calibrate
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:373    .text.AD1_Calibrate:00000078 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:379    .text.AdcLdd1_OnMeasurementComplete:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:384    .text.AdcLdd1_OnMeasurementComplete:00000000 AdcLdd1_OnMeasurementComplete
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:491    .text.AdcLdd1_OnMeasurementComplete:0000009c $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:501    .text.AD1_Init:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:506    .text.AD1_Init:00000000 AD1_Init
+C:\Users\SKRA~1\AppData\Local\Temp\ccz7ou3e.s:539    .text.AD1_Init:00000020 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

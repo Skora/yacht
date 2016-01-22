@@ -2270,31 +2270,31 @@
  1571              		.file 5 "D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/Cpu.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 I2C2.c
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:18     .bss.DeviceDataPrv__DEFAULT_RTOS_ALLOC:00000000 $d
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:21     .bss.DeviceDataPrv__DEFAULT_RTOS_ALLOC:00000000 DeviceDataPrv__DEFAULT_RTOS_ALLOC
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:24     .bss.INT_I2C0__DEFAULT_RTOS_ISRPARAM:00000000 $d
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:27     .bss.INT_I2C0__DEFAULT_RTOS_ISRPARAM:00000000 INT_I2C0__DEFAULT_RTOS_ISRPARAM
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:30     .text.I2C2_Interrupt:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:35     .text.I2C2_Interrupt:00000000 I2C2_Interrupt
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:466    .text.I2C2_Interrupt:000002b0 $d
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:472    .text.I2C2_Init:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:477    .text.I2C2_Init:00000000 I2C2_Init
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:642    .text.I2C2_Init:000000f8 $d
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:655    .text.I2C2_Deinit:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:660    .text.I2C2_Deinit:00000000 I2C2_Deinit
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:703    .text.I2C2_Deinit:00000030 $d
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:711    .text.I2C2_MasterSendBlock:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:716    .text.I2C2_MasterSendBlock:00000000 I2C2_MasterSendBlock
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:989    .text.I2C2_MasterSendBlock:00000190 $d
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:996    .text.I2C2_MasterReceiveBlock:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:1001   .text.I2C2_MasterReceiveBlock:00000000 I2C2_MasterReceiveBlock
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:1276   .text.I2C2_MasterReceiveBlock:00000190 $d
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:1283   .text.I2C2_SelectSlaveDevice:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:1288   .text.I2C2_SelectSlaveDevice:00000000 I2C2_SelectSlaveDevice
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:1463   .text.I2C2_SelectSlaveDevice:000000fc $d
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:1468   .text.I2C2_GetError:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:1473   .text.I2C2_GetError:00000000 I2C2_GetError
-C:\Users\SKRA~1\AppData\Local\Temp\cchiYyig.s:1561   .text.I2C2_GetError:0000006c $d
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:18     .bss.DeviceDataPrv__DEFAULT_RTOS_ALLOC:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:21     .bss.DeviceDataPrv__DEFAULT_RTOS_ALLOC:00000000 DeviceDataPrv__DEFAULT_RTOS_ALLOC
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:24     .bss.INT_I2C0__DEFAULT_RTOS_ISRPARAM:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:27     .bss.INT_I2C0__DEFAULT_RTOS_ISRPARAM:00000000 INT_I2C0__DEFAULT_RTOS_ISRPARAM
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:30     .text.I2C2_Interrupt:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:35     .text.I2C2_Interrupt:00000000 I2C2_Interrupt
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:466    .text.I2C2_Interrupt:000002b0 $d
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:472    .text.I2C2_Init:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:477    .text.I2C2_Init:00000000 I2C2_Init
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:642    .text.I2C2_Init:000000f8 $d
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:655    .text.I2C2_Deinit:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:660    .text.I2C2_Deinit:00000000 I2C2_Deinit
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:703    .text.I2C2_Deinit:00000030 $d
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:711    .text.I2C2_MasterSendBlock:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:716    .text.I2C2_MasterSendBlock:00000000 I2C2_MasterSendBlock
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:989    .text.I2C2_MasterSendBlock:00000190 $d
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:996    .text.I2C2_MasterReceiveBlock:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:1001   .text.I2C2_MasterReceiveBlock:00000000 I2C2_MasterReceiveBlock
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:1276   .text.I2C2_MasterReceiveBlock:00000190 $d
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:1283   .text.I2C2_SelectSlaveDevice:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:1288   .text.I2C2_SelectSlaveDevice:00000000 I2C2_SelectSlaveDevice
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:1463   .text.I2C2_SelectSlaveDevice:000000fc $d
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:1468   .text.I2C2_GetError:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:1473   .text.I2C2_GetError:00000000 I2C2_GetError
+C:\Users\SKRA~1\AppData\Local\Temp\cctOAwqi.s:1561   .text.I2C2_GetError:0000006c $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

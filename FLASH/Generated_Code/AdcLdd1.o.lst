@@ -17,8 +17,8 @@
   17              		.section	.rodata.ChannelToPin,"a",%progbits
   18              		.align	2
   21              	ChannelToPin:
-  22 0000 40       		.byte	64
-  23 0001 44       		.byte	68
+  22 0000 44       		.byte	68
+  23 0001 43       		.byte	67
   24 0002 0000     		.section	.bss.DeviceDataPrv__DEFAULT_RTOS_ALLOC,"aw",%nobits
   25              		.align	2
   28              	DeviceDataPrv__DEFAULT_RTOS_ALLOC:
@@ -44,7 +44,7 @@
    6:../Generated_Code/AdcLdd1.c **** **     Component   : ADC_LDD
    7:../Generated_Code/AdcLdd1.c **** **     Version     : Component 01.183, Driver 01.08, CPU db: 3.00.000
    8:../Generated_Code/AdcLdd1.c **** **     Compiler    : GNU C Compiler
-   9:../Generated_Code/AdcLdd1.c **** **     Date/Time   : 2016-01-22, 19:55, # CodeGen: 27
+   9:../Generated_Code/AdcLdd1.c **** **     Date/Time   : 2016-01-22, 21:30, # CodeGen: 28
   10:../Generated_Code/AdcLdd1.c **** **     Abstract    :
   11:../Generated_Code/AdcLdd1.c **** **         This device "ADC_LDD" implements an A/D converter,
   12:../Generated_Code/AdcLdd1.c **** **         its control methods and interrupt/event handling procedure.
@@ -60,12 +60,12 @@
   22:../Generated_Code/AdcLdd1.c **** **            Channel 0                                    : 
   23:../Generated_Code/AdcLdd1.c **** **              Channel mode                               : Single Ended
   24:../Generated_Code/AdcLdd1.c **** **                Input                                    : 
-  25:../Generated_Code/AdcLdd1.c **** **                  A/D channel (pin)                      : ADC0_DP0/ADC0_SE0/PTE20/TPM1_CH0/UART0
+  25:../Generated_Code/AdcLdd1.c **** **                  A/D channel (pin)                      : ADC0_DM0/ADC0_SE4a/PTE21/TPM1_CH1/UART
   26:../Generated_Code/AdcLdd1.c **** **                  A/D channel (pin) signal               : 
   27:../Generated_Code/AdcLdd1.c **** **            Channel 1                                    : 
   28:../Generated_Code/AdcLdd1.c **** **              Channel mode                               : Single Ended
   29:../Generated_Code/AdcLdd1.c **** **                Input                                    : 
-  30:../Generated_Code/AdcLdd1.c **** **                  A/D channel (pin)                      : ADC0_DM0/ADC0_SE4a/PTE21/TPM1_CH1/UART
+  30:../Generated_Code/AdcLdd1.c **** **                  A/D channel (pin)                      : ADC0_DP3/ADC0_SE3/PTE22/TPM2_CH0/UART2
   31:../Generated_Code/AdcLdd1.c **** **                  A/D channel (pin) signal               : 
   32:../Generated_Code/AdcLdd1.c **** **          Static sample groups                           : Disabled
   33:../Generated_Code/AdcLdd1.c **** **          A/D resolution                                 : Autoselect
@@ -174,9 +174,9 @@
  136:../Generated_Code/AdcLdd1.c **** 
  137:../Generated_Code/AdcLdd1.c **** static const uint8_t ChannelToPin[] = { /* Channel to pin conversion table */
  138:../Generated_Code/AdcLdd1.c ****   /* ADC0_SC1A: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=
- 139:../Generated_Code/AdcLdd1.c ****   0x40U,                               /* Status and control register value */
+ 139:../Generated_Code/AdcLdd1.c ****   0x44U,                               /* Status and control register value */
  140:../Generated_Code/AdcLdd1.c ****   /* ADC0_SC1A: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=
- 141:../Generated_Code/AdcLdd1.c ****   0x44U                                /* Status and control register value */
+ 141:../Generated_Code/AdcLdd1.c ****   0x43U                                /* Status and control register value */
  142:../Generated_Code/AdcLdd1.c **** };
  143:../Generated_Code/AdcLdd1.c **** 
  144:../Generated_Code/AdcLdd1.c **** typedef struct {
@@ -304,33 +304,33 @@
  107 0058 0902     		lsl	r1, r1, #8
  108 005a 0A43     		orr	r2, r1
  109 005c 1A60     		str	r2, [r3]
- 204:../Generated_Code/AdcLdd1.c ****   /* PORTE_PCR20: ISF=0,MUX=0 */
- 205:../Generated_Code/AdcLdd1.c ****   PORTE_PCR20 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));
+ 204:../Generated_Code/AdcLdd1.c ****   /* PORTE_PCR21: ISF=0,MUX=0 */
+ 205:../Generated_Code/AdcLdd1.c ****   PORTE_PCR21 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));
  110              		.loc 1 205 0
  111 005e 194B     		ldr	r3, .L3+20
  112 0060 184A     		ldr	r2, .L3+20
- 113 0062 116D     		ldr	r1, [r2, #80]
+ 113 0062 516D     		ldr	r1, [r2, #84]
  114 0064 184A     		ldr	r2, .L3+24
  115 0066 0A40     		and	r2, r1
- 116 0068 1A65     		str	r2, [r3, #80]
- 206:../Generated_Code/AdcLdd1.c ****   /* PORTE_PCR21: ISF=0,MUX=0 */
- 207:../Generated_Code/AdcLdd1.c ****   PORTE_PCR21 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));
+ 116 0068 5A65     		str	r2, [r3, #84]
+ 206:../Generated_Code/AdcLdd1.c ****   /* ADC0_CFG2: MUXSEL=0 */
+ 207:../Generated_Code/AdcLdd1.c ****   ADC0_CFG2 &= (uint32_t)~(uint32_t)(ADC_CFG2_MUXSEL_MASK);
  117              		.loc 1 207 0
- 118 006a 164B     		ldr	r3, .L3+20
- 119 006c 154A     		ldr	r2, .L3+20
- 120 006e 516D     		ldr	r1, [r2, #84]
- 121 0070 154A     		ldr	r2, .L3+24
- 122 0072 0A40     		and	r2, r1
- 123 0074 5A65     		str	r2, [r3, #84]
- 208:../Generated_Code/AdcLdd1.c ****   /* ADC0_CFG2: MUXSEL=0 */
- 209:../Generated_Code/AdcLdd1.c ****   ADC0_CFG2 &= (uint32_t)~(uint32_t)(ADC_CFG2_MUXSEL_MASK);
+ 118 006a 184B     		ldr	r3, .L3+28
+ 119 006c 174A     		ldr	r2, .L3+28
+ 120 006e D268     		ldr	r2, [r2, #12]
+ 121 0070 1021     		mov	r1, #16
+ 122 0072 8A43     		bic	r2, r1
+ 123 0074 DA60     		str	r2, [r3, #12]
+ 208:../Generated_Code/AdcLdd1.c ****   /* PORTE_PCR22: ISF=0,MUX=0 */
+ 209:../Generated_Code/AdcLdd1.c ****   PORTE_PCR22 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));
  124              		.loc 1 209 0
- 125 0076 154B     		ldr	r3, .L3+28
- 126 0078 144A     		ldr	r2, .L3+28
- 127 007a D268     		ldr	r2, [r2, #12]
- 128 007c 1021     		mov	r1, #16
- 129 007e 8A43     		bic	r2, r1
- 130 0080 DA60     		str	r2, [r3, #12]
+ 125 0076 134B     		ldr	r3, .L3+20
+ 126 0078 124A     		ldr	r2, .L3+20
+ 127 007a 916D     		ldr	r1, [r2, #88]
+ 128 007c 124A     		ldr	r2, .L3+24
+ 129 007e 0A40     		and	r2, r1
+ 130 0080 9A65     		str	r2, [r3, #88]
  210:../Generated_Code/AdcLdd1.c ****   /* ADC0_CFG1: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=
  211:../Generated_Code/AdcLdd1.c ****   ADC0_CFG1 = ADC_CFG1_ADIV(0x01) |
  131              		.loc 1 211 0
@@ -1364,39 +1364,39 @@
  837              		.file 6 "../Generated_Code/Cpu.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 AdcLdd1.c
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:18     .rodata.ChannelToPin:00000000 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:21     .rodata.ChannelToPin:00000000 ChannelToPin
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:25     .bss.DeviceDataPrv__DEFAULT_RTOS_ALLOC:00000000 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:28     .bss.DeviceDataPrv__DEFAULT_RTOS_ALLOC:00000000 DeviceDataPrv__DEFAULT_RTOS_ALLOC
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:31     .bss.INT_ADC0__DEFAULT_RTOS_ISRPARAM:00000000 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:34     .bss.INT_ADC0__DEFAULT_RTOS_ISRPARAM:00000000 INT_ADC0__DEFAULT_RTOS_ISRPARAM
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:37     .text.AdcLdd1_Init:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:42     .text.AdcLdd1_Init:00000000 AdcLdd1_Init
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:165    .text.AdcLdd1_Init:000000b0 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:178    .text.AdcLdd1_StartSingleMeasurement:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:183    .text.AdcLdd1_StartSingleMeasurement:00000000 AdcLdd1_StartSingleMeasurement
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:240    .text.AdcLdd1_StartSingleMeasurement:00000040 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:245    .text.AdcLdd1_CancelMeasurement:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:250    .text.AdcLdd1_CancelMeasurement:00000000 AdcLdd1_CancelMeasurement
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:288    .text.AdcLdd1_CancelMeasurement:00000024 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:293    .text.AdcLdd1_CreateSampleGroup:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:298    .text.AdcLdd1_CreateSampleGroup:00000000 AdcLdd1_CreateSampleGroup
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:381    .text.AdcLdd1_CreateSampleGroup:00000064 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:387    .text.AdcLdd1_GetMeasuredValues:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:392    .text.AdcLdd1_GetMeasuredValues:00000000 AdcLdd1_GetMeasuredValues
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:463    .text.AdcLdd1_GetMeasuredValues:0000005c $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:468    .text.AdcLdd1_GetMeasurementCompleteStatus:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:473    .text.AdcLdd1_GetMeasurementCompleteStatus:00000000 AdcLdd1_GetMeasurementCompleteStatus
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:572    .text.AdcLdd1_GetMeasurementCompleteStatus:0000007c $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:578    .text.AdcLdd1_StartCalibration:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:583    .text.AdcLdd1_StartCalibration:00000000 AdcLdd1_StartCalibration
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:639    .text.AdcLdd1_StartCalibration:00000040 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:644    .text.AdcLdd1_GetCalibrationResultStatus:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:649    .text.AdcLdd1_GetCalibrationResultStatus:00000000 AdcLdd1_GetCalibrationResultStatus
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:777    .text.AdcLdd1_GetCalibrationResultStatus:000000b4 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:782    .text.AdcLdd1_MeasurementCompleteInterrupt:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:787    .text.AdcLdd1_MeasurementCompleteInterrupt:00000000 AdcLdd1_MeasurementCompleteInterrupt
-C:\Users\SKRA~1\AppData\Local\Temp\ccYGr6qc.s:826    .text.AdcLdd1_MeasurementCompleteInterrupt:00000028 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:18     .rodata.ChannelToPin:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:21     .rodata.ChannelToPin:00000000 ChannelToPin
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:25     .bss.DeviceDataPrv__DEFAULT_RTOS_ALLOC:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:28     .bss.DeviceDataPrv__DEFAULT_RTOS_ALLOC:00000000 DeviceDataPrv__DEFAULT_RTOS_ALLOC
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:31     .bss.INT_ADC0__DEFAULT_RTOS_ISRPARAM:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:34     .bss.INT_ADC0__DEFAULT_RTOS_ISRPARAM:00000000 INT_ADC0__DEFAULT_RTOS_ISRPARAM
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:37     .text.AdcLdd1_Init:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:42     .text.AdcLdd1_Init:00000000 AdcLdd1_Init
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:165    .text.AdcLdd1_Init:000000b0 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:178    .text.AdcLdd1_StartSingleMeasurement:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:183    .text.AdcLdd1_StartSingleMeasurement:00000000 AdcLdd1_StartSingleMeasurement
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:240    .text.AdcLdd1_StartSingleMeasurement:00000040 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:245    .text.AdcLdd1_CancelMeasurement:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:250    .text.AdcLdd1_CancelMeasurement:00000000 AdcLdd1_CancelMeasurement
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:288    .text.AdcLdd1_CancelMeasurement:00000024 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:293    .text.AdcLdd1_CreateSampleGroup:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:298    .text.AdcLdd1_CreateSampleGroup:00000000 AdcLdd1_CreateSampleGroup
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:381    .text.AdcLdd1_CreateSampleGroup:00000064 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:387    .text.AdcLdd1_GetMeasuredValues:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:392    .text.AdcLdd1_GetMeasuredValues:00000000 AdcLdd1_GetMeasuredValues
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:463    .text.AdcLdd1_GetMeasuredValues:0000005c $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:468    .text.AdcLdd1_GetMeasurementCompleteStatus:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:473    .text.AdcLdd1_GetMeasurementCompleteStatus:00000000 AdcLdd1_GetMeasurementCompleteStatus
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:572    .text.AdcLdd1_GetMeasurementCompleteStatus:0000007c $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:578    .text.AdcLdd1_StartCalibration:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:583    .text.AdcLdd1_StartCalibration:00000000 AdcLdd1_StartCalibration
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:639    .text.AdcLdd1_StartCalibration:00000040 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:644    .text.AdcLdd1_GetCalibrationResultStatus:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:649    .text.AdcLdd1_GetCalibrationResultStatus:00000000 AdcLdd1_GetCalibrationResultStatus
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:777    .text.AdcLdd1_GetCalibrationResultStatus:000000b4 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:782    .text.AdcLdd1_MeasurementCompleteInterrupt:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:787    .text.AdcLdd1_MeasurementCompleteInterrupt:00000000 AdcLdd1_MeasurementCompleteInterrupt
+C:\Users\SKRA~1\AppData\Local\Temp\ccI33Jec.s:826    .text.AdcLdd1_MeasurementCompleteInterrupt:00000028 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

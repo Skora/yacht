@@ -1,0 +1,112 @@
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"adc_data.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.global	__aeabi_i2d
+  18              		.global	__aeabi_dmul
+  19              		.global	__aeabi_ddiv
+  20              		.global	__aeabi_d2f
+  21              		.section	.text.vlotage_scaling,"ax",%progbits
+  22              		.align	2
+  23              		.global	vlotage_scaling
+  24              		.code	16
+  25              		.thumb_func
+  27              	vlotage_scaling:
+  28              	.LFB0:
+  29              		.file 1 "../Sources/adc_data.c"
+   1:../Sources/adc_data.c **** /*
+   2:../Sources/adc_data.c ****  * adc_data.c
+   3:../Sources/adc_data.c ****  *
+   4:../Sources/adc_data.c ****  *  Created on: Jan 22, 2016
+   5:../Sources/adc_data.c ****  *      Author: Skóra
+   6:../Sources/adc_data.c ****  */
+   7:../Sources/adc_data.c **** 
+   8:../Sources/adc_data.c **** 
+   9:../Sources/adc_data.c **** float vlotage_scaling(adc_results)
+  10:../Sources/adc_data.c **** {
+  30              		.loc 1 10 0
+  31              		.cfi_startproc
+  32 0000 90B5     		push	{r4, r7, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 12
+  35              		.cfi_offset 4, -12
+  36              		.cfi_offset 7, -8
+  37              		.cfi_offset 14, -4
+  38 0002 85B0     		sub	sp, sp, #20
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_offset 32
+  41 0004 00AF     		add	r7, sp, #0
+  42              	.LCFI2:
+  43              		.cfi_def_cfa_register 7
+  44 0006 7860     		str	r0, [r7, #4]
+  11:../Sources/adc_data.c **** 	float voltage;
+  12:../Sources/adc_data.c **** 	voltage=adc_results*3.3/65536;
+  45              		.loc 1 12 0
+  46 0008 7868     		ldr	r0, [r7, #4]
+  47 000a FFF7FEFF 		bl	__aeabi_i2d
+  48 000e 031C     		mov	r3, r0
+  49 0010 0C1C     		mov	r4, r1
+  50 0012 181C     		mov	r0, r3
+  51 0014 211C     		mov	r1, r4
+  52 0016 0D4B     		ldr	r3, .L3+4
+  53 0018 0B4A     		ldr	r2, .L3
+  54 001a FFF7FEFF 		bl	__aeabi_dmul
+  55 001e 031C     		mov	r3, r0
+  56 0020 0C1C     		mov	r4, r1
+  57 0022 181C     		mov	r0, r3
+  58 0024 211C     		mov	r1, r4
+  59 0026 0A4A     		ldr	r2, .L3+8
+  60 0028 0A4B     		ldr	r3, .L3+12
+  61 002a FFF7FEFF 		bl	__aeabi_ddiv
+  62 002e 031C     		mov	r3, r0
+  63 0030 0C1C     		mov	r4, r1
+  64 0032 181C     		mov	r0, r3
+  65 0034 211C     		mov	r1, r4
+  66 0036 FFF7FEFF 		bl	__aeabi_d2f
+  67 003a 031C     		add	r3, r0, #0
+  68 003c FB60     		str	r3, [r7, #12]
+  13:../Sources/adc_data.c **** 	return voltage;
+  69              		.loc 1 13 0
+  70 003e FB68     		ldr	r3, [r7, #12]
+  14:../Sources/adc_data.c **** }
+  71              		.loc 1 14 0
+  72 0040 181C     		add	r0, r3, #0
+  73 0042 BD46     		mov	sp, r7
+  74 0044 05B0     		add	sp, sp, #20
+  75              		@ sp needed for prologue
+  76 0046 90BD     		pop	{r4, r7, pc}
+  77              	.L4:
+  78              		.align	3
+  79              	.L3:
+  80 0048 66666666 		.word	1717986918
+  81 004c 66660A40 		.word	1074423398
+  82 0050 00000000 		.word	0
+  83 0054 0000F040 		.word	1089470464
+  84              		.cfi_endproc
+  85              	.LFE0:
+  87              		.text
+  88              	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 adc_data.c
+C:\Users\SKRA~1\AppData\Local\Temp\ccebg6jo.s:22     .text.vlotage_scaling:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccebg6jo.s:27     .text.vlotage_scaling:00000000 vlotage_scaling
+C:\Users\SKRA~1\AppData\Local\Temp\ccebg6jo.s:80     .text.vlotage_scaling:00000048 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+__aeabi_i2d
+__aeabi_dmul
+__aeabi_ddiv
+__aeabi_d2f

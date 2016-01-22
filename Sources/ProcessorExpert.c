@@ -45,6 +45,7 @@
 #include "AS5040.h"
 #include "mma8453.h"
 #include "LTC2945.h"
+#include "adc_data.h"
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
 extern AS5040data as5040data;
@@ -60,6 +61,7 @@ LDD_TDeviceData *Myout_I2CPtr;
 
 static uint16_t ADC_value[AD1_CHANNEL_COUNT];
 volatile bool ADC_koniec;
+float Voltage[AD1_CHANNEL_COUNT];
 
 
 
@@ -101,16 +103,20 @@ int main(void)
 		(void)AD1_Measure(TRUE);
 		}
 		
+		Voltage[0]=vlotage_scaling(ADC_value[0]);
+		Voltage[1]=vlotage_scaling(ADC_value[1]);
+		
+		
 		if(as5040data.Erorr){
 			LEDgreen_Off();
 			LEDred_On();
-			printf("tilt =  %d  ang_pos =ERORR  ADC1: %d ADC2: %d", mma845x.y, ADC_value[0],ADC_value[1]);
+			printf("tilt =  %d  ang_pos =ERORR  ADC1: %d ADC2: %d", mma845x.y, Voltage[0],Voltage[1]);
 			printf("\n");
 		}
 		else{
 			LEDgreen_On();
 			LEDred_Off();
-			printf("tilt =  %d  ang_pos =  %d  ADC1: %d ADC2: %d", mma845x.y, as5040data.ang_position,ADC_value[0],ADC_value[1]);
+			printf("tilt =  %d  ang_pos =  %d  ADC1: %d ADC2: %d", mma845x.y, as5040data.ang_position,Voltage[0],Voltage[1]);
 			printf("\n");
 		}
 
