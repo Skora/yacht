@@ -34,6 +34,8 @@ typedef enum
 #define MMA845X_DEVICE_ID       0x0D
 
 
+
+
 uint8_t InData[MMA845X_BUFFER_SIZE];
 int16_t mma845_tmp;
 
@@ -41,6 +43,7 @@ int16_t mma845_tmp;
 void Timer_Interrupt_CB();
 void MMA845X_Init();
 void MMA845X_Poll();
+int16_t MMA845X_filtering(int16_t data);
 
 
 #endif /* MMA8453*/

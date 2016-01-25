@@ -91,6 +91,7 @@ int main(void)
 	//LTC2945_Init();
 	AS5040_Init();
 	(void)AD1_Measure(TRUE);
+	
 
 	for(;;)
 	{
@@ -116,18 +117,20 @@ int main(void)
 		curr=Current*1000;
 		powe=Power*1000;
 		
-		if(as5040data.Erorr){
-			LEDgreen_Off();
-			LEDred_On();
-			printf("tilt =  %d  ang_pos =ERORR  U: %d I: %d P: %d", mma845x.y, volt,curr,powe);
-			printf("\n");
-		}
-		else{
-			LEDgreen_On();
-			LEDred_Off();
-			printf("tilt =  %d  ang_pos =  %d  U: %d I: %d P: %d", mma845x.y, as5040data.ang_position, volt,curr,powe);
-			printf("\n");
-		}
+		printf("%d,%d \n", as5040data.ang_position,mma845x.y);
+		
+//		if(as5040data.Erorr){
+//			LEDgreen_Off();
+//			LEDred_On();
+//			printf("tilt =  %d  ang_pos =ERORR  U: %d I: %d P: %d", mma845x.y,  ADC_value[0],ADC_value[1],curr);
+//			printf("\n");
+//		}
+//		else{
+//			LEDgreen_On();
+//			LEDred_Off();
+//			printf("tilt =  %d  ang_pos =  %d  U: %d I: %d P: %d", mma845x.y, as5040data.ang_position, ADC_value[0],ADC_value[1],curr);
+//			printf("\n");
+//		}
 
 
 	}

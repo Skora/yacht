@@ -87,7 +87,7 @@ void MMA845X_Poll(void)
       mma845x.x = (mma845_tmp / MMA845X_DIVIDER);
 
       mma845_tmp = InData[3] | (InData[2] << 8);
-      mma845x.y = (mma845_tmp / MMA845X_DIVIDER);
+      mma845x.y = MMA845X_filtering((mma845_tmp / MMA845X_DIVIDER));
 
       mma845_tmp = InData[5] | (InData[4] << 8);     
       mma845x.z = (mma845_tmp / MMA845X_DIVIDER);   
@@ -95,4 +95,13 @@ void MMA845X_Poll(void)
       //printf("%d", mma845x.y);
       //printf("\n");
     }
+}
+
+int16_t MMA845X_filtering(int16_t data)
+{
+	static int32_t avarage=0;
+	avarage=avarage*4;
+	avarage=avarage+data;
+	avarage=avarage/5;
+	return avarage;
 }

@@ -295,32 +295,32 @@
   67:../Sources/mma8453.c **** 	
   68:../Sources/mma8453.c **** 	if(measuring == TRANSMIT)
  244              		.loc 1 68 0
- 245 0004 424B     		ldr	r3, .L20
+ 245 0004 454B     		ldr	r3, .L20
  246 0006 1B78     		ldrb	r3, [r3]
  247 0008 012B     		cmp	r3, #1
  248 000a 1FD1     		bne	.L13
   69:../Sources/mma8453.c ****     {
   70:../Sources/mma8453.c ****       measuring = IDLE;
  249              		.loc 1 70 0
- 250 000c 404B     		ldr	r3, .L20
+ 250 000c 434B     		ldr	r3, .L20
  251 000e 0022     		mov	r2, #0
  252 0010 1A70     		strb	r2, [r3]
   71:../Sources/mma8453.c ****       measuring_last = TRANSMIT;
  253              		.loc 1 71 0
- 254 0012 404B     		ldr	r3, .L20+4
+ 254 0012 434B     		ldr	r3, .L20+4
  255 0014 0122     		mov	r2, #1
  256 0016 1A70     		strb	r2, [r3]
   72:../Sources/mma8453.c ****        
   73:../Sources/mma8453.c ****       OutData[0] = MMA845X_CFG_VALUE;
  257              		.loc 1 73 0
- 258 0018 3F4B     		ldr	r3, .L20+8
+ 258 0018 424B     		ldr	r3, .L20+8
  259 001a 0122     		mov	r2, #1
  260 001c 1A70     		strb	r2, [r3]
   74:../Sources/mma8453.c ****       Error = I2C2_MasterSendBlock(MyI2CPtr, &OutData, 1, LDD_I2C_NO_SEND_STOP); /* Send OutData (4
  261              		.loc 1 74 0
- 262 001e 3F4B     		ldr	r3, .L20+12
+ 262 001e 424B     		ldr	r3, .L20+12
  263 0020 1A68     		ldr	r2, [r3]
- 264 0022 3D4B     		ldr	r3, .L20+8
+ 264 0022 404B     		ldr	r3, .L20+8
  265 0024 101C     		mov	r0, r2
  266 0026 191C     		mov	r1, r3
  267 0028 0122     		mov	r2, #1
@@ -328,48 +328,48 @@
  269 002c FFF7FEFF 		bl	I2C2_MasterSendBlock
  270 0030 031C     		mov	r3, r0
  271 0032 1A1C     		mov	r2, r3
- 272 0034 3A4B     		ldr	r3, .L20+16
+ 272 0034 3D4B     		ldr	r3, .L20+16
  273 0036 1A80     		strh	r2, [r3]
   75:../Sources/mma8453.c ****       while (!DataTransmittedFlg); 
  274              		.loc 1 75 0
  275 0038 C046     		mov	r8, r8
  276              	.L14:
  277              		.loc 1 75 0 is_stmt 0
- 278 003a 3A4B     		ldr	r3, .L20+20
+ 278 003a 3D4B     		ldr	r3, .L20+20
  279 003c 1B78     		ldrb	r3, [r3]
  280 003e DBB2     		uxtb	r3, r3
  281 0040 002B     		cmp	r3, #0
  282 0042 FAD0     		beq	.L14
   76:../Sources/mma8453.c ****       DataTransmittedFlg = FALSE;   
  283              		.loc 1 76 0 is_stmt 1
- 284 0044 374B     		ldr	r3, .L20+20
+ 284 0044 3A4B     		ldr	r3, .L20+20
  285 0046 0022     		mov	r2, #0
  286 0048 1A70     		strb	r2, [r3]
- 287 004a 5EE0     		b	.L12
+ 287 004a 64E0     		b	.L12
  288              	.L13:
   77:../Sources/mma8453.c ****     }
   78:../Sources/mma8453.c ****     else if(measuring == RECEIVE)
  289              		.loc 1 78 0
- 290 004c 304B     		ldr	r3, .L20
+ 290 004c 334B     		ldr	r3, .L20
  291 004e 1B78     		ldrb	r3, [r3]
  292 0050 022B     		cmp	r3, #2
- 293 0052 5AD1     		bne	.L12
+ 293 0052 60D1     		bne	.L12
   79:../Sources/mma8453.c ****     {
   80:../Sources/mma8453.c ****       measuring = IDLE;
  294              		.loc 1 80 0
- 295 0054 2E4B     		ldr	r3, .L20
+ 295 0054 314B     		ldr	r3, .L20
  296 0056 0022     		mov	r2, #0
  297 0058 1A70     		strb	r2, [r3]
   81:../Sources/mma8453.c ****       measuring_last = RECEIVE;
  298              		.loc 1 81 0
- 299 005a 2E4B     		ldr	r3, .L20+4
+ 299 005a 314B     		ldr	r3, .L20+4
  300 005c 0222     		mov	r2, #2
  301 005e 1A70     		strb	r2, [r3]
   82:../Sources/mma8453.c ****       Error = I2C2_MasterReceiveBlock(MyI2CPtr, &InData, MMA845X_BUFFER_SIZE, LDD_I2C_SEND_STOP);
  302              		.loc 1 82 0
- 303 0060 2E4B     		ldr	r3, .L20+12
+ 303 0060 314B     		ldr	r3, .L20+12
  304 0062 1A68     		ldr	r2, [r3]
- 305 0064 304B     		ldr	r3, .L20+24
+ 305 0064 334B     		ldr	r3, .L20+24
  306 0066 101C     		mov	r0, r2
  307 0068 191C     		mov	r1, r3
  308 006a 0622     		mov	r2, #6
@@ -377,40 +377,40 @@
  310 006e FFF7FEFF 		bl	I2C2_MasterReceiveBlock
  311 0072 031C     		mov	r3, r0
  312 0074 1A1C     		mov	r2, r3
- 313 0076 2A4B     		ldr	r3, .L20+16
+ 313 0076 2D4B     		ldr	r3, .L20+16
  314 0078 1A80     		strh	r2, [r3]
   83:../Sources/mma8453.c ****       while (!DataReceivedFlg);
  315              		.loc 1 83 0
  316 007a C046     		mov	r8, r8
  317              	.L16:
  318              		.loc 1 83 0 is_stmt 0
- 319 007c 2B4B     		ldr	r3, .L20+28
+ 319 007c 2E4B     		ldr	r3, .L20+28
  320 007e 1B78     		ldrb	r3, [r3]
  321 0080 DBB2     		uxtb	r3, r3
  322 0082 002B     		cmp	r3, #0
  323 0084 FAD0     		beq	.L16
   84:../Sources/mma8453.c ****       DataReceivedFlg = FALSE;  
  324              		.loc 1 84 0 is_stmt 1
- 325 0086 294B     		ldr	r3, .L20+28
+ 325 0086 2C4B     		ldr	r3, .L20+28
  326 0088 0022     		mov	r2, #0
  327 008a 1A70     		strb	r2, [r3]
   85:../Sources/mma8453.c **** 
   86:../Sources/mma8453.c ****       mma845_tmp = InData[1] | (InData[0] << 8);
  328              		.loc 1 86 0
- 329 008c 264B     		ldr	r3, .L20+24
+ 329 008c 294B     		ldr	r3, .L20+24
  330 008e 5B78     		ldrb	r3, [r3, #1]
  331 0090 1A1C     		mov	r2, r3
- 332 0092 254B     		ldr	r3, .L20+24
+ 332 0092 284B     		ldr	r3, .L20+24
  333 0094 1B78     		ldrb	r3, [r3]
  334 0096 1B02     		lsl	r3, r3, #8
  335 0098 9BB2     		uxth	r3, r3
  336 009a 1343     		orr	r3, r2
  337 009c 9AB2     		uxth	r2, r3
- 338 009e 244B     		ldr	r3, .L20+32
+ 338 009e 274B     		ldr	r3, .L20+32
  339 00a0 1A80     		strh	r2, [r3]
   87:../Sources/mma8453.c ****       mma845x.x = (mma845_tmp / MMA845X_DIVIDER);
  340              		.loc 1 87 0
- 341 00a2 234B     		ldr	r3, .L20+32
+ 341 00a2 264B     		ldr	r3, .L20+32
  342 00a4 1B88     		ldrh	r3, [r3]
  343 00a6 1BB2     		sxth	r3, r3
  344 00a8 002B     		cmp	r3, #0
@@ -419,25 +419,25 @@
  347              	.L17:
  348 00ae 9B10     		asr	r3, r3, #2
  349 00b0 9AB2     		uxth	r2, r3
- 350 00b2 204B     		ldr	r3, .L20+36
+ 350 00b2 234B     		ldr	r3, .L20+36
  351 00b4 1A80     		strh	r2, [r3]
   88:../Sources/mma8453.c **** 
   89:../Sources/mma8453.c ****       mma845_tmp = InData[3] | (InData[2] << 8);
  352              		.loc 1 89 0
- 353 00b6 1C4B     		ldr	r3, .L20+24
+ 353 00b6 1F4B     		ldr	r3, .L20+24
  354 00b8 DB78     		ldrb	r3, [r3, #3]
  355 00ba 1A1C     		mov	r2, r3
- 356 00bc 1A4B     		ldr	r3, .L20+24
+ 356 00bc 1D4B     		ldr	r3, .L20+24
  357 00be 9B78     		ldrb	r3, [r3, #2]
  358 00c0 1B02     		lsl	r3, r3, #8
  359 00c2 9BB2     		uxth	r3, r3
  360 00c4 1343     		orr	r3, r2
  361 00c6 9AB2     		uxth	r2, r3
- 362 00c8 194B     		ldr	r3, .L20+32
+ 362 00c8 1C4B     		ldr	r3, .L20+32
  363 00ca 1A80     		strh	r2, [r3]
-  90:../Sources/mma8453.c ****       mma845x.y = (mma845_tmp / MMA845X_DIVIDER);
+  90:../Sources/mma8453.c ****       mma845x.y = MMA845X_filtering((mma845_tmp / MMA845X_DIVIDER));
  364              		.loc 1 90 0
- 365 00cc 184B     		ldr	r3, .L20+32
+ 365 00cc 1B4B     		ldr	r3, .L20+32
  366 00ce 1B88     		ldrh	r3, [r3]
  367 00d0 1BB2     		sxth	r3, r3
  368 00d2 002B     		cmp	r3, #0
@@ -445,94 +445,184 @@
  370 00d6 0333     		add	r3, r3, #3
  371              	.L18:
  372 00d8 9B10     		asr	r3, r3, #2
- 373 00da 9AB2     		uxth	r2, r3
- 374 00dc 154B     		ldr	r3, .L20+36
- 375 00de 5A80     		strh	r2, [r3, #2]
+ 373 00da 9BB2     		uxth	r3, r3
+ 374 00dc 1BB2     		sxth	r3, r3
+ 375 00de 181C     		mov	r0, r3
+ 376 00e0 FFF7FEFF 		bl	MMA845X_filtering
+ 377 00e4 031C     		mov	r3, r0
+ 378 00e6 1A1C     		mov	r2, r3
+ 379 00e8 154B     		ldr	r3, .L20+36
+ 380 00ea 5A80     		strh	r2, [r3, #2]
   91:../Sources/mma8453.c **** 
   92:../Sources/mma8453.c ****       mma845_tmp = InData[5] | (InData[4] << 8);     
- 376              		.loc 1 92 0
- 377 00e0 114B     		ldr	r3, .L20+24
- 378 00e2 5B79     		ldrb	r3, [r3, #5]
- 379 00e4 1A1C     		mov	r2, r3
- 380 00e6 104B     		ldr	r3, .L20+24
- 381 00e8 1B79     		ldrb	r3, [r3, #4]
- 382 00ea 1B02     		lsl	r3, r3, #8
- 383 00ec 9BB2     		uxth	r3, r3
- 384 00ee 1343     		orr	r3, r2
- 385 00f0 9AB2     		uxth	r2, r3
- 386 00f2 0F4B     		ldr	r3, .L20+32
- 387 00f4 1A80     		strh	r2, [r3]
+ 381              		.loc 1 92 0
+ 382 00ec 114B     		ldr	r3, .L20+24
+ 383 00ee 5B79     		ldrb	r3, [r3, #5]
+ 384 00f0 1A1C     		mov	r2, r3
+ 385 00f2 104B     		ldr	r3, .L20+24
+ 386 00f4 1B79     		ldrb	r3, [r3, #4]
+ 387 00f6 1B02     		lsl	r3, r3, #8
+ 388 00f8 9BB2     		uxth	r3, r3
+ 389 00fa 1343     		orr	r3, r2
+ 390 00fc 9AB2     		uxth	r2, r3
+ 391 00fe 0F4B     		ldr	r3, .L20+32
+ 392 0100 1A80     		strh	r2, [r3]
   93:../Sources/mma8453.c ****       mma845x.z = (mma845_tmp / MMA845X_DIVIDER);   
- 388              		.loc 1 93 0
- 389 00f6 0E4B     		ldr	r3, .L20+32
- 390 00f8 1B88     		ldrh	r3, [r3]
- 391 00fa 1BB2     		sxth	r3, r3
- 392 00fc 002B     		cmp	r3, #0
- 393 00fe 00DA     		bge	.L19
- 394 0100 0333     		add	r3, r3, #3
- 395              	.L19:
- 396 0102 9B10     		asr	r3, r3, #2
- 397 0104 9AB2     		uxth	r2, r3
- 398 0106 0B4B     		ldr	r3, .L20+36
- 399 0108 9A80     		strh	r2, [r3, #4]
- 400              	.L12:
+ 393              		.loc 1 93 0
+ 394 0102 0E4B     		ldr	r3, .L20+32
+ 395 0104 1B88     		ldrh	r3, [r3]
+ 396 0106 1BB2     		sxth	r3, r3
+ 397 0108 002B     		cmp	r3, #0
+ 398 010a 00DA     		bge	.L19
+ 399 010c 0333     		add	r3, r3, #3
+ 400              	.L19:
+ 401 010e 9B10     		asr	r3, r3, #2
+ 402 0110 9AB2     		uxth	r2, r3
+ 403 0112 0B4B     		ldr	r3, .L20+36
+ 404 0114 9A80     		strh	r2, [r3, #4]
+ 405              	.L12:
   94:../Sources/mma8453.c **** 
   95:../Sources/mma8453.c ****       //printf("%d", mma845x.y);
   96:../Sources/mma8453.c ****       //printf("\n");
   97:../Sources/mma8453.c ****     }
   98:../Sources/mma8453.c **** }
- 401              		.loc 1 98 0
- 402 010a BD46     		mov	sp, r7
- 403              		@ sp needed for prologue
- 404 010c 80BD     		pop	{r7, pc}
- 405              	.L21:
- 406 010e C046     		.align	2
- 407              	.L20:
- 408 0110 00000000 		.word	measuring
- 409 0114 00000000 		.word	measuring_last
- 410 0118 00000000 		.word	OutData
- 411 011c 00000000 		.word	MyI2CPtr
- 412 0120 00000000 		.word	Error
- 413 0124 00000000 		.word	DataTransmittedFlg
- 414 0128 00000000 		.word	InData
- 415 012c 00000000 		.word	DataReceivedFlg
- 416 0130 00000000 		.word	mma845_tmp
- 417 0134 00000000 		.word	mma845x
- 418              		.cfi_endproc
- 419              	.LFE2:
- 421              		.text
- 422              	.Letext0:
- 423              		.file 2 "D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
- 424              		.file 3 "D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/PE_Types.h"
- 425              		.file 4 "../Sources/mma8453.h"
+ 406              		.loc 1 98 0
+ 407 0116 BD46     		mov	sp, r7
+ 408              		@ sp needed for prologue
+ 409 0118 80BD     		pop	{r7, pc}
+ 410              	.L21:
+ 411 011a C046     		.align	2
+ 412              	.L20:
+ 413 011c 00000000 		.word	measuring
+ 414 0120 00000000 		.word	measuring_last
+ 415 0124 00000000 		.word	OutData
+ 416 0128 00000000 		.word	MyI2CPtr
+ 417 012c 00000000 		.word	Error
+ 418 0130 00000000 		.word	DataTransmittedFlg
+ 419 0134 00000000 		.word	InData
+ 420 0138 00000000 		.word	DataReceivedFlg
+ 421 013c 00000000 		.word	mma845_tmp
+ 422 0140 00000000 		.word	mma845x
+ 423              		.cfi_endproc
+ 424              	.LFE2:
+ 426              		.global	__aeabi_idiv
+ 427              		.section	.text.MMA845X_filtering,"ax",%progbits
+ 428              		.align	2
+ 429              		.global	MMA845X_filtering
+ 430              		.code	16
+ 431              		.thumb_func
+ 433              	MMA845X_filtering:
+ 434              	.LFB3:
+  99:../Sources/mma8453.c **** 
+ 100:../Sources/mma8453.c **** int16_t MMA845X_filtering(int16_t data)
+ 101:../Sources/mma8453.c **** {
+ 435              		.loc 1 101 0
+ 436              		.cfi_startproc
+ 437 0000 80B5     		push	{r7, lr}
+ 438              	.LCFI6:
+ 439              		.cfi_def_cfa_offset 8
+ 440              		.cfi_offset 7, -8
+ 441              		.cfi_offset 14, -4
+ 442 0002 82B0     		sub	sp, sp, #8
+ 443              	.LCFI7:
+ 444              		.cfi_def_cfa_offset 16
+ 445 0004 00AF     		add	r7, sp, #0
+ 446              	.LCFI8:
+ 447              		.cfi_def_cfa_register 7
+ 448 0006 021C     		mov	r2, r0
+ 449 0008 BB1D     		add	r3, r7, #6
+ 450 000a 1A80     		strh	r2, [r3]
+ 102:../Sources/mma8453.c **** 	static int32_t avarage=0;
+ 103:../Sources/mma8453.c **** 	avarage=avarage*4;
+ 451              		.loc 1 103 0
+ 452 000c 0F4B     		ldr	r3, .L24
+ 453 000e 1B68     		ldr	r3, [r3]
+ 454 0010 9A00     		lsl	r2, r3, #2
+ 455 0012 0E4B     		ldr	r3, .L24
+ 456 0014 1A60     		str	r2, [r3]
+ 104:../Sources/mma8453.c **** 	avarage=avarage+data;
+ 457              		.loc 1 104 0
+ 458 0016 BB1D     		add	r3, r7, #6
+ 459 0018 0021     		mov	r1, #0
+ 460 001a 5A5E     		ldrsh	r2, [r3, r1]
+ 461 001c 0B4B     		ldr	r3, .L24
+ 462 001e 1B68     		ldr	r3, [r3]
+ 463 0020 D218     		add	r2, r2, r3
+ 464 0022 0A4B     		ldr	r3, .L24
+ 465 0024 1A60     		str	r2, [r3]
+ 105:../Sources/mma8453.c **** 	avarage=avarage/5;
+ 466              		.loc 1 105 0
+ 467 0026 094B     		ldr	r3, .L24
+ 468 0028 1B68     		ldr	r3, [r3]
+ 469 002a 181C     		mov	r0, r3
+ 470 002c 0521     		mov	r1, #5
+ 471 002e FFF7FEFF 		bl	__aeabi_idiv
+ 472 0032 031C     		mov	r3, r0
+ 473 0034 1A1C     		mov	r2, r3
+ 474 0036 054B     		ldr	r3, .L24
+ 475 0038 1A60     		str	r2, [r3]
+ 106:../Sources/mma8453.c **** 	return avarage;
+ 476              		.loc 1 106 0
+ 477 003a 044B     		ldr	r3, .L24
+ 478 003c 1B68     		ldr	r3, [r3]
+ 479 003e 9BB2     		uxth	r3, r3
+ 480 0040 1BB2     		sxth	r3, r3
+ 107:../Sources/mma8453.c **** }
+ 481              		.loc 1 107 0
+ 482 0042 181C     		mov	r0, r3
+ 483 0044 BD46     		mov	sp, r7
+ 484 0046 02B0     		add	sp, sp, #8
+ 485              		@ sp needed for prologue
+ 486 0048 80BD     		pop	{r7, pc}
+ 487              	.L25:
+ 488 004a C046     		.align	2
+ 489              	.L24:
+ 490 004c 00000000 		.word	avarage.5619
+ 491              		.cfi_endproc
+ 492              	.LFE3:
+ 494              		.section	.bss.avarage.5619,"aw",%nobits
+ 495              		.align	2
+ 498              	avarage.5619:
+ 499 0000 00000000 		.space	4
+ 500              		.text
+ 501              	.Letext0:
+ 502              		.file 2 "D:/CodeWarrior/CW MCU v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint"
+ 503              		.file 3 "D:/PlikiI/Synergia/Jacht/workspace_yacht/I2C_1/Generated_Code/PE_Types.h"
+ 504              		.file 4 "../Sources/mma8453.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 mma8453.c
                             *COM*:00000006 InData
                             *COM*:00000002 mma845_tmp
-C:\Users\SKRA~1\AppData\Local\Temp\ccNzs6lR.s:24     .data.OutData:00000000 OutData
-C:\Users\SKRA~1\AppData\Local\Temp\ccNzs6lR.s:21     .data.OutData:00000000 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccNzs6lR.s:31     .bss.DataReceivedFlg:00000000 DataReceivedFlg
-C:\Users\SKRA~1\AppData\Local\Temp\ccNzs6lR.s:32     .bss.DataReceivedFlg:00000000 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccNzs6lR.s:37     .bss.DataTransmittedFlg:00000000 DataTransmittedFlg
-C:\Users\SKRA~1\AppData\Local\Temp\ccNzs6lR.s:38     .bss.DataTransmittedFlg:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:24     .data.OutData:00000000 OutData
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:21     .data.OutData:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:31     .bss.DataReceivedFlg:00000000 DataReceivedFlg
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:32     .bss.DataReceivedFlg:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:37     .bss.DataTransmittedFlg:00000000 DataTransmittedFlg
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:38     .bss.DataTransmittedFlg:00000000 $d
                             *COM*:00000008 mma845x
                             *COM*:00000002 Error
                             *COM*:00000004 MyI2CPtr
                             *COM*:00000004 MyTimerPtr
-C:\Users\SKRA~1\AppData\Local\Temp\ccNzs6lR.s:46     .bss.measuring:00000000 measuring
-C:\Users\SKRA~1\AppData\Local\Temp\ccNzs6lR.s:47     .bss.measuring:00000000 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccNzs6lR.s:51     .data.measuring_last:00000000 measuring_last
-C:\Users\SKRA~1\AppData\Local\Temp\ccNzs6lR.s:54     .text.Timer_Interrupt_CB:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccNzs6lR.s:59     .text.Timer_Interrupt_CB:00000000 Timer_Interrupt_CB
-C:\Users\SKRA~1\AppData\Local\Temp\ccNzs6lR.s:105    .text.Timer_Interrupt_CB:00000030 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccNzs6lR.s:111    .text.MMA845X_Init:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccNzs6lR.s:116    .text.MMA845X_Init:00000000 MMA845X_Init
-C:\Users\SKRA~1\AppData\Local\Temp\ccNzs6lR.s:217    .text.MMA845X_Init:00000094 $d
-C:\Users\SKRA~1\AppData\Local\Temp\ccNzs6lR.s:227    .text.MMA845X_Poll:00000000 $t
-C:\Users\SKRA~1\AppData\Local\Temp\ccNzs6lR.s:232    .text.MMA845X_Poll:00000000 MMA845X_Poll
-C:\Users\SKRA~1\AppData\Local\Temp\ccNzs6lR.s:408    .text.MMA845X_Poll:00000110 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:46     .bss.measuring:00000000 measuring
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:47     .bss.measuring:00000000 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:51     .data.measuring_last:00000000 measuring_last
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:54     .text.Timer_Interrupt_CB:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:59     .text.Timer_Interrupt_CB:00000000 Timer_Interrupt_CB
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:105    .text.Timer_Interrupt_CB:00000030 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:111    .text.MMA845X_Init:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:116    .text.MMA845X_Init:00000000 MMA845X_Init
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:217    .text.MMA845X_Init:00000094 $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:227    .text.MMA845X_Poll:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:232    .text.MMA845X_Poll:00000000 MMA845X_Poll
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:433    .text.MMA845X_filtering:00000000 MMA845X_filtering
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:413    .text.MMA845X_Poll:0000011c $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:428    .text.MMA845X_filtering:00000000 $t
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:490    .text.MMA845X_filtering:0000004c $d
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:498    .bss.avarage.5619:00000000 avarage.5619
+C:\Users\SKRA~1\AppData\Local\Temp\ccK3asKw.s:495    .bss.avarage.5619:00000000 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS
 I2C2_MasterSendBlock
 I2C2_MasterReceiveBlock
+__aeabi_idiv
