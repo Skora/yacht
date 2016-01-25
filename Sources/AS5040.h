@@ -46,8 +46,7 @@ typedef struct
 void AS5040_Init();
 uint16_t AS5040_data_read();
 void AS5040_data_parser();
-
-
+int16_t AS5040_filtering(int16_t data);
 
 #endif /* AS5040*/
 

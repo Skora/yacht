@@ -71,7 +71,6 @@ int curr;
 
 int main(void)
 {
-	uint16_t i=0;
 
 	/*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
 	PE_low_level_init();
@@ -95,42 +94,38 @@ int main(void)
 
 	for(;;)
 	{
-		//	  i++;
-		//	 WAIT1_WaitOSms(10);
-		//	 if(i%25==0)
-		//	 LEDgreen_Neg();
+
 		AS5040_data_parser();
 		MMA845X_Poll();
 		//LTC2945_Poll();
-		if (ADC_koniec){
-		(void)AD1_GetValue16(&ADC_value[0]);
-		ADC_koniec=FALSE;
-		(void)AD1_Measure(TRUE);
+//		if (ADC_koniec){
+//		(void)AD1_GetValue16(&ADC_value[0]);
+//		ADC_koniec=FALSE;
+//		(void)AD1_Measure(TRUE);
+//		}
+		
+		
+//		Voltage=vlotage_scaling(ADC_value[1]);
+//		Current=copm_current(vlotage_scaling(ADC_value[0]),Voltage);
+//		Power=copm_current(Current,Voltage);
+//		
+//		volt=Voltage*1000;
+//		curr=Current*1000;
+//		powe=Power*1000;
+		
+
+		if(as5040data.Erorr){
+			LEDgreen_Off();
+			LEDred_On();
+			printf("%d,%d \n", 0xffff,mma845x.y);
+			printf("\n");
 		}
-		
-		
-		Voltage=vlotage_scaling(ADC_value[1]);
-		Current=copm_current(vlotage_scaling(ADC_value[0]),Voltage);
-		Power=copm_current(Current,Voltage);
-		
-		volt=Voltage*1000;
-		curr=Current*1000;
-		powe=Power*1000;
-		
-		printf("%d,%d \n", as5040data.ang_position,mma845x.y);
-		
-//		if(as5040data.Erorr){
-//			LEDgreen_Off();
-//			LEDred_On();
-//			printf("tilt =  %d  ang_pos =ERORR  U: %d I: %d P: %d", mma845x.y,  ADC_value[0],ADC_value[1],curr);
-//			printf("\n");
-//		}
-//		else{
-//			LEDgreen_On();
-//			LEDred_Off();
-//			printf("tilt =  %d  ang_pos =  %d  U: %d I: %d P: %d", mma845x.y, as5040data.ang_position, ADC_value[0],ADC_value[1],curr);
-//			printf("\n");
-//		}
+		else{
+			LEDgreen_On();
+			LEDred_Off();
+			printf("%d,%d \n", as5040data.ang_position,mma845x.y);
+			printf("\n");
+		}
 
 
 	}

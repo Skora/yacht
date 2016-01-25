@@ -78,10 +78,19 @@ void AS5040_data_parser()
 	}
 	else{
 		as5040data.Erorr=0;
-		as5040data.ang_position=(data>>6);
+		as5040data.ang_position=AS5040_filtering((data>>6));
 	}
-	
 	
 
 }
+
+int16_t AS5040_filtering(int16_t data)
+{
+	static int32_t avarage=0;
+	avarage=avarage*2;
+	avarage=avarage+data;
+	avarage=avarage/3;
+	return avarage;
+}
+
 
